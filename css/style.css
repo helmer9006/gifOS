@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Chakra+Petch|Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin-top: 100px;
+}
+.container h1 {
+  color: #110038;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */
