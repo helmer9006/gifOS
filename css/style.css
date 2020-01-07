@@ -5,12 +5,15 @@
 }
 
 .container {
-  width: 80%;
+  background-color: green;
   margin-top: 100px;
 }
 .container h1 {
   color: #110038;
   font-family: "Chakra Petch", sans-serif;
+}
+.container li {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=style.css.map */

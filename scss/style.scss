@@ -9,11 +9,14 @@ $font-primary: 'Chakra Petch', sans-serif;
 $color-primary: #110038;
 
 .container{
-
-    width: 80%;
+    background-color: green;
     margin-top: 100px;
     h1{
         color: $color-primary;
         font-family: $font-primary;
+
+    }
+    li{
+        display: inline-block;
     }
 }
