@@ -1,9 +1,13 @@
-//CLASE GIPHY
-class Giphy {
+//CLASE GIPHY 
+
+export default class Giphy {
     constructor(search) {
         this.apiKey = 'Ot8LkNZiCNqOlYdTfvzfCHNlwW4fgXxo';
         this.search = search;
     }
+
+
+
     async getSearchResults() {
 
         try {
@@ -12,33 +16,44 @@ class Giphy {
             let found = await api.json();
             return found;
 
-        } catch(error){
+        } catch (error) {
 
-           console.log(error);
+            console.log(error);
 
         }
 
     }
-}
-
-//DECLARAR VARIABLES
-var imagen = document.querySelector('#resultTend');
 
 
-//EJECUTAR CLASE Y METODOS
+    async getTrending() {
 
-const gif = new Giphy('perro');
-gif.getSearchResults().then((result) => {
+        try {
 
-    imagen.innerHTML = ``;
-    for (let i of result.data) {
-        imagen.innerHTML += `
-    <div class="img-tendencia">
-        <img src="${i.images.fixed_height.webp}" alt="">
-        <label id="lblImg">${i.title}</label>
-    </div>
-    `;
+            let api = await fetch('https://api.giphy.com/v1/gifs/trending?api_key=' + this.apiKey + '&limit=24&rating=G');
+            let found = await api.json();
+            return found;
+
+        } catch (error) {
+
+            console.log(error);
+        }
+
     }
-});
+
+    async getSuggestions() {
+        try {
+
+            let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key=' + this.apiKey + '&q=tecnologia&limit=4&offset=0&rating=G&lang=es');
+   
+            let found = await api.json();
+            return found;
+
+        } catch (error) {
+
+            console.log(error);
+        }
+    }
+
+}
 
 
