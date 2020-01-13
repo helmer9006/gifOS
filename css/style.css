@@ -76,6 +76,8 @@
   letter-spacing: 0;
   background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
   display: block;
+  margin-left: 2px !important;
+  padding-left: 5px;
 }
 .buscar .formBuscar {
   margin: auto;
@@ -91,6 +93,8 @@
   box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
   padding: auto;
   padding: 10px;
+  color: #b4b4b4;
+  line-height: 22px;
 }
 .buscar .formBuscar button {
   margin: -40px auto 0 auto;
@@ -100,10 +104,48 @@
   border: 1px solid #808080;
   box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
 }
+.buscar .formBuscar .lupa {
+  background-image: url("/img/lupa_inactive.svg");
+  width: 16px;
+  height: 16px;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  display: inline-block;
+  margin: auto 10px auto 0;
+}
 .buscar .formBuscar img {
   width: 16px;
   height: 16px;
   margin-right: 10px;
+}
+
+.filtro_buscar {
+  display: flex;
+  padding-left: 15px;
+  justify-content: space-evenly;
+  height: 160px;
+  background: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  margin: auto 0 auto 0;
+  display: none;
+}
+.filtro_buscar button {
+  width: 1055px;
+  height: 34px;
+  padding-left: 15px;
+  display: block;
+  align-items: center;
+  text-align: left;
+  background: #f0f0f0;
+  border: 1px solid #808080;
+  box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
 }
 
 .sugeridos input {
@@ -125,12 +167,14 @@
   margin-top: 20px;
 }
 .resultados .content_resultados {
+  padding-top: 3px;
   width: 288px;
   height: 313px;
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 }
 .resultados .content_resultados .titulo {
+  padding-right: 4px;
   background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
   width: 280px;
   height: 24px;
@@ -165,7 +209,7 @@
 }
 .resultados .content_resultados .img-result button {
   position: absolute;
-  margin: 0 0 20px 7px;
+  margin: 0 0 20px 7px !important;
   width: 81px;
   height: 34px;
   background: #4180f6;

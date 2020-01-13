@@ -1,14 +1,43 @@
-//IMPRTANDO CLASES
+//*************************************************//
+//IMPORTANDO CLASES
+//*************************************************//
+
 import Giphy from '/js/giphy.js'
 
+//*************************************************//
 //DECLARANDO VARIABLES
-var imagen = document.querySelector('#resultTend');
-var sugeridos = document.querySelector('.resultados')
+//*************************************************//
 
+var imagen = document.querySelector('#resultTend');//div para cargar imagenes en tendencia
+var sugeridos = document.querySelector('.resultados')//div para cargar imagenes en sugerencias
 
+//*************************************************//
+//FUNCIONES
+//*************************************************//
+
+// #region CAMBIAR TEMA
+var tema = document.getElementById("tema"); // carturar el elemento selector para elegir tema
+tema.addEventListener('change',
+function(){
+    // let opcionSeleccionada = this.options[tema.selectedIndex];
+    let opcionSeleccionada = tema.value;
+
+    if(opcionSeleccionada == 1 )
+    {
+        document.getElementById('estilos').href = '/css/style.css';
+    }else{
+        document.getElementById('estilos').href = '/css/style2.css';
+    }
+});
+
+//#endregion
+
+//*************************************************//
 // INSTANCIANDO CLASES Y METODOS
+//*************************************************//
 
 // #region TENDENCIAS
+
 const tendencia = new Giphy();
 tendencia.getTrending().then((result) => {
 
@@ -17,7 +46,7 @@ tendencia.getTrending().then((result) => {
         imagen.innerHTML += `
     <div class="img-tendencia">
         <img src="${i.images.fixed_height.url}" alt="">
-        <label id="lblImg">${i.title}</label>
+        <label id="lblImg">#${i.title}</label>
     </div>
     `;
     }
@@ -55,8 +84,3 @@ sugerencias.getSuggestions().then((result) => {
 
 
 //#endregion
-
-
-//para cambiar tema de estilo
-
-// document.getElementById('estilos').href = 'css/retro.css';

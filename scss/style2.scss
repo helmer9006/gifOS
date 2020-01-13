@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+body {
+  background-color: #110038 !important;
+}
+
 $font-primary: "Chakra Petch", sans-serif;
 $color-primary: #110038;
 
@@ -27,27 +31,24 @@ $color-primary: #110038;
 //#region SECCION LOGO
 
 .seccion-logo {
-
-  .logo{
-    
+  .logo {
     width: 92.6px;
     height: 54px;
     background-size: 92.6px 54px;
     background-repeat: no-repeat;
-    background-image: url("/img/gifOF_logo.png");
-    // background-position: center;
-  
+    background-image: url("/img/gifOF_logo_dark.png");
   }
   button {
     width: 144px;
     height: 36px;
-    background: #f7c9f3;
+
+    background: #ee3efe;
     border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+
     font-family: $font-primary;
-    font-weight: 400;
     font-size: 16px;
-    color: #110038;
+    color: #ffffff;
     letter-spacing: 0;
     text-align: center;
     line-height: 18px;
@@ -56,13 +57,13 @@ $color-primary: #110038;
   select {
     width: 144px;
     height: 36px;
-    background: #f7c9f3;
+    background: #ee3efe;
     border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
     font-family: $font-primary;
     font-weight: 400;
     font-size: 16px;
-    color: #110038;
+    color: #ffffff;
     letter-spacing: 0;
     text-align: center;
     line-height: 18px;
@@ -72,8 +73,9 @@ $color-primary: #110038;
     font-family: $font-primary;
     font-weight: 400;
     font-size: 16px;
-    color: #110038;
+    color: #ffffff;
     letter-spacing: 0;
+    text-align: center;
     line-height: 18px;
   }
 }
@@ -82,8 +84,8 @@ $color-primary: #110038;
 //#region SECCION BUSCAR
 .buscar {
   height: 99px;
-  background: #e6e6e6;
-  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
 
   .lbl {
     font-family: $font-primary;
@@ -91,8 +93,10 @@ $color-primary: #110038;
     font-size: 14px;
     color: #ffffff;
     letter-spacing: 0;
-    background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
     display: block;
+    margin-left: 0px !important;
+    padding-left: 5px;
   }
   .formBuscar {
     margin: auto;
@@ -108,22 +112,45 @@ $color-primary: #110038;
       box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
       padding: auto;
       padding: 10px;
+
+      font-family: $font-primary;
+      font-weight: 500;
+      font-size: 16px;
+      color: #b4b4b4;
+      letter-spacing: 0;
+      line-height: 22px;
     }
     button {
       margin: -40px auto 0 auto;
       width: 102px;
       height: 36px;
-      background: #e6e6e6;
+      background: #b4b4b4;
       border: 1px solid #808080;
       box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+      font-size: 16px;
+      color: #8f8f8f;
+      letter-spacing: 0;
+      line-height: 18px;
+      font-family: $font-primary;
+      font-weight: 500;
     }
-
+    .lupa {
+      background-image: url("/img/Combined\ Shape.svg");
+      width: 16px;
+      height: 16px;
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      margin-right: 10px;
+      display: inline-block;
+      margin: auto 10px auto 0;
+    }
     img {
       width: 16px;
       height: 16px;
       margin-right: 10px;
     }
   }
+
 }
 
 //#endregion
@@ -135,10 +162,10 @@ $color-primary: #110038;
     width: 1200px;
     height: 32px;
     background: #fffafe;
-    border: 1px solid #e6bbe2;
-    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    border: 1px solid #2e32fb;
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
     font-family: $font-primary;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     color: #110038;
     letter-spacing: 0;
@@ -154,13 +181,15 @@ $color-primary: #110038;
 .resultados {
   margin-top: 20px;
   .content_resultados {
+    padding-top: 3px;
     width: 288px;
     height: 313px;
     background: #e6e6e6;
     box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 
     .titulo {
-      background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+      padding-right: 4px;
+      background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
       width: 280px;
       height: 24px;
       text-align: center;
@@ -198,13 +227,14 @@ $color-primary: #110038;
 
       button {
         position: absolute;
-        margin: 0 0 20px 7px;
+        margin: 0 0 20px 7px !important;
         width: 81px;
         height: 34px;
-        background: #4180f6;
+        background: #2e32fb;
         border: 1px solid #4c2f99;
-        box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
-        font-family: ChakraPetch-Regular;
+        box-shadow: inset -2px -2px 0 0 #2124b3, inset 2px 2px 0 0 #ffffff;
+        font-family: $font-primary;
+        font-weight: 500;
         font-size: 14px;
         color: #ffffff;
         letter-spacing: 0;
@@ -224,10 +254,10 @@ $color-primary: #110038;
     width: 1200px;
     height: 32px;
     background: #fffafe;
-    border: 1px solid #e6bbe2;
-    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    border: 1px solid #2e32fb;
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
     font-family: $font-primary;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     color: #110038;
     letter-spacing: 0;
@@ -249,7 +279,7 @@ $color-primary: #110038;
     width: 288px;
     display: block;
     margin-top: -24px;
-    background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+    background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
     position: relative;
     z-index: 1;
     font-family: $font-primary;

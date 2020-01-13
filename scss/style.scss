@@ -27,16 +27,13 @@ $color-primary: #110038;
 //#region SECCION LOGO
 
 .seccion-logo {
-
-  .logo{
-    
+  .logo {
     width: 92.6px;
     height: 54px;
     background-size: 92.6px 54px;
     background-repeat: no-repeat;
     background-image: url("/img/gifOF_logo.png");
     // background-position: center;
-  
   }
   button {
     width: 144px;
@@ -93,6 +90,8 @@ $color-primary: #110038;
     letter-spacing: 0;
     background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
     display: block;
+    margin-left: 2px !important;
+    padding-left: 5px;
   }
   .formBuscar {
     margin: auto;
@@ -108,6 +107,8 @@ $color-primary: #110038;
       box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
       padding: auto;
       padding: 10px;
+      color: #b4b4b4;
+      line-height: 22px;
     }
     button {
       margin: -40px auto 0 auto;
@@ -117,7 +118,16 @@ $color-primary: #110038;
       border: 1px solid #808080;
       box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
     }
-
+    .lupa {
+      background-image: url("/img/lupa_inactive.svg");
+      width: 16px;
+      height: 16px;
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      margin-right: 10px;
+      display: inline-block;
+      margin: auto 10px auto 0;
+    }
     img {
       width: 16px;
       height: 16px;
@@ -125,6 +135,39 @@ $color-primary: #110038;
     }
   }
 }
+
+//#region SECCION FILTRO BUSCAR
+.filtro_buscar {
+  display: flex;
+  padding-left: 15px;
+  justify-content: space-evenly;
+  height: 160px;
+  background: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  margin: auto 0 auto 0;
+  display: none;
+
+  button {
+    width: 1055px;
+    height: 34px;
+    padding-left: 15px;
+    display: block;
+    align-items: center;
+    text-align: left;
+
+    background: #f0f0f0;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+    font-family: $font-primary;
+    font-weight: 500;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 22px;
+  }
+}
+
+//#endregion
 
 //#endregion
 
@@ -154,12 +197,14 @@ $color-primary: #110038;
 .resultados {
   margin-top: 20px;
   .content_resultados {
+    padding-top: 3px;
     width: 288px;
     height: 313px;
     background: #e6e6e6;
     box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 
     .titulo {
+      padding-right: 4px;
       background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
       width: 280px;
       height: 24px;
@@ -198,7 +243,7 @@ $color-primary: #110038;
 
       button {
         position: absolute;
-        margin: 0 0 20px 7px;
+        margin: 0 0 20px 7px !important;
         width: 81px;
         height: 34px;
         background: #4180f6;

@@ -1,12 +1,18 @@
 //CLASE GIPHY 
 
 export default class Giphy {
+
+    //CONSTRUCTOR
     constructor(search) {
         this.apiKey = 'Ot8LkNZiCNqOlYdTfvzfCHNlwW4fgXxo';
         this.search = search;
     }
 
+    //*************************************************//
+    // #region METODOS 
+    //*************************************************//
 
+    //#region METODOS
 
     async getSearchResults() {
 
@@ -23,7 +29,6 @@ export default class Giphy {
         }
 
     }
-
 
     async getTrending() {
 
@@ -44,7 +49,7 @@ export default class Giphy {
         try {
 
             let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key=' + this.apiKey + '&q=desarrollador&limit=4&offset=0&rating=G&lang=es');
-   
+
             let found = await api.json();
             return found;
 
@@ -53,6 +58,8 @@ export default class Giphy {
             console.log(error);
         }
     }
+
+    //#endregion
 
 }
 
