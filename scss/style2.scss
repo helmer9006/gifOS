@@ -155,6 +155,38 @@ $color-primary: #110038;
 
 //#endregion
 
+//#region SECCION FILTRO BUSCAR
+.filtro_buscar {
+  display: flex;
+  padding-left: 15px;
+  justify-content: space-evenly;
+  height: 160px;
+  background: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  margin: auto 0 auto 0;
+  // display: none;
+  flex-direction: column;
+
+  button {
+    width: 1055px;
+    height: 34px;
+    padding-left: 15px;
+    display: block;
+    align-items: center;
+    text-align: left;
+    background: #f0f0f0;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+    font-family: $font-primary;
+    font-weight: 500;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 22px;
+  }
+}
+
+
 //#region SECION SUGERIDOS
 
 .sugeridos {

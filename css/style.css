@@ -128,7 +128,7 @@
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
-  display: none;
+  flex-direction: column;
 }
 .filtro_buscar button {
   width: 1055px;
