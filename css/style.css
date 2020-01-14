@@ -128,7 +128,7 @@
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
-  flex-direction: column;
+  display: none;
 }
 .filtro_buscar button {
   width: 1055px;
@@ -207,6 +207,9 @@
   bottom: 0;
   right: 0;
 }
+.resultados .content_resultados .img-result :hover {
+  border: 1px dotted #110038;
+}
 .resultados .content_resultados .img-result button {
   position: absolute;
   margin: 0 0 20px 7px !important;
@@ -221,6 +224,9 @@
   letter-spacing: 0;
   text-align: center;
   line-height: 18px;
+}
+.resultados .content_resultados .img-result :hover {
+  border: 1px dotted #110038;
 }
 
 .tendencias input {
@@ -247,7 +253,7 @@
   height: 24px;
   width: 288px;
   display: block;
-  margin-top: -24px;
+  margin-top: -34px;
   background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
   position: relative;
   z-index: 1;
@@ -262,6 +268,9 @@
   height: 298px;
   margin-right: 10px;
   margin-bottom: 10px;
+}
+.res_tendencia :hover ~ label {
+  visibility: visible;
 }
 
 /*# sourceMappingURL=style.css.map */

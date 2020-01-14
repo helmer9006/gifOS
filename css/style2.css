@@ -221,6 +221,9 @@ body {
   bottom: 0;
   right: 0;
 }
+.resultados .content_resultados .img-result :hover {
+  border: 1px dotted #110038;
+}
 .resultados .content_resultados .img-result button {
   position: absolute;
   margin: 0 0 20px 7px !important;
@@ -236,6 +239,9 @@ body {
   letter-spacing: 0;
   text-align: center;
   line-height: 18px;
+}
+.resultados .content_resultados .img-result :hover {
+  border: 1px dotted #110038;
 }
 
 .tendencias input {
@@ -256,14 +262,24 @@ body {
 .res_tendencia {
   margin-top: 20px;
 }
-.res_tendencia label {
+.res_tendencia .img-tendencia {
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #5c5c5c, inset 2px 2px 0 0 #ffffff;
+  margin-bottom: 20px;
+  width: 288px;
+  height: 298px;
+}
+.res_tendencia .img-tendencia :hover {
+  width: 294px;
+  height: 304px;
+}
+.res_tendencia .img-tendencia label {
   visibility: hidden;
-  padding-left: 5px;
   height: 24px;
   width: 288px;
   display: block;
   margin-top: -24px;
-  background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
   position: relative;
   z-index: 1;
   font-family: "Chakra Petch", sans-serif;
@@ -272,11 +288,17 @@ body {
   color: #ffffff;
   letter-spacing: 0;
 }
-.res_tendencia img {
+.res_tendencia .img-tendencia img {
   width: 288px;
   height: 298px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+}
+.res_tendencia .img-tendencia :hover {
+  border: 1px dotted #110038;
+  width: 286px;
+  height: 296px;
+}
+.res_tendencia .img-tendencia :hover ~ label {
+  visibility: visible;
 }
 
 /*# sourceMappingURL=style2.css.map */

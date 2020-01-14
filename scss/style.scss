@@ -145,8 +145,7 @@ $color-primary: #110038;
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
-  // display: none;
-  flex-direction: column;
+  display: none;
 
   button {
     width: 1055px;
@@ -155,6 +154,7 @@ $color-primary: #110038;
     display: block;
     align-items: center;
     text-align: left;
+
     background: #f0f0f0;
     border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
@@ -192,7 +192,7 @@ $color-primary: #110038;
 
 //#endregion
 
-//#region SECCION RESULTADOS
+//#region SECCION RESULTADOS SUGERIDOS
 
 .resultados {
   margin-top: 20px;
@@ -239,6 +239,8 @@ $color-primary: #110038;
         bottom: 0;
         right: 0;
         // margin: 2px auto 2px auto;
+      } & :hover {
+        border: 1px dotted #110038;
       }
 
       button {
@@ -255,6 +257,9 @@ $color-primary: #110038;
         letter-spacing: 0;
         text-align: center;
         line-height: 18px;
+      } & :hover {
+        border: 1px dotted #110038;
+        
       }
     }
   }
@@ -282,6 +287,7 @@ $color-primary: #110038;
 }
 
 //#endregion
+
 //#region SECCION RESULTADO TENDENCIA
 
 .res_tendencia {
@@ -293,7 +299,7 @@ $color-primary: #110038;
     height: 24px;
     width: 288px;
     display: block;
-    margin-top: -24px;
+    margin-top: -34px;
     background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
     position: relative;
     z-index: 1;
@@ -309,6 +315,8 @@ $color-primary: #110038;
     height: 298px;
     margin-right: 10px;
     margin-bottom: 10px;
+  } & :hover ~ label{
+    visibility: visible;
   }
 }
 

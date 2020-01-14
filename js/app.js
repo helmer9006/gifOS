@@ -10,25 +10,46 @@ import Giphy from '/js/giphy.js'
 
 var imagen = document.querySelector('#resultTend');//div para cargar imagenes en tendencia
 var sugeridos = document.querySelector('.resultados')//div para cargar imagenes en sugerencias
+// var lblImg = document.getElementById('lblImg');
+
 
 //*************************************************//
 //FUNCIONES
 //*************************************************//
 
+//ESTRUCTURA PARA INVOCAR FUNCIONES
+
+
+
+
+
+
 // #region CAMBIAR TEMA
 var tema = document.getElementById("tema"); // carturar el elemento selector para elegir tema
 tema.addEventListener('change',
-function(){
-    // let opcionSeleccionada = this.options[tema.selectedIndex];
-    let opcionSeleccionada = tema.value;
+    function () {
+        // let opcionSeleccionada = this.options[tema.selectedIndex];
+        let opcionSeleccionada = tema.value;
 
-    if(opcionSeleccionada == 1 )
-    {
-        document.getElementById('estilos').href = '/css/style.css';
-    }else{
-        document.getElementById('estilos').href = '/css/style2.css';
-    }
-});
+        if (opcionSeleccionada == 1) {
+            document.getElementById('estilos').href = '/css/style.css';
+        } else {
+            document.getElementById('estilos').href = '/css/style2.css';
+        }
+    });
+
+//#endregion
+
+// #region MOSTRAR ETIQUETA EN IMAGENES TENDENCIA
+
+// imagen.onmouseover = function () {
+
+
+//    document.getElementById("lblImg").style.visibility = "visible";
+
+
+// };
+
 
 //#endregion
 
@@ -64,7 +85,7 @@ sugerencias.getSuggestions().then((result) => {
 
     for (let i of result.data) {
 
-    sugeridos.innerHTML += `
+        sugeridos.innerHTML += `
     <div class="content_resultados">
         <div class="titulo d-flex justify-content-between">
             <label>#${i.title}</label>

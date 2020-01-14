@@ -150,7 +150,6 @@ $color-primary: #110038;
       margin-right: 10px;
     }
   }
-
 }
 
 //#endregion
@@ -185,7 +184,6 @@ $color-primary: #110038;
     line-height: 22px;
   }
 }
-
 
 //#region SECION SUGERIDOS
 
@@ -256,6 +254,9 @@ $color-primary: #110038;
         right: 0;
         // margin: 2px auto 2px auto;
       }
+      & :hover {
+        border: 1px dotted #110038;
+      }
 
       button {
         position: absolute;
@@ -272,6 +273,9 @@ $color-primary: #110038;
         letter-spacing: 0;
         text-align: center;
         line-height: 18px;
+      }
+      & :hover {
+        border: 1px dotted #110038;
       }
     }
   }
@@ -304,28 +308,48 @@ $color-primary: #110038;
 .res_tendencia {
   margin-top: 20px;
 
-  label {
-    visibility: hidden;
-    padding-left: 5px;
-    height: 24px;
-    width: 288px;
-    display: block;
-    margin-top: -24px;
-    background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
-    position: relative;
-    z-index: 1;
-    font-family: $font-primary;
-    font-weight: 700;
-    font-size: 14px;
-    color: #ffffff;
-    letter-spacing: 0;
-  }
-
-  img {
+  .img-tendencia {
+    background: #b4b4b4;
+    box-shadow: inset -2px -2px 0 0 #5c5c5c, inset 2px 2px 0 0 #ffffff;
+    margin-bottom: 20px;
     width: 288px;
     height: 298px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+
+    & :hover{
+      width: 294px;
+    height: 304px;
+    }
+
+    label {
+      visibility: hidden;
+
+      height: 24px;
+      width: 288px;
+      display: block;
+      margin-top: -24px;
+      background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+      position: relative;
+      z-index: 1;
+      font-family: $font-primary;
+      font-weight: 700;
+      font-size: 14px;
+      color: #ffffff;
+      letter-spacing: 0;
+    }
+    img {
+      width: 288px;
+      height: 298px;
+    }
+    & :hover {
+      border: 1px dotted #110038;
+      width: 286px;
+      height: 296px;
+      // background: #b4b4b4;
+      //
+    }
+    & :hover ~ label {
+      visibility: visible;
+    }
   }
 }
 
