@@ -2,41 +2,60 @@
 //IMPORTANDO CLASES
 //*************************************************//
 
-import Giphy from '/js/giphy.js'
+import Giphy from "/js/giphy.js";
 
 //*************************************************//
 //DECLARANDO VARIABLES
 //*************************************************//
 
-var imagen = document.querySelector('#resultTend');//div para cargar imagenes en tendencia
-var sugeridos = document.querySelector('.resultados')//div para cargar imagenes en sugerencias
+var imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
+var sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
+var result_busqueda = document.querySelector("#result_busqueda");//div para cargar imagenes de la busqueda
 // var lblImg = document.getElementById('lblImg');
-
 
 //*************************************************//
 //FUNCIONES
 //*************************************************//
-
 //ESTRUCTURA PARA INVOCAR FUNCIONES
 
+var txtBuscar = document.querySelector("#txtBuscar").value;
+var btnBuscar = document.querySelector("#btnBuscar");
+
+btnBuscar.addEventListener("click", function() {
+ 
+ let textoBuscar = txtBuscar.toString();
+ console.log(txtBuscar)
+     const resBusqueda = new Giphy();
+     resBusqueda.getSearchResults(textoBuscar).then(result => {
+         result_busqueda.innerHTML = ``;
+       for (let i of result.data) {
+          //  console.log(i)
+
+         result_busqueda.innerHTML += `
+          <div class="img-tendencia">
+              <img src="${i.images.fixed_height.url}" alt="">
+              <label id="lblImg">#${i.title}</label>
+          </div>
+          `;
+       }
+     });
+    
 
 
-
-
+});
 
 // #region CAMBIAR TEMA
 var tema = document.getElementById("tema"); // carturar el elemento selector para elegir tema
-tema.addEventListener('change',
-    function () {
-        // let opcionSeleccionada = this.options[tema.selectedIndex];
-        let opcionSeleccionada = tema.value;
+tema.addEventListener("change", function() {
+  // let opcionSeleccionada = this.options[tema.selectedIndex];
+  let opcionSeleccionada = tema.value;
 
-        if (opcionSeleccionada == 1) {
-            document.getElementById('estilos').href = '/css/style.css';
-        } else {
-            document.getElementById('estilos').href = '/css/style2.css';
-        }
-    });
+  if (opcionSeleccionada == 1) {
+    document.getElementById("estilos").href = "/css/style.css";
+  } else {
+    document.getElementById("estilos").href = "/css/style2.css";
+  }
+});
 
 //#endregion
 
@@ -44,12 +63,9 @@ tema.addEventListener('change',
 
 // imagen.onmouseover = function () {
 
-
 //    document.getElementById("lblImg").style.visibility = "visible";
 
-
 // };
-
 
 //#endregion
 
@@ -60,32 +76,28 @@ tema.addEventListener('change',
 // #region TENDENCIAS
 
 const tendencia = new Giphy();
-tendencia.getTrending().then((result) => {
-
-    imagen.innerHTML = ``;
-    for (let i of result.data) {
-        imagen.innerHTML += `
+tendencia.getTrending().then(result => {
+  imagen.innerHTML = ``;
+  for (let i of result.data) {
+    imagen.innerHTML += `
     <div class="img-tendencia">
         <img src="${i.images.fixed_height.url}" alt="">
         <label id="lblImg">#${i.title}</label>
     </div>
     `;
-    }
-})
-
+  }
+});
 
 //#endregion
 
 // #region SUGERENCIAS
 
 const sugerencias = new Giphy();
-sugerencias.getSuggestions().then((result) => {
+sugerencias.getSuggestions().then(result => {
+  sugeridos.innerHTML = ``;
 
-    sugeridos.innerHTML = ``;
-
-    for (let i of result.data) {
-
-        sugeridos.innerHTML += `
+  for (let i of result.data) {
+    sugeridos.innerHTML += `
     <div class="content_resultados">
         <div class="titulo d-flex justify-content-between">
             <label>#${i.title}</label>
@@ -97,11 +109,7 @@ sugerencias.getSuggestions().then((result) => {
         </div>
     </div>
     `;
-    }
-
-
-})
-
-
+  }
+});
 
 //#endregion

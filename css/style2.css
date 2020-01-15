@@ -223,6 +223,7 @@ body {
 }
 .resultados .content_resultados .img-result :hover {
   border: 1px dotted #110038;
+  padding: 10px;
 }
 .resultados .content_resultados .img-result button {
   position: absolute;
