@@ -18,31 +18,30 @@ var result_busqueda = document.querySelector("#result_busqueda");//div para carg
 //*************************************************//
 //ESTRUCTURA PARA INVOCAR FUNCIONES
 
-var txtBuscar = document.querySelector("#txtBuscar").value;
-var btnBuscar = document.querySelector("#btnBuscar");
+ var txtBuscar = (document.querySelector("#txtBuscar"));
+ var btnBuscar = document.querySelector("#btnBuscar");
 
-btnBuscar.addEventListener("click", function() {
- 
- let textoBuscar = txtBuscar.toString();
- console.log(txtBuscar)
-     const resBusqueda = new Giphy();
-     resBusqueda.getSearchResults(textoBuscar).then(result => {
-         result_busqueda.innerHTML = ``;
-       for (let i of result.data) {
-          //  console.log(i)
 
-         result_busqueda.innerHTML += `
-          <div class="img-tendencia">
-              <img src="${i.images.fixed_height.url}" alt="">
-              <label id="lblImg">#${i.title}</label>
-          </div>
-          `;
-       }
+  btnBuscar.addEventListener("click", function() {
+
+       var valorTxt = txtBuscar.value.toString(); 
+    //    console.log(valorTxt)
+     
+       const resBusqueda = new Giphy(valorTxt);
+       resBusqueda.getSearchResults()
+       .then(result => {
+           result_busqueda.innerHTML = ``;
+         for (let i of result.data) {
+           result_busqueda.innerHTML += `
+            <div class="img-tendencia">
+                <img src="${i.images.fixed_height.url}" alt="">
+                <label id="lblImg">#${i.title}</label>
+            </div>
+            `;
+         }
+       });
      });
-    
 
-
-});
 
 // #region CAMBIAR TEMA
 var tema = document.getElementById("tema"); // carturar el elemento selector para elegir tema

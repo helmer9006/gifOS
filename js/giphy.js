@@ -6,6 +6,7 @@ export default class Giphy {
     constructor(search) {
         this.apiKey = 'Ot8LkNZiCNqOlYdTfvzfCHNlwW4fgXxo';
         this.search = search;
+        
     }
 
     //*************************************************//
@@ -18,8 +19,8 @@ export default class Giphy {
 
         try {
             
-            
-            let api = await fetch('http://api.giphy.com/v1/gifs/search?q=' + this.search + '&api_key=' + this.apiKey);
+        
+             let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key='+ this.apiKey+ '&q=' + this.search + '&limit=24&offset=0&rating=G&lang=es');
             let found = await api.json();
             return found;
 
@@ -65,52 +66,8 @@ export default class Giphy {
 }
 
 
-// var result_busqueda = document.querySelector("#result_busqueda");//div para cargar imagenes de la busqueda
-
-
-var txtBuscar = document.querySelector("#txtBuscar").value;
-var btnBuscar = document.querySelector("#btnBuscar");
-var result_busqueda = document.querySelector("#result_busqueda");
-
-btnBuscar.addEventListener("click", async function() {
-
-
-
-    let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key=Ot8LkNZiCNqOlYdTfvzfCHNlwW4fgXxo&q=' + txtBuscar + '&limit=24&offset=0&rating=G&lang=es');
-    let found = await api.json();
-    console.log(found);
-    for (let i of found.data) {
-                 //  console.log(i)
-        
-                  result_busqueda.innerHTML += `
-                  <div class="img-tendencia">
-                       <img src="${i.images.fixed_height.url}" alt="">
-                      <label id="lblImg">#${i.title}</label>
-                   </div>
-                  `;
-              }
-
-});
-
-
-
-
-
-
-
-// var result_busqueda = document.querySelector("#result_busqueda");//div para cargar imagenes de la busqueda
-
-//     getSearchResults(txtbuscar).then(result => {
-
-//       result_busqueda.innerHTML = ``;
-//       for (let i of result.data) {
-//           console.log(i)
-
-//        result_busqueda.innerHTML += `
-//         <div class="img-tendencia">
-//             <img src="${i.images.fixed_height.url}" alt="">
-//             <label id="lblImg">#${i.title}</label>
-//         </div>
-//          `;
-//       }
-//});
+// const resBusqueda = new Giphy("perro");
+// resBusqueda.getSearchResults()
+// .then( res => {
+//     console.log(res)
+// })
