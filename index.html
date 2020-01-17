@@ -1,80 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-- #region HEAD -->
 
-<!-- #region HEAD -->
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>gifOS</title>
     <!-- importando estilos personalizados -->
-    <link id="estilos" rel="stylesheet" href="/css/style.css">
+    <link id="estilos" rel="stylesheet" href="/css/style.css" />
     <!-- Importando bootstrap 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
     <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/49830ff3b4.js" crossorigin="anonymous"></script>
-</head>
-<!-- #endregion -->
+    <script
+      src="https://kit.fontawesome.com/49830ff3b4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <!-- #endregion -->
 
-<body>
-
+  <body>
     <div class="container col-10 mt-5">
-
-        <!-- #region SECCION LOGO-->
-        <div class="seccion-logo d-flex justify-content-between">
-            <div class="logo">
-                <!-- se incluye imagen desde css -->
-            </div>
-            <div class="botones ">
-                <button>Crear Guifos</button>
-                <select name="tema" id="tema">
-                    <option value="0" disabled selected hidden>Elegir Tema</option>
-                    <option value="1">Sailor Day</option>
-                    <option value="2">Sailor Night</option>
-                </select>
-                <a href="">Mis Guifos</a>
-            </div>
+      <!-- #region SECCION LOGO-->
+      <div class="seccion-logo d-flex justify-content-between">
+        <div class="logo">
+          <!-- se incluye imagen desde css -->
         </div>
-        <!-- #endregion -->
-        <!-- #region SECCION BUSCAR-->
-        <div class="buscar mt-3">
-            <!-- <div class="lbl ml-1">Buscar</div> -->
-            <label class="lbl ml-1">Buscar</label>
-
-            <div class="formBuscar d-flex justify-content-between">
-                <input type="text" id="txtBuscar" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button id="btnBuscar"><div class="lupa" ></div>Buscar</button>
-            </div>
+        <div class="botones ">
+          <button>Crear Guifos</button>
+          <select name="tema" id="tema">
+            <option value="0" disabled selected hidden>Elegir Tema</option>
+            <option value="1">Sailor Day</option>
+            <option value="2">Sailor Night</option>
+          </select>
+          <a href="">Mis Guifos</a>
         </div>
+      </div>
+      <!-- #endregion -->
+      <!-- #region SECCION BUSCAR-->
+      <div class="buscar mt-3">
+        <!-- <div class="lbl ml-1">Buscar</div> -->
+        <label class="lbl ml-1">Buscar</label>
 
-        <div class="filtro_buscar" id="filtro">
-
-            <button>Resultado de búsqueda sugerido</button>
-            <button>Un resultado similar de búsqueda</button>
-            <button>Y otro más</button>
-
+        <div class="formBuscar d-flex justify-content-between">
+          <input
+            type="text"
+            id="txtBuscar"
+            placeholder="Busca gifs, hashtags, temas, busca lo que quieras…"
+          />
+          <button id="btnBuscar">
+            <div class="lupa"></div>
+            Buscar
+          </button>
         </div>
-        <!-- #endregion -->
+      </div>
 
-        <!-- #region SECCION RESULTADOS SUGERIDOS -->
-        <div id="result_busqueda" class="res_tendencia  d-flex d-flex justify-content-between align-items-center flex-wrap">
+      <div class="filtro_buscar" id="filtro">
+        <button>Resultado de búsqueda sugerido</button>
+        <button>Un resultado similar de búsqueda</button>
+        <button>Y otro más</button>
+      </div>
+      <!-- #endregion -->
 
-        </div>
-        <!-- #endregion -->
+      <!-- #region SECCION RESULTADOS SUGERIDOS -->
+      <div
+        id="result_busqueda"
+        class="res_tendencia  d-flex d-flex justify-content-between align-items-center flex-wrap"
+      ></div>
+      <!-- #endregion -->
 
+      <!-- #region SECCION SUGERIDOS -->
 
+      <div class="sugeridos d-flex justify-content-between">
+        <input type="text" placeholder="Hoy te sugerimos:" />
+      </div>
 
-        <!-- #region SECCION SUGERIDOS -->
-
-        <div class="sugeridos d-flex justify-content-between">
-            <input type="text" placeholder="Hoy te sugerimos:">
-        </div>
-
-        <!-- #endregion -->
-        <!-- #region SECCION RESULTADOS SUGERIDOS-->
-        <div class="resultados d-flex d-flex justify-content-between align-items-center flex-wrap">
-            <!-- <div class="content_resultados">
+      <!-- #endregion -->
+      <!-- #region SECCION RESULTADOS SUGERIDOS-->
+      <div
+        class="resultados d-flex d-flex justify-content-between align-items-center flex-wrap"
+      >
+        <!-- <div class="content_resultados">
                 <div class="titulo d-flex justify-content-between">
                     <label>#Jonathanvanness</label>
                     <button><img src="./img/button3.svg" alt=""></button>
@@ -84,31 +93,28 @@
                     <button id="verMas">Ver Más...</button>
                 </div>
             </div> -->
+      </div>
 
-        </div>
+      <!-- #endregion -->
+      <!-- #region SECCION TENDENCIAS -->
+      <div class="tendencias">
+        <input type="text" id="tendencias" placeholder="Tendencias:" />
+      </div>
+      <!-- #endregion -->
+      <!-- #region SECCION RESULTDOS TENDENCIAS -->
 
-        <!-- #endregion -->
-        <!-- #region SECCION TENDENCIAS -->
-        <div class="tendencias">
-            <input type="text" id="tendencias" placeholder="Tendencias:">
-        </div>
-        <!-- #endregion -->
-        <!-- #region SECCION RESULTDOS TENDENCIAS -->
+      <div id="resultTend"class="res_tendencia  d-flex d-flex justify-content-between align-items-center flex-wrap">
+          <!-- aquí se cargan img de resultados de la busqueda -->
+      </div>
 
-        <div id="resultTend" class="res_tendencia  d-flex d-flex justify-content-between align-items-center flex-wrap">
+      <!-- #endregion -->
 
-        </div>
-
-        <!-- #endregion -->
-
-
-        <!--#region  IMPORTANDO ARCHIVOS JS-->
-        <!-- <script type="module" src="/js/app.js"></script>
+      <!--#region  IMPORTANDO ARCHIVOS JS-->
+      <!-- <script type="module" src="/js/app.js"></script>
         <script type="module" src="/js/giphy.js"></script> -->
     </div>
-        <script type="module" src="/js/app.js"></script>
-        <script type="module" src="/js/giphy.js"></script>
-        <!-- #endregion -->
-</body>
-
+    <script type="module" src="/js/app.js"></script>
+    <script type="module" src="/js/giphy.js"></script>
+    <!-- #endregion -->
+  </body>
 </html>
