@@ -159,17 +159,19 @@ $color-primary: #110038;
   display: flex;
   padding-left: 15px;
   justify-content: space-evenly;
-  height: 160px;
-  background: #e6e6e6;
-  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  height: auto;
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
-  // display: none;
+  padding: 10px 0 10px 10px; 
+  display: none;
   flex-direction: column;
 
   button {
     width: 1055px;
     height: 34px;
     padding-left: 15px;
+    margin-bottom: 10px;
     display: block;
     align-items: center;
     text-align: left;
@@ -316,9 +318,9 @@ $color-primary: #110038;
     width: 288px;
     height: 298px;
 
-    & :hover{
+    & :hover {
       width: 294px;
-    height: 304px;
+      height: 304px;
     }
 
     label {

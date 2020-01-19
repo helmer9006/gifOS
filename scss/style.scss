@@ -145,12 +145,15 @@ $color-primary: #110038;
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
+  padding: 10px 0 10px 10px;
   display: none;
+  flex-direction: column;
 
   button {
     width: 1055px;
     height: 34px;
     padding-left: 15px;
+    margin-bottom: 10px;
     display: block;
     align-items: center;
     text-align: left;
@@ -239,7 +242,8 @@ $color-primary: #110038;
         bottom: 0;
         right: 0;
         // margin: 2px auto 2px auto;
-      } & :hover {
+      }
+      & :hover {
         border: 1px dotted #110038;
       }
 
@@ -257,9 +261,9 @@ $color-primary: #110038;
         letter-spacing: 0;
         text-align: center;
         line-height: 18px;
-      } & :hover {
+      }
+      & :hover {
         border: 1px dotted #110038;
-        
       }
     }
   }
@@ -315,7 +319,8 @@ $color-primary: #110038;
     height: 298px;
     margin-right: 10px;
     margin-bottom: 10px;
-  } & :hover ~ label{
+  }
+  & :hover ~ label {
     visibility: visible;
   }
 }

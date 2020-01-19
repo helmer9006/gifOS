@@ -11,6 +11,12 @@ import Giphy from "/js/giphy.js";
 var imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
 var sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
 var result_busqueda = document.querySelector("#result_busqueda");//div para cargar imagenes de la busqueda
+
+var txtBuscar = document.querySelector("#txtBuscar");//txt para ingresas texto de busqueda
+var btnBuscar = document.querySelector("#btnBuscar");//boton para activar busqueda
+var FiltroSugerencias = document.querySelector("#filtro");//div para mostrar botones de sugerencias de busqueda
+var btnFiltro = document.querySelector("#btnFiltro");//boton con nombre de sugerencia de busqueda
+var botonFiltro = document.getElementsByClassName("filtro_buscar");
 // var lblImg = document.getElementById('lblImg');
 
 //*************************************************//
@@ -18,55 +24,72 @@ var result_busqueda = document.querySelector("#result_busqueda");//div para carg
 //*************************************************//
 //ESTRUCTURA PARA INVOCAR FUNCIONES
 
- var txtBuscar = (document.querySelector("#txtBuscar"));
- var btnBuscar = document.querySelector("#btnBuscar");
 
+//#region FUNCION DE BUSQUEDA X BOTON BUSCAR
+btnBuscar.addEventListener("click", function () {
 
-  btnBuscar.addEventListener("click", function() {
+  var valorTxt = txtBuscar.value.toString();
+  //    console.log(valorTxt)
 
-       var valorTxt = txtBuscar.value.toString(); 
-    //    console.log(valorTxt)
-     
-       const resBusqueda = new Giphy(valorTxt);
-       resBusqueda.getSearchResults()
-       .then(result => {
-           result_busqueda.innerHTML = ``;
-         for (let i of result.data) {
-           result_busqueda.innerHTML += `
+  const resBusqueda = new Giphy(valorTxt);
+  resBusqueda.getSearchResults()
+    .then(result => {
+      result_busqueda.innerHTML = ``;
+      for (let i of result.data) {
+        result_busqueda.innerHTML += `
             <div class="img-tendencia">
                 <img src="${i.images.fixed_height.url}" alt="">
                 <label id="lblImg">#${i.title}</label>
             </div>
             `;
-         }
-       });
-     });
-
-
-// #region CAMBIAR TEMA
-var tema = document.getElementById("tema"); // carturar el elemento selector para elegir tema
-tema.addEventListener("change", function() {
-  // let opcionSeleccionada = this.options[tema.selectedIndex];
-  let opcionSeleccionada = tema.value;
-
-  if (opcionSeleccionada == 1) {
-    document.getElementById("estilos").href = "/css/style.css";
-  } else {
-    document.getElementById("estilos").href = "/css/style2.css";
-  }
+      }
+    });
 });
 
 //#endregion
 
-// #region MOSTRAR ETIQUETA EN IMAGENES TENDENCIA
 
-// imagen.onmouseover = function () {
+//#region FUNCION DE BUSQUEDA X AL INICIAR A DILIGENCIAR TXTBUSQUEDA
 
-//    document.getElementById("lblImg").style.visibility = "visible";
+txtBuscar.addEventListener("keyup", function () {
 
-// };
+  FiltroSugerencias.style.display = "block";
 
-//#endregion
+  var valorTxt = txtBuscar.value.toString();
+
+  const resBusqueda = new Giphy(valorTxt);
+  resBusqueda.getSearchResults()
+    .then(result => {
+      FiltroSugerencias.innerHTML = ``;
+      let j = 0;
+
+      for (let i of result.data) {
+        j++;
+
+        FiltroSugerencias.innerHTML += `
+
+         <button id="btnFiltro"  >${i.title}</button>
+       
+        `;
+
+        if (j > 2) {
+          break;
+        }
+      }
+
+    });
+
+});
+
+//FUNCION PARA OCULTAR DIV DE SUGERENCIAS DE BUSQUDA AL PERDER FOCO TXTBUSCAR
+
+
+//#endregion   
+
+// botonFiltro.addEventListener("click", function () {
+
+//  alert("Hola")
+//  })
 
 //*************************************************//
 // INSTANCIANDO CLASES Y METODOS
