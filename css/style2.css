@@ -143,8 +143,10 @@ body {
   box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
   padding: 10px 0 10px 10px;
-  display: none;
+  visibility: hidden;
   flex-direction: column;
+  position: absolute;
+  width: 100%;
 }
 .filtro_buscar button {
   width: 1055px;

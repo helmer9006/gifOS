@@ -52,9 +52,8 @@ btnBuscar.addEventListener("click", function () {
 //#region FUNCION DE BUSQUEDA X AL INICIAR A DILIGENCIAR TXTBUSQUEDA
 
 txtBuscar.addEventListener("keyup", function () {
-
-  FiltroSugerencias.style.display = "block";
-
+  FiltroSugerencias.style.visibility = "visible";
+  
   var valorTxt = txtBuscar.value.toString();
 
   const resBusqueda = new Giphy(valorTxt);
@@ -86,10 +85,27 @@ txtBuscar.addEventListener("keyup", function () {
 
 //#endregion   
 
-// botonFiltro.addEventListener("click", function () {
 
-//  alert("Hola")
-//  })
+FiltroSugerencias.addEventListener("click", function(e) {
+  e.preventDefault();
+  txtBuscar.value = e.target.innerHTML;
+  btnBuscar.click();
+  ocultarDiv();
+  //var valorTxt = txtBuscar.value.toString();
+  //    console.log(valorTxt)
+});
+
+// FiltroSugerencias.addEventListener("blur", function () {
+
+//   FiltroSugerencias.style.visibility = "hidden";
+
+// })
+
+function ocultarDiv(){
+   FiltroSugerencias.style.visibility = "hidden";
+}
+
+
 
 //*************************************************//
 // INSTANCIANDO CLASES Y METODOS

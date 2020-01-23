@@ -20,7 +20,7 @@ export default class Giphy {
         try {
             
         
-            let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key='+ this.apiKey+ '&q=' + this.search + '&limit=24&offset=0&rating=G&lang=es');
+            let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key='+ this.apiKey+ '&q=' + this.search + '&limit=24&offset=0&rating=G&lang=en');
             let found = await api.json();
             return found;
 
