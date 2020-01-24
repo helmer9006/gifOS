@@ -53,7 +53,7 @@ btnBuscar.addEventListener("click", function () {
 
 txtBuscar.addEventListener("keyup", function () {
   FiltroSugerencias.style.visibility = "visible";
-  
+
   var valorTxt = txtBuscar.value.toString();
 
   const resBusqueda = new Giphy(valorTxt);
@@ -86,7 +86,7 @@ txtBuscar.addEventListener("keyup", function () {
 //#endregion   
 
 
-FiltroSugerencias.addEventListener("click", function(e) {
+FiltroSugerencias.addEventListener("click", function (e) {
   e.preventDefault();
   txtBuscar.value = e.target.innerHTML;
   btnBuscar.click();
@@ -101,8 +101,9 @@ FiltroSugerencias.addEventListener("click", function(e) {
 
 // })
 
-function ocultarDiv(){
-   FiltroSugerencias.style.visibility = "hidden";
+//FUNCION QUE OCULTA DIV DE BUSQUEDA
+function ocultarDiv() {
+  FiltroSugerencias.style.visibility = "hidden";
 }
 
 
