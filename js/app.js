@@ -24,6 +24,21 @@ var botonFiltro = document.getElementsByClassName("filtro_buscar");
 //*************************************************//
 //ESTRUCTURA PARA INVOCAR FUNCIONES
 
+// #region CAMBIAR TEMA
+var tema = document.getElementById("tema"); // carturar el elemento selector para elegir tema
+tema.addEventListener('change',
+  function () {
+    // let opcionSeleccionada = this.options[tema.selectedIndex];
+    let opcionSeleccionada = tema.value;
+
+    if (opcionSeleccionada == 1) {
+      document.getElementById('estilos').href = '/css/style.css';
+    } else {
+      document.getElementById('estilos').href = '/css/style2.css';
+    }
+  });
+
+//#endregion
 
 //#region FUNCION DE BUSQUEDA X BOTON BUSCAR
 btnBuscar.addEventListener("click", function () {
@@ -44,6 +59,7 @@ btnBuscar.addEventListener("click", function () {
             `;
       }
     });
+  ocultarDiv();
 });
 
 //#endregion
@@ -95,10 +111,8 @@ FiltroSugerencias.addEventListener("click", function (e) {
   //    console.log(valorTxt)
 });
 
-// FiltroSugerencias.addEventListener("blur", function () {
-
-//   FiltroSugerencias.style.visibility = "hidden";
-
+// txtBuscar.addEventListener("blur", function () {
+//   ocultarDiv();
 // })
 
 //FUNCION QUE OCULTA DIV DE BUSQUEDA
