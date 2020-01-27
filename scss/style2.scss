@@ -52,14 +52,15 @@ $color-primary: #110038;
 
 //#region SECCION LOGO
 
-.seccion-logo {
-  .logo {
-    width: 92.6px;
-    height: 54px;
-    background-size: 92.6px 54px;
-    background-repeat: no-repeat;
-    background-image: url("/img/gifOF_logo_dark.png");
-  }
+.logo {
+  width: 92.6px;
+  height: 54px;
+  background-size: 92.6px 54px;
+  background-repeat: no-repeat;
+  background-image: url("/img/gifOF_logo_dark.png");
+}
+
+.botones {
   button {
     width: 144px;
     height: 36px;
@@ -81,6 +82,7 @@ $color-primary: #110038;
     height: 36px;
     background: #ee3efe;
     border: 1px solid #110038;
+    // outline: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
     font-family: $font-primary;
     font-weight: 400;
@@ -90,7 +92,11 @@ $color-primary: #110038;
     text-align: center;
     line-height: 18px;
     margin-right: 15px;
+    &:hover {
+      outline: 1px dotted #110038;
+    }
   }
+
   a {
     font-family: $font-primary;
     font-weight: 400;
@@ -99,8 +105,23 @@ $color-primary: #110038;
     letter-spacing: 0;
     text-align: center;
     line-height: 18px;
+    padding: 5px;
+
+    &:hover {
+      padding: 4px;
+      color: #ffffff;
+      border: 1px dotted #ffffff;
+      text-decoration: none;
+    }
+
+    &:active {
+      color: #ffffff;
+      border: 1px dotted #ffffff;
+      text-decoration: none;
+    }
   }
 }
+
 //#endregion
 
 //#region SECCION BUSCAR
@@ -185,7 +206,7 @@ $color-primary: #110038;
   background: #b4b4b4;
   box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
-  padding: 10px 0 10px 10px;
+  // padding: 10px 0 10px 10px;
   // display: none;
   visibility: hidden;
   flex-direction: column;
@@ -209,6 +230,13 @@ $color-primary: #110038;
     color: #110038;
     letter-spacing: 0;
     line-height: 22px;
+    margin: 5px 0 5px 0;
+  }
+  & :first-child {
+    margin-top: 10px;
+  }
+  & :last-child {
+    margin-bottom: 10px;
   }
 }
 //#endregion
@@ -284,7 +312,7 @@ $color-primary: #110038;
       }
       & :hover {
         border: 1px dotted #110038;
-        padding: 10px;
+        // padding: 10px;
       }
 
       button {
@@ -332,6 +360,7 @@ $color-primary: #110038;
 }
 
 //#endregion
+
 //#region SECCION RESULTADO TENDENCIA
 
 .res_tendencia {

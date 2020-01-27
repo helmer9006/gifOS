@@ -8,33 +8,63 @@ import Giphy from "/js/giphy.js";
 //DECLARANDO VARIABLES
 //*************************************************//
 
-var imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
-var sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
-var result_busqueda = document.querySelector("#result_busqueda");//div para cargar imagenes de la busqueda
-
-var txtBuscar = document.querySelector("#txtBuscar");//txt para ingresas texto de busqueda
-var btnBuscar = document.querySelector("#btnBuscar");//boton para activar busqueda
-var FiltroSugerencias = document.querySelector("#filtro");//div para mostrar botones de sugerencias de busqueda
-var btnFiltro = document.querySelector("#btnFiltro");//boton con nombre de sugerencia de busqueda
-var botonFiltro = document.getElementsByClassName("filtro_buscar");
-// var lblImg = document.getElementById('lblImg');
+let imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
+let sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
+let result_busqueda = document.querySelector("#result_busqueda");//div para cargar imagenes de la busqueda
+let txtBuscar = document.querySelector("#txtBuscar");//txt para ingresas texto de busqueda
+let btnBuscar = document.querySelector("#btnBuscar");//boton para actilet busqueda
+let FiltroSugerencias = document.querySelector("#filtro");//div para mostrar botones de sugerencias de busqueda
+let btnFiltro = document.querySelector("#btnFiltro");//boton con nombre de sugerencia de busqueda
+let botonFiltro = document.getElementsByClassName("filtro_buscar");
+let tema = document.getElementById("tema"); // capturar el elemento selector para elegir tema
 
 //*************************************************//
 //FUNCIONES
 //*************************************************//
 //ESTRUCTURA PARA INVOCAR FUNCIONES
 
-// #region CAMBIAR TEMA
-var tema = document.getElementById("tema"); // carturar el elemento selector para elegir tema
+
+(() => {
+
+  //localStorage.setItem('temaActual', tema.value);
+  // let temaLocalStorage = localStorage.getItem('temaActual');
+  cargarTema();
+  txtBuscar.value = "";
+
+})();
+
+//#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
+function cargarTema() {
+
+  let temaLocalStorage = localStorage.getItem('temaActual');
+  if (temaLocalStorage == 1 || temaLocalStorage == 0) {
+    document.getElementById('estilos').href = '/css/style.css';
+    if (temaLocalStorage == 1) {
+      tema.value = '1';
+    } else {
+      tema.value = '0';
+    }
+
+  } else {
+    tema.value = '2';
+    document.getElementById('estilos').href = '/css/style2.css';
+  }
+}
+//#endregion
+
+// #region FUNCION PARA CAMBIAR TEMA
+
 tema.addEventListener('change',
   function () {
-    // let opcionSeleccionada = this.options[tema.selectedIndex];
+
     let opcionSeleccionada = tema.value;
 
     if (opcionSeleccionada == 1) {
       document.getElementById('estilos').href = '/css/style.css';
+      localStorage.setItem('temaActual', opcionSeleccionada);
     } else {
       document.getElementById('estilos').href = '/css/style2.css';
+      localStorage.setItem('temaActual', opcionSeleccionada);
     }
   });
 
@@ -44,7 +74,6 @@ tema.addEventListener('change',
 btnBuscar.addEventListener("click", function () {
 
   var valorTxt = txtBuscar.value.toString();
-  //    console.log(valorTxt)
 
   const resBusqueda = new Giphy(valorTxt);
   resBusqueda.getSearchResults()
@@ -64,12 +93,12 @@ btnBuscar.addEventListener("click", function () {
 
 //#endregion
 
-
-//#region FUNCION DE BUSQUEDA X AL INICIAR A DILIGENCIAR TXTBUSQUEDA
+//#region FUNCION DE BUSQUEDA AL INICIAR A DILIGENCIAR TXTBUSQUEDA - MUESTRA FILTRO CON BOTONES
 
 txtBuscar.addEventListener("keyup", function () {
   FiltroSugerencias.style.visibility = "visible";
-
+  btnBuscar.disabled = false;
+  btnBuscar.style.border = "1px solid #110038";
   var valorTxt = txtBuscar.value.toString();
 
   const resBusqueda = new Giphy(valorTxt);
@@ -83,7 +112,7 @@ txtBuscar.addEventListener("keyup", function () {
 
         FiltroSugerencias.innerHTML += `
 
-         <button id="btnFiltro"  >${i.title}</button>
+         <button id="btnFiltro" name="btnFiltro">${i.title}</button>
        
         `;
 
@@ -96,52 +125,79 @@ txtBuscar.addEventListener("keyup", function () {
 
 });
 
-//FUNCION PARA OCULTAR DIV DE SUGERENCIAS DE BUSQUDA AL PERDER FOCO TXTBUSCAR
+//#endregion
 
+//#region FUNCION BUSCAR POR ENTER
+document.onkeypress = function (e) {
+  var esIE = (document.all);
+  var esNS = (document.layers);
+  var tecla = (esIE) ? event.keyCode : e.which;
+  if (tecla == 13) {
+    btnBuscar.click();
+    txtBuscar.value = "";
+      // return false;
+  }
+}
+//#endregion
 
-//#endregion   
+//#region ESCONDER DIV DE FILTRO BUSQUEDA AL DAR CLIC FUERA DEL DIV
+document.onclick = function (e) {
+  // e = e || event
+  var target = e.target || e.srcElement
+  var estado =  FiltroSugerencias.style.visibility;
+   
+  if ( estado == "visible") {
+    do {
+      if (FiltroSugerencias == target) {
+        // El click se ha producido dentro del elemento, no se hace nada.
+        // FiltroSugerencias.style.visibility = "hidden";
+        return;
+      }
+      target = target.parentNode;
+    } while (target)
+    // Se ha clicado fuera del elemento, se realiza una acción.
+    FiltroSugerencias.style.visibility = "hidden";
+  }
+}
+//#endregion 
 
+//#region ESTRUCTURA PARA MEJORAR PROCESO DE BUSQUEDA AL DAR CLIC SOBRE BOTTON SUGERIDO
 
 FiltroSugerencias.addEventListener("click", function (e) {
-  e.preventDefault();
-  txtBuscar.value = e.target.innerHTML;
-  btnBuscar.click();
-  ocultarDiv();
-  //var valorTxt = txtBuscar.value.toString();
-  //    console.log(valorTxt)
+
+  if(e.target.localName == "button"){
+    e.preventDefault();
+    txtBuscar.value = e.target.innerHTML;
+    btnBuscar.click();
+    ocultarDiv();
+  }
 });
 
-// txtBuscar.addEventListener("blur", function () {
-//   ocultarDiv();
-// })
+//#endregion
 
-//FUNCION QUE OCULTA DIV DE BUSQUEDA
+//#region FUNCION QUE OCULTA DIV DE BUSQUEDA
 function ocultarDiv() {
   FiltroSugerencias.style.visibility = "hidden";
 }
+//#endregion
 
+//#region EVENTO BOTON VER MAS DE SUGERIDOS 
 
+  sugeridos.addEventListener("click", function (e) {
+  if(e.target.localName == "button"){
+    e.preventDefault();
+    txtBuscar.value = e.target.name;
+    btnBuscar.click();
+    ocultarDiv();
+  }
+});
+
+//#endregion
 
 //*************************************************//
 // INSTANCIANDO CLASES Y METODOS
 //*************************************************//
 
-// #region TENDENCIAS
-
-const tendencia = new Giphy();
-tendencia.getTrending().then(result => {
-  imagen.innerHTML = ``;
-  for (let i of result.data) {
-    imagen.innerHTML += `
-    <div class="img-tendencia">
-        <img src="${i.images.fixed_height.url}" alt="">
-        <label id="lblImg">#${i.title}</label>
-    </div>
-    `;
-  }
-});
-
-//#endregion
 
 // #region SUGERENCIAS
 
@@ -158,8 +214,25 @@ sugerencias.getSuggestions().then(result => {
         </div>
         <div class="img-result d-flex justify-content-start align-items-end">
             <img src="${i.images.fixed_height.url}" alt="">
-            <button id="verMas">Ver Más...</button>
+            <button name="${i.title}" id="verMas">Ver Más...</button>
         </div>
+    </div>
+    `;
+  }
+});
+
+//#endregion
+
+// #region TENDENCIAS
+
+const tendencia = new Giphy();
+tendencia.getTrending().then(result => {
+  imagen.innerHTML = ``;
+  for (let i of result.data) {
+    imagen.innerHTML += `
+    <div class="img-tendencia">
+        <img src="${i.images.fixed_height.url}" alt="">
+        <label id="lblImg">#${i.title}</label>
     </div>
     `;
   }

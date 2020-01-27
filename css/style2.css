@@ -40,14 +40,15 @@ body {
   display: inline-block;
 }
 
-.seccion-logo .logo {
+.logo {
   width: 92.6px;
   height: 54px;
   background-size: 92.6px 54px;
   background-repeat: no-repeat;
   background-image: url("/img/gifOF_logo_dark.png");
 }
-.seccion-logo button {
+
+.botones button {
   width: 144px;
   height: 36px;
   background: #ee3efe;
@@ -61,7 +62,7 @@ body {
   line-height: 18px;
   margin-right: 15px;
 }
-.seccion-logo select {
+.botones select {
   width: 144px;
   height: 36px;
   background: #ee3efe;
@@ -76,7 +77,10 @@ body {
   line-height: 18px;
   margin-right: 15px;
 }
-.seccion-logo a {
+.botones select:hover {
+  outline: 1px dotted #110038;
+}
+.botones a {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -84,6 +88,18 @@ body {
   letter-spacing: 0;
   text-align: center;
   line-height: 18px;
+  padding: 5px;
+}
+.botones a:hover {
+  padding: 4px;
+  color: #ffffff;
+  border: 1px dotted #ffffff;
+  text-decoration: none;
+}
+.botones a:active {
+  color: #ffffff;
+  border: 1px dotted #ffffff;
+  text-decoration: none;
 }
 
 .buscar {
@@ -161,7 +177,6 @@ body {
   background: #b4b4b4;
   box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
-  padding: 10px 0 10px 10px;
   visibility: hidden;
   flex-direction: column;
   position: absolute;
@@ -184,6 +199,13 @@ body {
   color: #110038;
   letter-spacing: 0;
   line-height: 22px;
+  margin: 5px 0 5px 0;
+}
+.filtro_buscar :first-child {
+  margin-top: 10px;
+}
+.filtro_buscar :last-child {
+  margin-bottom: 10px;
 }
 
 .sugeridos input {
@@ -247,7 +269,6 @@ body {
 }
 .resultados .content_resultados .img-result :hover {
   border: 1px dotted #110038;
-  padding: 10px;
 }
 .resultados .content_resultados .img-result button {
   position: absolute;

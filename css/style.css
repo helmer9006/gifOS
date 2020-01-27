@@ -36,14 +36,15 @@
   display: inline-block;
 }
 
-.seccion-logo .logo {
+.logo {
   width: 92.6px;
   height: 54px;
   background-size: 92.6px 54px;
   background-repeat: no-repeat;
   background-image: url("/img/gifOF_logo.png");
 }
-.seccion-logo button {
+
+.botones button {
   width: 144px;
   height: 36px;
   background: #f7c9f3;
@@ -58,7 +59,7 @@
   line-height: 18px;
   margin-right: 15px;
 }
-.seccion-logo select {
+.botones select {
   width: 144px;
   height: 36px;
   background: #f7c9f3;
@@ -73,9 +74,25 @@
   line-height: 18px;
   margin-right: 15px;
 }
-.seccion-logo a {
+.botones select:hover {
+  outline: 1px dotted #110038;
+}
+.botones a {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 18px;
+  padding: 5px;
+}
+.botones a:hover {
+  padding: 4px;
+  color: #110038;
+  border: 1px dotted #110038;
+  text-decoration: none;
+}
+.botones a:active {
   font-size: 16px;
   color: #110038;
   letter-spacing: 0;
