@@ -160,11 +160,10 @@
   display: flex;
   padding-left: 15px;
   justify-content: space-evenly;
-  height: 160px;
+  height: auto;
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   margin: auto 0 auto 0;
-  padding: 10px 0 10px 10px;
   visibility: hidden;
   flex-direction: column;
   position: absolute;
@@ -187,6 +186,13 @@
   color: #110038;
   letter-spacing: 0;
   line-height: 22px;
+  margin: 5px 0 5px 0;
+}
+.filtro_buscar :first-child {
+  margin-top: 10px;
+}
+.filtro_buscar :last-child {
+  margin-bottom: 10px;
 }
 
 .sugeridos input {

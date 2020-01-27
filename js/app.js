@@ -10,11 +10,11 @@ import Giphy from "/js/giphy.js";
 
 let imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
 let sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
-let result_busqueda = document.querySelector("#result_busqueda");//div para cargar imagenes de la busqueda
-let txtBuscar = document.querySelector("#txtBuscar");//txt para ingresas texto de busqueda
-let btnBuscar = document.querySelector("#btnBuscar");//boton para actilet busqueda
-let FiltroSugerencias = document.querySelector("#filtro");//div para mostrar botones de sugerencias de busqueda
-let btnFiltro = document.querySelector("#btnFiltro");//boton con nombre de sugerencia de busqueda
+let result_busqueda = document.querySelector("#result_busqueda"); //div para cargar imagenes de la busqueda
+let txtBuscar = document.querySelector("#txtBuscar"); //txt para ingresas texto de busqueda
+let btnBuscar = document.querySelector("#btnBuscar"); //boton para actilet busqueda
+let FiltroSugerencias = document.querySelector("#filtro"); //div para mostrar botones de sugerencias de busqueda
+let btnFiltro = document.querySelector("#btnFiltro"); //boton con nombre de sugerencia de busqueda
 let botonFiltro = document.getElementsByClassName("filtro_buscar");
 let tema = document.getElementById("tema"); // capturar el elemento selector para elegir tema
 
@@ -23,71 +23,62 @@ let tema = document.getElementById("tema"); // capturar el elemento selector par
 //*************************************************//
 //ESTRUCTURA PARA INVOCAR FUNCIONES
 
-
 (() => {
-
   //localStorage.setItem('temaActual', tema.value);
   // let temaLocalStorage = localStorage.getItem('temaActual');
   cargarTema();
   txtBuscar.value = "";
-
 })();
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
 function cargarTema() {
-
-  let temaLocalStorage = localStorage.getItem('temaActual');
+  let temaLocalStorage = localStorage.getItem("temaActual");
   if (temaLocalStorage == 1 || temaLocalStorage == 0) {
-    document.getElementById('estilos').href = '/css/style.css';
+    document.getElementById("estilos").href = "/css/style.css";
     if (temaLocalStorage == 1) {
-      tema.value = '1';
+      tema.value = "1";
     } else {
-      tema.value = '0';
+      tema.value = "0";
     }
-
   } else {
-    tema.value = '2';
-    document.getElementById('estilos').href = '/css/style2.css';
+    tema.value = "2";
+    document.getElementById("estilos").href = "/css/style2.css";
   }
 }
 //#endregion
 
 // #region FUNCION PARA CAMBIAR TEMA
 
-tema.addEventListener('change',
-  function () {
+tema.addEventListener("change", function() {
+  let opcionSeleccionada = tema.value;
 
-    let opcionSeleccionada = tema.value;
-
-    if (opcionSeleccionada == 1) {
-      document.getElementById('estilos').href = '/css/style.css';
-      localStorage.setItem('temaActual', opcionSeleccionada);
-    } else {
-      document.getElementById('estilos').href = '/css/style2.css';
-      localStorage.setItem('temaActual', opcionSeleccionada);
-    }
-  });
+  if (opcionSeleccionada == 1) {
+    document.getElementById("estilos").href = "/css/style.css";
+    localStorage.setItem("temaActual", opcionSeleccionada);
+  } else {
+    document.getElementById("estilos").href = "/css/style2.css";
+    localStorage.setItem("temaActual", opcionSeleccionada);
+  }
+});
 
 //#endregion
 
 //#region FUNCION DE BUSQUEDA X BOTON BUSCAR
-btnBuscar.addEventListener("click", function () {
-
+btnBuscar.addEventListener("click", function() {
   var valorTxt = txtBuscar.value.toString();
 
   const resBusqueda = new Giphy(valorTxt);
-  resBusqueda.getSearchResults()
-    .then(result => {
-      result_busqueda.innerHTML = ``;
-      for (let i of result.data) {
-        result_busqueda.innerHTML += `
+  resBusqueda.getSearchResults().then(result => {
+    result_busqueda.innerHTML = ``;
+    for (let i of result.data) {
+      result_busqueda.innerHTML += `
             <div class="img-tendencia">
                 <img src="${i.images.fixed_height.url}" alt="">
                 <label id="lblImg">#${i.title}</label>
             </div>
             `;
-      }
-    });
+    }
+  });
   ocultarDiv();
 });
 
@@ -95,58 +86,55 @@ btnBuscar.addEventListener("click", function () {
 
 //#region FUNCION DE BUSQUEDA AL INICIAR A DILIGENCIAR TXTBUSQUEDA - MUESTRA FILTRO CON BOTONES
 
-txtBuscar.addEventListener("keyup", function () {
+txtBuscar.addEventListener("keyup", function() {
   FiltroSugerencias.style.visibility = "visible";
   btnBuscar.disabled = false;
   btnBuscar.style.border = "1px solid #110038";
   var valorTxt = txtBuscar.value.toString();
 
   const resBusqueda = new Giphy(valorTxt);
-  resBusqueda.getSearchResults()
-    .then(result => {
-      FiltroSugerencias.innerHTML = ``;
-      let j = 0;
+  resBusqueda.getSearchResults().then(result => {
+    FiltroSugerencias.innerHTML = ``;
+    let j = 0;
 
-      for (let i of result.data) {
-        j++;
+    for (let i of result.data) {
+      j++;
 
-        FiltroSugerencias.innerHTML += `
+      FiltroSugerencias.innerHTML += `
 
          <button id="btnFiltro" name="btnFiltro">${i.title}</button>
        
         `;
 
-        if (j > 2) {
-          break;
-        }
+      if (j > 2) {
+        break;
       }
-
-    });
-
+    }
+  });
 });
 
 //#endregion
 
 //#region FUNCION BUSCAR POR ENTER
-document.onkeypress = function (e) {
-  var esIE = (document.all);
-  var esNS = (document.layers);
-  var tecla = (esIE) ? event.keyCode : e.which;
+document.onkeypress = function(e) {
+  var esIE = document.all;
+  var esNS = document.layers;
+  var tecla = esIE ? event.keyCode : e.which;
   if (tecla == 13) {
     btnBuscar.click();
     txtBuscar.value = "";
-      // return false;
+    // return false;
   }
-}
+};
 //#endregion
 
 //#region ESCONDER DIV DE FILTRO BUSQUEDA AL DAR CLIC FUERA DEL DIV
-document.onclick = function (e) {
+document.onclick = function(e) {
   // e = e || event
-  var target = e.target || e.srcElement
-  var estado =  FiltroSugerencias.style.visibility;
-   
-  if ( estado == "visible") {
+  var target = e.target || e.srcElement;
+  var estado = FiltroSugerencias.style.visibility;
+
+  if (estado == "visible") {
     do {
       if (FiltroSugerencias == target) {
         // El click se ha producido dentro del elemento, no se hace nada.
@@ -154,18 +142,19 @@ document.onclick = function (e) {
         return;
       }
       target = target.parentNode;
-    } while (target)
+    } while (target);
     // Se ha clicado fuera del elemento, se realiza una acción.
     FiltroSugerencias.style.visibility = "hidden";
+    btnBuscar.disabled = true;
+    btnBuscar.style.border = "1px solid #808080";
   }
-}
-//#endregion 
+};
+//#endregion
 
 //#region ESTRUCTURA PARA MEJORAR PROCESO DE BUSQUEDA AL DAR CLIC SOBRE BOTTON SUGERIDO
 
-FiltroSugerencias.addEventListener("click", function (e) {
-
-  if(e.target.localName == "button"){
+FiltroSugerencias.addEventListener("click", function(e) {
+  if (e.target.localName == "button") {
     e.preventDefault();
     txtBuscar.value = e.target.innerHTML;
     btnBuscar.click();
@@ -181,10 +170,10 @@ function ocultarDiv() {
 }
 //#endregion
 
-//#region EVENTO BOTON VER MAS DE SUGERIDOS 
+//#region EVENTO BOTON VER MAS DE SUGERIDOS
 
-  sugeridos.addEventListener("click", function (e) {
-  if(e.target.localName == "button"){
+sugeridos.addEventListener("click", function(e) {
+  if (e.target.localName == "button") {
     e.preventDefault();
     txtBuscar.value = e.target.name;
     btnBuscar.click();
@@ -197,7 +186,6 @@ function ocultarDiv() {
 //*************************************************//
 // INSTANCIANDO CLASES Y METODOS
 //*************************************************//
-
 
 // #region SUGERENCIAS
 
