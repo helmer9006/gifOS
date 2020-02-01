@@ -8,15 +8,18 @@ import Giphy from "/js/giphy.js";
 //DECLARANDO VARIABLES
 //*************************************************//
 
-let imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
-let sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
-let result_busqueda = document.querySelector("#result_busqueda"); //div para cargar imagenes de la busqueda
-let txtBuscar = document.querySelector("#txtBuscar"); //txt para ingresas texto de busqueda
-let btnBuscar = document.querySelector("#btnBuscar"); //boton para actilet busqueda
-let FiltroSugerencias = document.querySelector("#filtro"); //div para mostrar botones de sugerencias de busqueda
-let btnFiltro = document.querySelector("#btnFiltro"); //boton con nombre de sugerencia de busqueda
-let botonFiltro = document.getElementsByClassName("filtro_buscar");
-let tema = document.getElementById("tema"); // capturar el elemento selector para elegir tema
+const  imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
+const  sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
+const  result_busqueda = document.querySelector("#result_busqueda"); //div para cargar imagenes de la busqueda
+const  txtBuscar = document.querySelector("#txtBuscar"); //txt para ingresas texto de busqueda
+const  btnBuscar = document.querySelector("#btnBuscar"); //boton para acticonst  busqueda
+const  FiltroSugerencias = document.querySelector("#filtro"); //div para mostrar botones de sugerencias de busqueda
+const  btnFiltro = document.querySelector("#btnFiltro"); //boton con nombre de sugerencia de busqueda
+const  botonFiltro = document.getElementsByClassName("filtro_buscar");
+const  tema = document.getElementById("tema"); // capturar el elemento selector para elegir tema
+const  ContentInicio = document.querySelector("#inicio");
+const  ContentMisGuifos = document.querySelector("#misGuifos");
+
 
 //*************************************************//
 //FUNCIONES
@@ -66,9 +69,10 @@ tema.addEventListener("change", function() {
 //#region FUNCION DE BUSQUEDA X BOTON BUSCAR
 btnBuscar.addEventListener("click", function() {
   var valorTxt = txtBuscar.value.toString();
-
+  
   const resBusqueda = new Giphy(valorTxt);
   resBusqueda.getSearchResults().then(result => {
+    
     result_busqueda.innerHTML = ``;
     for (let i of result.data) {
       result_busqueda.innerHTML += `
@@ -78,6 +82,7 @@ btnBuscar.addEventListener("click", function() {
             </div>
             `;
     }
+    document.getElementById('txtTitulo').style.display='block';
   });
   ocultarDiv();
 });
@@ -174,6 +179,7 @@ function ocultarDiv() {
 
 sugeridos.addEventListener("click", function(e) {
   if (e.target.localName == "button") {
+    btnBuscar.disabled = false;
     e.preventDefault();
     txtBuscar.value = e.target.name;
     btnBuscar.click();
@@ -183,6 +189,12 @@ sugeridos.addEventListener("click", function(e) {
 
 //#endregion
 
+//#region MOSTRAR MIS GUIFOS
+
+
+
+
+//#endregion
 //*************************************************//
 // INSTANCIANDO CLASES Y METODOS
 //*************************************************//
@@ -227,3 +239,10 @@ tendencia.getTrending().then(result => {
 });
 
 //#endregion
+document.querySelector("#guifos").addEventListener("click", function(){
+
+  ContentInicio.style.display = "none";
+  ContentMisGuifos.style.display = "block";
+
+  
+})

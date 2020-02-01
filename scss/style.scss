@@ -87,7 +87,7 @@ $color-primary: #110038;
     text-align: center;
     line-height: 18px;
     margin-right: 15px;
-    
+
     &:hover {
       outline: 1px dotted #110038;
     }
@@ -347,6 +347,22 @@ $color-primary: #110038;
 .res_tendencia {
   margin-top: 20px;
 
+  input {
+    width: 1200px;
+    height: 32px;
+    background: #fffafe;
+    border: 1px solid #e6bbe2;
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #110038;
+    letter-spacing: 0;
+    margin-top: 52px;
+    padding: 10px;
+    display: none;
+  }
+
   label {
     visibility: hidden;
     padding-left: 5px;
@@ -372,6 +388,28 @@ $color-primary: #110038;
   }
   & :hover ~ label {
     visibility: visible;
+  }
+}
+
+//#endregion
+
+//#region CONTENIDO MIS GUIFOS
+
+.misGuifos {
+  display: none;
+
+  input {
+    margin: 20px auto 0 auto;
+    width: 1200px;
+    height: 32px;
+    background: #fffafe;
+    border: 1px solid #e6bbe2;
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    font-family: $font-primary;
+    font-size: 14px;
+    color: #110038;
+    letter-spacing: 0;
+    padding-left: 15px;
   }
 }
 

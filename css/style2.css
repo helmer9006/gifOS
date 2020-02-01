@@ -308,6 +308,21 @@ body {
 .res_tendencia {
   margin-top: 20px;
 }
+.res_tendencia input {
+  width: 1200px;
+  height: 32px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  margin-top: 52px;
+  padding: 10px;
+  display: none;
+}
 .res_tendencia .img-tendencia {
   background: #b4b4b4;
   box-shadow: inset -2px -2px 0 0 #5c5c5c, inset 2px 2px 0 0 #ffffff;
@@ -345,6 +360,23 @@ body {
 }
 .res_tendencia .img-tendencia :hover ~ label {
   visibility: visible;
+}
+
+.misGuifos {
+  display: none;
+}
+.misGuifos input {
+  margin: 20px auto 0 auto;
+  width: 1200px;
+  height: 32px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  padding-left: 15px;
 }
 
 /*# sourceMappingURL=style2.css.map */
