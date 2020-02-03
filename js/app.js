@@ -19,6 +19,8 @@ const  botonFiltro = document.getElementsByClassName("filtro_buscar");
 const  tema = document.getElementById("tema"); // capturar el elemento selector para elegir tema
 const  ContentInicio = document.querySelector("#inicio");
 const  ContentMisGuifos = document.querySelector("#misGuifos");
+const  ContentCrearGuifos = document.querySelector("#crearGuifos");
+const  ContentCapturar = document.querySelector("#capturar");
 
 
 //*************************************************//
@@ -239,10 +241,41 @@ tendencia.getTrending().then(result => {
 });
 
 //#endregion
+
+//#region MOSTRAR MIS GUIFOS
+
 document.querySelector("#guifos").addEventListener("click", function(){
 
   ContentInicio.style.display = "none";
   ContentMisGuifos.style.display = "block";
+  ContentCrearGuifos.style.display = "none";
 
   
 })
+
+//#endregion 
+
+//#region CREAR GUIFOS
+
+document.querySelector("#btnCrearGuifos").addEventListener('click', function(){
+
+  ContentInicio.style.display = "none";
+  ContentCrearGuifos.style.display = "block";
+  ContentMisGuifos.style.display = "block"; 
+  document.querySelector("#btnCrearGuifos").style.display = "none";
+  document.querySelector("#tema").style.display = "none";
+  document.querySelector("#guifos").style.display = "none";
+  document.querySelector("#logo").innerHTML = `
+  <img id="imgVolver" src="/img/arrow.svg" alt="">
+  `;
+
+})
+
+document.querySelector("#btnComenzar").addEventListener('click', function(){
+
+  ContentCrearGuifos.style.display = "none";
+  ContentCapturar.style.display = "block";
+
+})
+
+//#endregion 

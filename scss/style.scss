@@ -395,22 +395,155 @@ $color-primary: #110038;
 
 //#region CONTENIDO MIS GUIFOS
 
-.misGuifos {
-  display: none;
+.crearGuifos {
+  .guifos {
+    display: none;
+    margin: 100px auto 100px auto;
+    width: 684px;
+    height: 386px;
+    background: #e6e6e6;
+    box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+    // padding: 40px;
 
-  input {
-    margin: 20px auto 0 auto;
-    width: 1200px;
-    height: 32px;
-    background: #fffafe;
-    border: 1px solid #e6bbe2;
-    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
-    font-family: $font-primary;
-    font-size: 14px;
-    color: #110038;
-    letter-spacing: 0;
-    padding-left: 15px;
+    img {
+      display: inline;
+      padding: 0 5px 0 20px;
+    }
+
+    h1 {
+      margin-left: 10px;
+      font-family: $font-primary;
+      font-weight: 700;
+      font-size: 16px;
+      color: #110038;
+      letter-spacing: 0;
+      line-height: 22px;
+      display: inline;
+    }
+    p {
+      padding-top: 10px;
+      padding-left: 70px;
+      font-family: $font-primary;
+      font-weight: 400;
+      font-size: 14px;
+      color: #110038;
+      letter-spacing: 0;
+      line-height: 25px;
+    }
+    label {
+      padding-left: 10px;
+      margin-left: 4px;
+      margin-bottom: 40px;
+      width: 678px;
+      height: 24px;
+      background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+      font-size: 14px;
+      color: #ffffff;
+      letter-spacing: 0;
+      font-weight: 700;
+      font-family: $font-primary;
+    }
+
+    .botones {
+      padding-right: 35px;
+      button {
+        margin: 10px;
+        background: #fff4fd;
+        border: 1px solid #110038;
+        box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+
+        &:last-child {
+          background: #f7c9f3;
+          border: 1px solid #110038;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+        }
+      }
+    }
+  }
+  .misGuifos {
+    display: none;
+    input {
+      margin: 20px auto 0 auto;
+      width: 1200px;
+      height: 32px;
+      background: #fffafe;
+      border: 1px solid #e6bbe2;
+      box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+      font-family: $font-primary;
+      font-size: 14px;
+      color: #110038;
+      letter-spacing: 0;
+      padding-left: 15px;
+    }
+  }
+
+  //CAPTURA
+  .capturar {
+    width: 860px;
+    height: 548px;
+    background: #e6e6e6;
+    box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+    display: none;
+    margin: 100px auto 100px auto;
+
+    label {
+      padding-left: 10px;
+      margin-left: 4px;
+
+      width: 854px;
+      height: 24px;
+      background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+      font-size: 14px;
+      color: #ffffff;
+      letter-spacing: 0;
+      font-weight: 700;
+      font-family: $font-primary;
+    }
+
+    .img-capturar {
+      img {
+        width: 832px;
+        height: 434px;
+        background: #ffffff;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        display: block;
+      }
+    }
+    button:last-child {
+      margin: 20px 15px auto 0;
+      width: 114px;
+      height: 36px;
+      background: #f7c9f3;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    }
+    & button:first-child {
+      width: 36px;
+      height: 36px;
+      margin: 20px 0 auto 0;
+      background: #f7c9f3;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    }
+
+    .imgBotonCaptura {
+      width: 20px;
+      height: 20px;
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+      background-image: url("/img/camera.svg");
+      
+    }
   }
 }
 
+#imgVolver {
+  position: absolute;
+  left: -40px;
+  top: 10px;
+}
 //#endregion

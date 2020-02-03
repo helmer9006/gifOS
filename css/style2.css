@@ -362,10 +362,67 @@ body {
   visibility: visible;
 }
 
-.misGuifos {
-  display: none;
+.crearGuifos .guifos {
+  margin: 100px auto 100px auto;
+  width: 684px;
+  height: 386px;
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
 }
-.misGuifos input {
+.crearGuifos .guifos img {
+  display: inline;
+  padding: 0 5px 0 20px;
+}
+.crearGuifos .guifos h1 {
+  margin-left: 10px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  display: inline;
+}
+.crearGuifos .guifos p {
+  padding-top: 10px;
+  padding-left: 70px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+.crearGuifos .guifos label {
+  padding-left: 10px;
+  margin-left: 4px;
+  margin-bottom: 40px;
+  width: 678px;
+  height: 24px;
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  font-weight: 700;
+  font-family: "Chakra Petch", sans-serif;
+}
+.crearGuifos .guifos .botones {
+  padding-right: 35px;
+}
+.crearGuifos .guifos .botones button {
+  color: #110038;
+  margin: 10px;
+  background: #fff4fd;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+.crearGuifos .guifos .botones button:last-child {
+  color: #fff;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+.crearGuifos .misGuifos input {
   margin: 20px auto 0 auto;
   width: 1200px;
   height: 32px;
@@ -377,6 +434,73 @@ body {
   color: #110038;
   letter-spacing: 0;
   padding-left: 15px;
+}
+.crearGuifos .capturar {
+  width: 860px;
+  height: 548px;
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+  display: none;
+  margin: 100px auto 0 auto;
+}
+.crearGuifos label {
+  padding-left: 10px;
+  margin-left: 4px;
+  width: 854px;
+  height: 24px;
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  font-weight: 700;
+  font-family: "Chakra Petch", sans-serif;
+}
+.crearGuifos .img-capturar img {
+  width: 832px;
+  height: 434px;
+  background: #ffffff;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  display: block;
+}
+.crearGuifos button:last-child {
+  margin: 20px 15px auto 0;
+  width: 114px;
+  height: 36px;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+  font-size: 16px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400px;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+}
+.crearGuifos button:first-child {
+  color: #ffffff;
+  background: #fff;
+  width: 36px;
+  height: 36px;
+  margin: 20px 0 auto 0;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+.crearGuifos button:first-child img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#imgVolver {
+  position: absolute;
+  left: -40px;
+  top: 10px;
 }
 
 /*# sourceMappingURL=style2.css.map */
