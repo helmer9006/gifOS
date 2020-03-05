@@ -430,8 +430,8 @@
   font-weight: 700;
   font-family: "Chakra Petch", sans-serif;
 }
-.crearGuifos .capturar .img-capturar img {
-  width: 832px;
+.crearGuifos .capturar .img-capturar video {
+  width: 830px;
   height: 434px;
   background: #ffffff;
   border: 1px solid #979797;
