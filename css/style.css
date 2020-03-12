@@ -336,7 +336,7 @@
 }
 
 .crearGuifos .guifos {
-  display: none;
+  display: block;
   margin: 100px auto 100px auto;
   width: 684px;
   height: 386px;
@@ -395,7 +395,7 @@
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 .crearGuifos .misGuifos {
-  display: none;
+  display: block;
 }
 .crearGuifos .misGuifos input {
   margin: 20px auto 0 auto;
@@ -430,7 +430,7 @@
   font-weight: 700;
   font-family: "Chakra Petch", sans-serif;
 }
-.crearGuifos .capturar .img-capturar video {
+.crearGuifos .capturar .div-capturar video {
   width: 830px;
   height: 434px;
   background: #ffffff;
@@ -441,7 +441,7 @@
   margin-top: 5px;
   display: block;
 }
-.crearGuifos .capturar button:last-child {
+.crearGuifos .capturar #btnCapturar {
   margin: 20px 15px auto 0;
   width: 114px;
   height: 36px;
@@ -449,7 +449,16 @@
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
-.crearGuifos .capturar button:first-child {
+.crearGuifos .capturar #btnListo {
+  display: none;
+  margin: 20px 15px auto 0;
+  width: 114px;
+  height: 36px;
+  background: #ff6161;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+}
+.crearGuifos .capturar #btnImgCaptura {
   width: 36px;
   height: 36px;
   margin: 20px 0 auto 0;
@@ -457,12 +466,52 @@
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
+.crearGuifos .capturar #btnImgListo {
+  display: none;
+  width: 36px;
+  height: 36px;
+  margin: 20px 0 auto 0;
+  background: #ff6161;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+}
 .crearGuifos .capturar .imgBotonCaptura {
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-image: url("/img/camera.svg");
+}
+.crearGuifos .capturar .imgBotonListo {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-image: url("/img/recording.svg");
+}
+.crearGuifos .capturar .btnUploadGif {
+  display: none;
+  margin: 20px 15px auto 0;
+  width: 114px;
+  height: 36px;
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+.crearGuifos .capturar .btnRepetir {
+  display: none;
+  margin: 20px 15px auto 0;
+  width: 120px;
+  height: 36px;
+  background: #fff4fd;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+.crearGuifos .capturar .txtTiempo {
+  width: 114px;
+  height: 36px;
+  float: left;
+  margin: -40px 0 auto 15px;
 }
 
 #imgVolver {

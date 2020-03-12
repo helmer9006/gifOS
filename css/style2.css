@@ -363,11 +363,12 @@ body {
 }
 
 .crearGuifos .guifos {
+  display: block;
   margin: 100px auto 100px auto;
   width: 684px;
   height: 386px;
-  background: #b4b4b4;
-  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+  background: #fff4fd;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 .crearGuifos .guifos img {
   display: inline;
@@ -410,11 +411,11 @@ body {
   padding-right: 35px;
 }
 .crearGuifos .guifos .botones button {
-  color: #110038;
+  color: #ffffff;
   margin: 10px;
-  background: #fff4fd;
+  background: #ce36db;
   border: 1px solid #110038;
-  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
 }
 .crearGuifos .guifos .botones button:last-child {
   color: #fff;
@@ -422,13 +423,16 @@ body {
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
 }
+.crearGuifos .misGuifos {
+  display: block;
+}
 .crearGuifos .misGuifos input {
   margin: 20px auto 0 auto;
   width: 1200px;
   height: 32px;
   background: #fffafe;
-  border: 1px solid #e6bbe2;
-  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  border: 1px solid #2e32fb;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
   font-family: "Chakra Petch", sans-serif;
   font-size: 14px;
   color: #110038;
@@ -443,7 +447,7 @@ body {
   display: none;
   margin: 100px auto 0 auto;
 }
-.crearGuifos label {
+.crearGuifos .capturar label {
   padding-left: 10px;
   margin-left: 4px;
   width: 854px;
@@ -455,8 +459,8 @@ body {
   font-weight: 700;
   font-family: "Chakra Petch", sans-serif;
 }
-.crearGuifos .img-capturar img {
-  width: 832px;
+.crearGuifos .capturar .div-capturar video {
+  width: 830px;
   height: 434px;
   background: #ffffff;
   border: 1px solid #979797;
@@ -466,7 +470,7 @@ body {
   margin-top: 5px;
   display: block;
 }
-.crearGuifos button:last-child {
+.crearGuifos .capturar #btnCapturar {
   margin: 20px 15px auto 0;
   width: 114px;
   height: 36px;
@@ -481,7 +485,23 @@ body {
   text-align: center;
   line-height: 18px;
 }
-.crearGuifos button:first-child {
+.crearGuifos .capturar #btnListo {
+  display: none;
+  margin: 20px 15px auto 0;
+  width: 114px;
+  height: 36px;
+  background: #ff6161;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+  font-size: 16px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400px;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+}
+.crearGuifos .capturar #btnImgCaptura {
   color: #ffffff;
   background: #fff;
   width: 36px;
@@ -491,10 +511,67 @@ body {
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
 }
-.crearGuifos button:first-child img {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+.crearGuifos .capturar #btnImgListo {
+  display: none;
+  color: #ffffff;
+  background: #fff;
+  width: 36px;
+  height: 36px;
+  margin: 20px 0 auto 0;
+  background: #ff6161;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+}
+.crearGuifos .capturar .imgBotonCaptura {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-image: url("/img/camera.svg");
+}
+.crearGuifos .capturar .imgBotonListo {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-image: url("/img/recording.svg");
+}
+.crearGuifos .capturar .btnUploadGif {
+  display: none;
+  margin: 20px 15px auto 0;
+  width: 114px;
+  height: 36px;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+  font-size: 16px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400px;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+}
+.crearGuifos .capturar .btnRepetir {
+  margin: 20px 15px auto 0;
+  width: 120px;
+  height: 36px;
+  background: #fff4fd;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  font-size: 16px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400px;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+}
+.crearGuifos .capturar .txtTiempo {
+  width: 114px;
+  height: 36px;
+  float: left;
+  margin: -40px 0 auto 15px;
 }
 
 #imgVolver {

@@ -431,11 +431,12 @@ $color-primary: #110038;
 
 .crearGuifos {
   .guifos {
+    display: block;
     margin: 100px auto 100px auto;
     width: 684px;
     height: 386px;
-    background: #b4b4b4;
-    box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+    background: #fff4fd;
+    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
     // padding: 40px;
 
     img {
@@ -480,12 +481,11 @@ $color-primary: #110038;
     .botones {
       padding-right: 35px;
       button {
-        color: #110038;
+        color: #ffffff;
         margin: 10px;
-        background: #fff4fd;
+        background: #ce36db;
         border: 1px solid #110038;
-        box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-
+        box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
         &:last-child {
           color: #fff;
           background: #ee3efe;
@@ -499,13 +499,14 @@ $color-primary: #110038;
   //MIG GUIFOS
 
   .misGuifos {
+    display: block;
     input {
       margin: 20px auto 0 auto;
       width: 1200px;
       height: 32px;
       background: #fffafe;
-      border: 1px solid #e6bbe2;
-      box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+      border: 1px solid #2e32fb;
+      box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
       font-family: $font-primary;
       font-size: 14px;
       color: #110038;
@@ -523,62 +524,140 @@ $color-primary: #110038;
     box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
     display: none;
     margin: 100px auto 0 auto;
-  }
-  label {
-    padding-left: 10px;
-    margin-left: 4px;
 
-    width: 854px;
-    height: 24px;
-    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
-    font-size: 14px;
-    color: #ffffff;
-    letter-spacing: 0;
-    font-weight: 700;
-    font-family: $font-primary;
-  }
-  .img-capturar {
-    img {
-      width: 832px;
-      height: 434px;
-      background: #ffffff;
-      border: 1px solid #979797;
-      box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 5px;
-      display: block;
+    label {
+      padding-left: 10px;
+      margin-left: 4px;
+
+      width: 854px;
+      height: 24px;
+      background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+      font-size: 14px;
+      color: #ffffff;
+      letter-spacing: 0;
+      font-weight: 700;
+      font-family: $font-primary;
     }
-  }
-  button:last-child {
-    margin: 20px 15px auto 0;
-    width: 114px;
-    height: 36px;
-    background: #ee3efe;
-    border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
-    font-size: 16px;
-    font-family: $font-primary;
-    font-weight: 400px;
-    color: #ffffff;
-    letter-spacing: 0;
-    text-align: center;
-    line-height: 18px;
-  }
-  & button:first-child {
-    color: #ffffff;
-    background: #fff;
-    width: 36px;
-    height: 36px;
-    margin: 20px 0 auto 0;
-    background: #ee3efe;
-    border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+    .div-capturar {
+      video {
+        width: 830px;
+        height: 434px;
+        background: #ffffff;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        display: block;
+      }
+    }
 
-    & img {
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
+    #btnCapturar {
+      margin: 20px 15px auto 0;
+      width: 114px;
+      height: 36px;
+      background: #ee3efe;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+      font-size: 16px;
+      font-family: $font-primary;
+      font-weight: 400px;
+      color: #ffffff;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 18px;
+    }
+    #btnListo {
+      display: none;
+      margin: 20px 15px auto 0;
+      width: 114px;
+      height: 36px;
+      background: #ff6161;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+      font-size: 16px;
+      font-family: $font-primary;
+      font-weight: 400px;
+      color: #ffffff;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 18px;
+    }
+    #btnImgCaptura {
+      color: #ffffff;
+      background: #fff;
+      width: 36px;
+      height: 36px;
+      margin: 20px 0 auto 0;
+      background: #ee3efe;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+    }
+    #btnImgListo {
+      display: none;
+      color: #ffffff;
+      background: #fff;
+      width: 36px;
+      height: 36px;
+      margin: 20px 0 auto 0;
+      background: #ff6161;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+    }
+    .imgBotonCaptura {
+      width: 20px;
+      height: 20px;
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+      background-image: url("/img/camera.svg");
+    }
+
+    .imgBotonListo {
+      width: 20px;
+      height: 20px;
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+      background-image: url("/img/recording.svg");
+    }
+
+    .btnUploadGif {
+      display: none;
+      margin: 20px 15px auto 0;
+      width: 114px;
+      height: 36px;
+      background: #ee3efe;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+      font-size: 16px;
+      font-family: $font-primary;
+      font-weight: 400px;
+      color: #ffffff;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 18px;
+    }
+
+    .btnRepetir {
+      margin: 20px 15px auto 0;
+      width: 120px;
+      height: 36px;
+      background: #fff4fd;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+      font-size: 16px;
+      font-family: $font-primary;
+      font-weight: 400px;
+      color: #ffffff;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 18px;
+    }
+
+    .txtTiempo {
+      width: 114px;
+      height: 36px;
+      float: left;
+      margin: -40px 0 auto 15px;
     }
   }
 }

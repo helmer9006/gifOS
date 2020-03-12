@@ -31,8 +31,8 @@
       <div class="logo" id="logo">
         <!-- se incluye imagen desde css -->
       </div>
-      <div class="botones ">
-        <button id="btnCrearGuifos">Crear Guifos</button>
+      <div class="botones">
+        <a href= "./upload.html"><button id="btnCrearGuifos">Crear Guifos</button></a>
         <select name="tema" id="tema">
           <option value="0" disabled selected>Elegir Tema</option>
           <option value="1">Sailor Day</option>
@@ -104,43 +104,6 @@
       <!-- #endregion -->
     </div>
 
-    <div class="crearGuifos">
-      <div class="guifos" id="crearGuifos">
-        <label for="">Crear Guifos</label><br>
-        <img src="/img/window img.png" alt="">
-        <h1>Aquí podrás crear tus propios guifos</h1>
-        <p>
-          Crear tu <strong>guifo</strong> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos
-          personalizados. Los pasos para crear tu guifo son: <br>
-          <strong>1)</strong> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)<br>
-          <strong>2)</strong> Capturar tu momento guifo<br>
-          <strong>3)</strong> Revisar el momento<br>
-          <strong>4)</strong> Listo para subir y compartir!<br>
-          ¿Quieres comenzar a crear tu <strong>guifo</strong> ahora?<br>
-        </p>
-        <div class="d-flex justify-content-end align-items-center botones">
-          <button id="btnCancelar">Cancelar</button>
-          <button id="btnComenzar">Comenzar</button>
-        </div>
-      </div>
-
-      <div class="capturar" id="capturar">
-        <label for="">Un Chequeo Antes de Empezar</label><br>
-        <div class="img-capturar">
-          <video src="" id="video" width="832" height="434" alt=""></video>
-          <!-- <img src="" width="832" height="434" alt=""> -->
-        </div>
-        <div class="d-flex justify-content-end align-items-center botonesCaptura">
-          <button id=""><img class="imgBotonCaptura" src="" alt=""></button>
-          <button id="btnCapturar">Capturar</button>
-        </div>
-      </div>
-
-      <div class="misGuifos" id="misGuifos">
-        <input type="text" id="txtGuifos" disabled placeholder="Mis guifos" />
-      </div>
-
-    </div>
   </div>
   <!--#region  IMPORTANDO ARCHIVOS JS-->
   <script type="module" src="/js/app.js"></script>

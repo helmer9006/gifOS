@@ -19,7 +19,6 @@ export default class Giphy {
 
         try {
             
-        
             let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key='+ this.apiKey+ '&q=' + this.search + '&limit=12&offset=0&rating=G&lang=en');
             let found = await api.json();
             return found;
@@ -61,6 +60,26 @@ export default class Giphy {
         }
     }
 
+    async postUploadGif(blob) {
+        try {
+
+            let dato = new FormData();
+            dato.append("file", blob, 'example.gif');
+            let api = await fetch('https://upload.giphy.com/v1/gifs?api_key=' + this.apiKey,{
+            method: 'POST',
+            body: dato
+            });
+
+            let res = await api.json();
+            return res;
+
+        } catch (error) {
+        
+            console.log(error);
+            return error;
+        }
+    }
+    
     //#endregion
 
 }
