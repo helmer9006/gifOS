@@ -507,17 +507,83 @@
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
-.crearGuifos .capturar .txtTiempo {
-  width: 114px;
-  height: 36px;
-  float: left;
-  margin: -40px 0 auto 15px;
-}
 
 #imgVolver {
   position: absolute;
   left: -40px;
   top: 10px;
+}
+
+.guifoCreado {
+  background: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  width: 721px;
+  height: 391px;
+  margin: 0 auto 0 auto;
+}
+.guifoCreado .flexGuifoCreado {
+  margin-top: 28px;
+  display: flex;
+}
+.guifoCreado .imgGuifo {
+  margin-left: 30px;
+  justify-content: left;
+  align-items: center;
+}
+.guifoCreado .imgGuifo h1 {
+  margin-top: 20px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+.guifoCreado .imgGuifo button {
+  margin-top: 10px;
+  width: 256px;
+  height: 36px;
+  background: #fff4fd;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+.guifoCreado .imgGuifo img {
+  opacity: 0.3;
+  margin: auto;
+}
+.guifoCreado .imgGuifo:first-child {
+  width: 371px;
+  height: 195px;
+  background: #ffffff;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+.guifoCreado label {
+  padding-left: 10px;
+  margin-left: 4px;
+  width: 715px;
+  height: 24px;
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  font-weight: 700;
+  font-family: "Chakra Petch", sans-serif;
+}
+.guifoCreado button {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+  width: 144px;
+  height: 36px;
+  margin: 60px 40px 0 0;
+  float: right;
 }
 
 #temporizador {

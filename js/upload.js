@@ -199,7 +199,6 @@ btnListo.addEventListener("click", function (e) {
     btnImgListo.style.display = "none";
     btnUploadGif.style.display = "block"
     btnRepetir.style.display = "block"
-
 })
 
 //#endregion
