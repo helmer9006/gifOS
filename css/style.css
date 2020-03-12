@@ -520,4 +520,24 @@
   top: 10px;
 }
 
+#temporizador {
+  font-size: 20px;
+  margin: -40px 0 auto 15px;
+  width: 114px;
+  height: 36px;
+  text-align: center;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 20px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  background: #ffffff;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+
+#temporizador span {
+  line-height: 36px;
+}
+
 /*# sourceMappingURL=style.css.map */

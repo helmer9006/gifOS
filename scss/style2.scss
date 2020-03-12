@@ -653,11 +653,11 @@ $color-primary: #110038;
       line-height: 18px;
     }
 
-    .txtTiempo {
-      width: 114px;
-      height: 36px;
-      float: left;
+    #temporizador {
+      font-size:25px;
       margin: -40px 0 auto 15px;
+      width:800px;
+      background: red;
     }
   }
 }

@@ -30,10 +30,18 @@ const btnRepetir = document.getElementById('btnRepetir');
 const btnUploadGif = document.getElementById('btnUploadGif');
 const btnCrearGuifos = document.querySelector("#btnCrearGuifos");
 const btnComenzar = document.querySelector("#btnComenzar");
+const horas = document.getElementById('hours');
+const minutos = document.getElementById('mins');
+const segundos = document.getElementById('seconds');
 let recorder;
 let mediaStreamGlobal;
 let blob;
 let gifId;
+let timex;
+var hours = 0;
+var mins = 0;
+var seconds = 0;
+
 //ocultar barra de herramientas
 
 divBotones.style.display = "none";
@@ -161,7 +169,7 @@ btnCapturar.addEventListener("click", function () {
     btnCapturar.style.display = "none";
     btnListo.style.display = "block";
     btnImgListo.style.display = "block";
-
+    iniciarTemporizador();
 
 
     recorder = RecordRTC(mediaStreamGlobal, {
@@ -180,6 +188,8 @@ btnCapturar.addEventListener("click", function () {
 
 btnListo.addEventListener("click", function (e) {
     e.preventDefault();
+    resetTemporizador();
+    clearTimeout(timex);
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
         console.log(invokeSaveAsDialog(blob));
@@ -189,7 +199,6 @@ btnListo.addEventListener("click", function (e) {
     btnImgListo.style.display = "none";
     btnUploadGif.style.display = "block"
     btnRepetir.style.display = "block"
-
 
 })
 
@@ -218,7 +227,8 @@ btnUploadGif.addEventListener("click", function () {
         if (result.status == 200) {
             // console.log(result);
 
-            let resultado = await result.json();
+            // let resultado = await result.json();
+            let resultado = result.json();
             gifId = resultado.data.id;
             //mostrar div de gif cargado correctamente
 
@@ -230,3 +240,69 @@ btnUploadGif.addEventListener("click", function () {
 
     });
 })
+
+
+//#region CREACIÓN DE CRONOMETRO
+
+// var hours = 0;
+// var mins = 0;
+// var seconds = 0;
+
+// $('#start').click(function(){
+//       startTimer();
+// });
+
+// $('#stop').click(function(){
+//       clearTimeout(timex);
+// });
+
+// $('#reset').click(function(){
+//       hours =0;      mins =0;      seconds =0;
+//   $('#hours','#mins').html('00:');
+//   $('#seconds').html('00');
+// });
+
+function iniciarTemporizador() {
+
+    let horas = document.getElementById('hours');
+    const minutos = document.getElementById('mins');
+    const segundos = document.getElementById('seconds');
+
+    timex = setTimeout(function () {
+
+        seconds++;
+        if (seconds > 59) {
+            seconds = 0; mins++;
+            if (mins > 59) {
+                mins = 0; hours++;
+                if (hours < 10) {
+                    horas.innerHTML = '0:' + hours + ':';
+                } else
+                    horas.innerHTML = hours + ':';
+            }
+
+            if (mins < 10) {
+                minutos.innerHTML = '0' + mins + ':';
+            }
+            else mins.innerHTML = mins + ':';
+        }
+        if (seconds < 10) {
+
+            segundos.innerHTML = '0' + seconds;
+        } else {
+            segundos.innerHTML = seconds;
+        }
+        iniciarTemporizador();
+    }, 1000);
+
+}
+
+function resetTemporizador() {
+
+    hours = 0; mins = 0; seconds = 0;
+    horas.innerHTML = '00:';
+    minutos.innerHTML = '00:';
+    segundos.innerHTML = '00:';
+}
+
+//#endregion 
