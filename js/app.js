@@ -190,12 +190,7 @@ sugeridos.addEventListener("click", function (e) {
 
 //#endregion
 
-//#region MOSTRAR MIS GUIFOS
 
-
-
-
-//#endregion
 //*************************************************//
 // INSTANCIANDO CLASES Y METODOS
 //*************************************************//
@@ -254,52 +249,3 @@ document.querySelector("#guifos").addEventListener("click", function () {
 
 //#endregion 
 
-//#region CREAR GUIFOS
-
-// document.querySelector("#btnCrearGuifos").addEventListener('click', function(){
-
-//   ContentInicio.style.display = "none";
-//   ContentCrearGuifos.style.display = "block";
-//   ContentMisGuifos.style.display = "block"; 
-//   document.querySelector("#btnCrearGuifos").style.display = "none";
-//   document.querySelector("#tema").style.display = "none";
-//   document.querySelector("#guifos").style.display = "none";
-//   document.querySelector("#logo").innerHTML = `
-//   <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
-//   `;
-
-// })
-
-document.querySelector("#btnComenzar").addEventListener('click', function () {
-
-  ContentCrearGuifos.style.display = "none";
-  ContentCapturar.style.display = "block";
-  iniciarGrabacion();
-
-})
-
-//#endregion 
-
-
-//#region INICIANDO GRABACION DE VIDEO 
-
-function iniciarGrabacion() {
-
-  // Prefer camera resolution nearest to 1280x720.
-  var constraints = { video: { width: 830, height: 434 } };
-  var p = navigator.mediaDevices.getUserMedia(constraints);
-
-  p.then(function (mediaStream) {
-    var video = document.querySelector('video');
-    // video.src = window.URL.createObjectURL(mediaStream);
-    video.srcObject = mediaStream
-
-    video.onloadedmetadata = function (e) {
-      video.play();
-    };
-  });
-
-  p.catch(function (err) { console.log(err.name); }); // always check for errors at the end.
-
-}
-  //#endregion

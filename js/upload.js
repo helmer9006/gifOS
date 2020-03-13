@@ -4,6 +4,8 @@
 
 import Giphy from "/js/giphy.js";
 
+//#region variables
+
 //*************************************************//
 //DECLARANDO VARIABLES
 //*************************************************//
@@ -42,25 +44,28 @@ var hours = 0;
 var mins = 0;
 var seconds = 0;
 
-//ocultar barra de herramientas
+//#endregion
 
+//ocultar barra de herramientas
 divBotones.style.display = "none";
 
+//#region CARGAR IMAGEN VOLVER
 
 //MOSTRAR FLECHA DE VOLVER EN LOGO 
 
 document.querySelector("#logo").innerHTML = `
   <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
   `;
+//#endregion
 
 //*************************************************//
 //FUNCIONES
 //*************************************************//
 
+//*************************************************//
 //ESTRUCTURA PARA INVOCAR FUNCIONES
-
+//*************************************************//
 (() => {
-
     cargarTema();
 })();
 
@@ -81,17 +86,16 @@ function cargarTema() {
 }
 //#endregion
 
-
 //#region MOSTRAR MIS GUIFOS
 
-document.querySelector("#guifos").addEventListener("click", function () {
+// document.querySelector("#guifos").addEventListener("click", function () {
 
-    ContentInicio.style.display = "none";
-    ContentMisGuifos.style.display = "block";
-    ContentCrearGuifos.style.display = "none";
+//     ContentInicio.style.display = "none";
+//     ContentMisGuifos.style.display = "block";
+//     ContentCrearGuifos.style.display = "none";
 
 
-})
+// })
 
 //#endregion 
 
@@ -112,7 +116,13 @@ document.querySelector("#guifos").addEventListener("click", function () {
 
 // })
 
-//EVENTO COMENZAR 
+
+//#endregion 
+
+//#region COMENZAR CREACION GUIFO
+//***************************************************
+//*******EVENTO COMENZAR MOSTAR VISTA CAMARA*********
+//***************************************************
 btnComenzar.addEventListener('click', function () {
 
     ContentCrearGuifos.style.display = "none";
@@ -121,13 +131,11 @@ btnComenzar.addEventListener('click', function () {
 
 })
 
-//#endregion 
-
+//#endregion
 
 //#region ACTIVANDO LA CAMARA EN EL NAVEGADOR Y OBTENIENDO VIDEO 
 
 function iniciarGrabacion() {
-    // Prefer camera resolution nearest to 1280x720.
     var constraints = { video: { width: 830, height: 434 } };
     var p = navigator.mediaDevices.getUserMedia(constraints);
 
@@ -155,15 +163,15 @@ function iniciarGrabacion() {
     p.catch(function (err) { console.log(err.name); }); // always check for errors at the end.
 
 }
-
+//#endregion
 
 //#region CAPTURANDO VIDEO
 
-//EVENTO DEL BOTON CAPTURAR VIDEO PARA INICIAR GRABACION
 
+//**************************************************
+//*****EVENTO BOTON CAPTURAR VIDEO-INICIAR GRABACION
+//**************************************************
 btnCapturar.addEventListener("click", function () {
-    //OBJETO PARA ALMACENAR VIDEO
-    //
 
     btnImgCaptura.style.display = "none";
     btnCapturar.style.display = "none";
@@ -182,8 +190,9 @@ btnCapturar.addEventListener("click", function () {
 
 });
 
+//***************************************************
 //EVENTO CLICK EN BOTON LISTO PARA TERMINAR GRABACION
-
+//***************************************************
 btnListo.addEventListener("click", function (e) {
     e.preventDefault();
     resetTemporizador();//reinicia en 00
@@ -201,8 +210,11 @@ btnListo.addEventListener("click", function (e) {
 
 //#endregion
 
-//EVENTO REPETIR CAPTURA
+//#region REPETIR CAPTURA
 
+//******************************************
+//*****EVENTO REPETIR CAPTURA GUIFO*********
+//******************************************
 btnRepetir.addEventListener("click", function () {
 
     recorder.destroy();
@@ -214,8 +226,12 @@ btnRepetir.addEventListener("click", function () {
     btnImgCaptura.style.display = "block";
     btnCapturar.style.display = "block";
 })
+//#endregion
 
-//evento cargar imagen
+//#region CARGAR GUIFO
+//******************************************
+//************EVENTO CARGAR GUIFO***********
+//******************************************
 btnUploadGif.addEventListener("click", function () {
 
     try {
@@ -235,6 +251,9 @@ btnUploadGif.addEventListener("click", function () {
         console.log("error" + error);
     }
 })
+
+//#endregion
+
 //#region CREACIÓN DE CRONOMETRO
 
 function iniciarTemporizador() {

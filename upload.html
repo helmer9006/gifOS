@@ -44,8 +44,7 @@
         </div>
         <!-- #endregion -->
 
-        <!-- #endregion -->
-
+        <!-- #region VISTA INICIAL CREAR GUIFO -->
         <div class="crearGuifos">
             <div class="guifos" id="crearGuifos">
                 <label for="">Crear Guifos</label><br>
@@ -65,23 +64,9 @@
                     <button id="btnComenzar">Comenzar</button>
                 </div>
             </div>
+            <!-- #endregion -->
 
-            <!-- GUIFY SUBIDO CON EXITO -->
-            <div style="display: none;" class="guifoCreado" id="guifoCreado">
-                <label>Guifo Subido con Éxito.</label><br>
-                <div class="flexGuifoCreado">
-                    <div class="imgGuifo">
-                        <img src="http://lorempixel.com/365/191/" alt="">
-                    </div>
-                    <div class="imgGuifo">
-                        <h1>Guifo creado con éxito.</h1>
-                        <button id="btnCopiarEnlace">Copiar Enlace Guifo</button>
-                        <button id="btnDescargarGuifo">Descargar Guifo</button>
-                    </div>
-
-                </div>
-                <button id="btnCreadoListo">Listo</button>
-            </div>
+            <!-- #region VISTA CAPTURA VIDEO -->
 
             <div class="capturar" id="capturar">
                 <label for="">Un Chequeo Antes de Empezar</label><br>
@@ -105,9 +90,31 @@
                 </div>
                 <!-- <input type="text" id="txtTiempo" class="txtTiempo"> -->
             </div>
+            <!-- #endregion -->
+
+            <!-- #region VISTA GUIFO SUBIDO CON EXITO -->
+            <div style="display: none;" class="guifoCreado" id="guifoCreado">
+                <label>Guifo Subido con Éxito.</label><br>
+                <div class="flexGuifoCreado">
+                    <div class="imgGuifo">
+                        <img src="http://lorempixel.com/365/191/" alt="">
+                    </div>
+                    <div class="imgGuifo">
+                        <h1>Guifo creado con éxito.</h1>
+                        <button id="btnCopiarEnlace">Copiar Enlace Guifo</button>
+                        <button id="btnDescargarGuifo">Descargar Guifo</button>
+                    </div>
+
+                </div>
+                <button id="btnCreadoListo">Listo</button>
+            </div>
+            <!-- #endregion -->
+
+            <!-- #region VISTA MOSTRAR MIS GUIFOS CREADOS -->
             <div class="misGuifo" id="misGuifos">
                 <input type="text" id="txtGuifos" disabled placeholder="Mis guifos" />
             </div>
+            <!-- #endregion -->
         </div>
     </div>
 
