@@ -380,24 +380,30 @@
   font-weight: 700;
   font-family: "Chakra Petch", sans-serif;
 }
-.crearGuifos .guifos .botones {
+.crearGuifos .botonesCaptura {
   padding-right: 35px;
 }
-.crearGuifos .guifos .botones button {
-  margin: 10px;
+.crearGuifos .botonesCaptura button {
+  width: 144px;
+  height: 36px;
   background: #fff4fd;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+  margin-right: 15px;
 }
-.crearGuifos .guifos .botones button:last-child {
+.crearGuifos .botonesCaptura #btnComenzar {
+  color: #110038;
   background: #f7c9f3;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
-.crearGuifos .misGuifos {
-  display: block;
-}
-.crearGuifos .misGuifos input {
+.crearGuifos .misGuifo input {
   margin: 20px auto 0 auto;
   width: 1200px;
   height: 32px;

@@ -444,36 +444,52 @@ $color-primary: #110038;
       font-family: $font-primary;
     }
 
-    .botones {
-      padding-right: 35px;
-      button {
-        margin: 10px;
-        background: #fff4fd;
-        border: 1px solid #110038;
-        box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-        &:last-child {
-          background: #f7c9f3;
-          border: 1px solid #110038;
-          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-        }
-      }
-    }
+    // .botones {
+    //   margin-right: 35px;
+    //   button {
+    //     background: #fff4fd;
+    //     border: 1px solid #110038;
+    //     box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    //   }
+    // }
   }
-  .misGuifos {
-    display: block;
-    input {
-      margin: 20px auto 0 auto;
-      width: 1200px;
-      height: 32px;
-      background: #fffafe;
-      border: 1px solid #e6bbe2;
-      box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+
+  .botonesCaptura {
+    padding-right: 35px;
+    button {
+      width: 144px;
+      height: 36px;
+      background: #fff4fd;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
       font-family: $font-primary;
-      font-size: 14px;
+      font-size: 16px;
       color: #110038;
       letter-spacing: 0;
-      padding-left: 15px;
+      text-align: center;
+      line-height: 18px;
+      margin-right: 15px;
     }
+    #btnComenzar{
+      color: #110038;
+      background: #f7c9f3;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    }
+  }
+
+  .misGuifo input {
+    margin: 20px auto 0 auto;
+    width: 1200px;
+    height: 32px;
+    background: #fffafe;
+    border: 1px solid #e6bbe2;
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    font-family: $font-primary;
+    font-size: 14px;
+    color: #110038;
+    letter-spacing: 0;
+    padding-left: 15px;
   }
 
   //CAPTURA
@@ -584,8 +600,6 @@ $color-primary: #110038;
       border: 1px solid #110038;
       box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
     }
-    
-
   }
 }
 
@@ -633,7 +647,6 @@ $color-primary: #110038;
     img {
       opacity: 0.3;
       margin: auto;
-
     }
   }
   .imgGuifo:first-child {
@@ -643,7 +656,7 @@ $color-primary: #110038;
     border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
   }
-  
+
   label {
     padding-left: 10px;
     margin-left: 4px;

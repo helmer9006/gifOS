@@ -170,8 +170,6 @@ btnCapturar.addEventListener("click", function () {
     btnListo.style.display = "block";
     btnImgListo.style.display = "block";
     iniciarTemporizador();
-
-
     recorder = RecordRTC(mediaStreamGlobal, {
         type: 'gif',
         frameRate: 1,
@@ -180,7 +178,7 @@ btnCapturar.addEventListener("click", function () {
         hidden: 240,
     });
     recorder.startRecording();
-    console.log("soy recorder", recorder)
+    // console.log("soy recorder", recorder)
 
 });
 
@@ -188,8 +186,8 @@ btnCapturar.addEventListener("click", function () {
 
 btnListo.addEventListener("click", function (e) {
     e.preventDefault();
-    resetTemporizador();
-    clearTimeout(timex);
+    resetTemporizador();//reinicia en 00
+    clearTimeout(timex);//detiene
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
         console.log(invokeSaveAsDialog(blob));
@@ -220,46 +218,24 @@ btnRepetir.addEventListener("click", function () {
 //evento cargar imagen
 btnUploadGif.addEventListener("click", function () {
 
-    const resUpload = new Giphy();
-    resUpload.postUploadGif(blob).then(result => {
-
-        if (result.status == 200) {
-            // console.log(result);
-
-            // let resultado = await result.json();
-            let resultado = result.json();
-            gifId = resultado.data.id;
-            //mostrar div de gif cargado correctamente
-
-        } else {
-            alert("Hubo un error al cargar el GIF");
-            console.log(result);
-        }
-
-
-    });
+    try {
+        const resUpload = new Giphy();
+        resUpload.postUploadGif(blob).then(result => {
+            console.log(result)
+            if (result.meta.status == 200) {
+                gifId = result.data.id;
+                console.log("yo soy el id del gif" + gifId);
+                //mostrar div de gif cargado correctamente
+            } else {
+                alert("Hubo un error al cargar el GIF");
+                console.log("error" + result);
+            }
+        });
+    } catch (error) {
+        console.log("error" + error);
+    }
 })
-
-
 //#region CREACIÓN DE CRONOMETRO
-
-// var hours = 0;
-// var mins = 0;
-// var seconds = 0;
-
-// $('#start').click(function(){
-//       startTimer();
-// });
-
-// $('#stop').click(function(){
-//       clearTimeout(timex);
-// });
-
-// $('#reset').click(function(){
-//       hours =0;      mins =0;      seconds =0;
-//   $('#hours','#mins').html('00:');
-//   $('#seconds').html('00');
-// });
 
 function iniciarTemporizador() {
 

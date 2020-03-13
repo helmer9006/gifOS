@@ -367,8 +367,8 @@ body {
   margin: 100px auto 100px auto;
   width: 684px;
   height: 386px;
-  background: #fff4fd;
-  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
 }
 .crearGuifos .guifos img {
   display: inline;
@@ -407,32 +407,31 @@ body {
   font-weight: 700;
   font-family: "Chakra Petch", sans-serif;
 }
-.crearGuifos .guifos .botones {
+.crearGuifos .guifos .botonesCaptura {
   padding-right: 35px;
 }
-.crearGuifos .guifos .botones button {
-  color: #ffffff;
+.crearGuifos .guifos .botonesCaptura button {
+  width: 144px;
+  height: 36px;
+  color: #110038;
   margin: 10px;
+  background: #fff4fd;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+.crearGuifos .guifos .botonesCaptura #btnComenzar {
+  color: #fff;
   background: #ce36db;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
 }
-.crearGuifos .guifos .botones button:last-child {
-  color: #fff;
-  background: #ee3efe;
-  border: 1px solid #110038;
-  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
-}
-.crearGuifos .misGuifos {
-  display: block;
-}
-.crearGuifos .misGuifos input {
+.crearGuifos .misGuifo input {
   margin: 20px auto 0 auto;
   width: 1200px;
   height: 32px;
+  background: #fffafe;
   border: 1px solid #2e32fb;
-  background: #b4b4b4;
-  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
   font-family: "Chakra Petch", sans-serif;
   font-size: 14px;
   color: #110038;
@@ -555,7 +554,7 @@ body {
 .crearGuifos .capturar .btnRepetir {
   display: none;
   margin: 20px 15px auto 0;
-  width: 120px;
+  width: 140px;
   height: 36px;
   background: #fff4fd;
   border: 1px solid #110038;
@@ -563,10 +562,16 @@ body {
   font-size: 16px;
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400px;
-  color: #ffffff;
+  color: #110038;
   letter-spacing: 0;
   text-align: center;
   line-height: 18px;
+}
+.crearGuifos .capturar .txtTiempo {
+  width: 114px;
+  height: 36px;
+  float: left;
+  margin: -40px 0 auto 15px;
 }
 
 #imgVolver {
@@ -576,8 +581,8 @@ body {
 }
 
 .guifoCreado {
-  background: #b4b4b4;
-  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+  background: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   width: 721px;
   height: 391px;
   margin: 0 auto 0 auto;
@@ -604,9 +609,9 @@ body {
   margin-top: 10px;
   width: 256px;
   height: 36px;
-  background: #f0f0f0;
-  border: 1px solid #808080;
-  box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+  background: #fff4fd;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 .guifoCreado .imgGuifo img {
   opacity: 0.3;
@@ -624,17 +629,17 @@ body {
   margin-left: 4px;
   width: 715px;
   height: 24px;
-  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
   font-size: 14px;
   color: #ffffff;
   letter-spacing: 0;
   font-weight: 700;
   font-family: "Chakra Petch", sans-serif;
 }
-.guifoCreado #btnCreadoListo {
-  background: #ee3efe;
+.guifoCreado button {
+  background: #f7c9f3;
   border: 1px solid #110038;
-  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
   color: #110038;
@@ -645,11 +650,6 @@ body {
   height: 36px;
   margin: 60px 40px 0 0;
   float: right;
-  font-size: 16px;
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400px;
-  color: #ffffff;
-  letter-spacing: 0;
 }
 
 #temporizador {

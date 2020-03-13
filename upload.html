@@ -46,7 +46,6 @@
 
         <!-- #endregion -->
 
-
         <div class="crearGuifos">
             <div class="guifos" id="crearGuifos">
                 <label for="">Crear Guifos</label><br>
@@ -61,14 +60,14 @@
                     <strong>4)</strong> Listo para subir y compartir!<br>
                     ¿Quieres comenzar a crear tu <strong>guifo</strong> ahora?<br>
                 </p>
-                <div class="d-flex justify-content-end align-items-center botones">
+                <div class="d-flex justify-content-end align-items-center botonesCaptura">
                     <a href="/index.html"><button id="btnCancelar">Cancelar</button></a>
                     <button id="btnComenzar">Comenzar</button>
                 </div>
             </div>
 
             <!-- GUIFY SUBIDO CON EXITO -->
-            <div class="guifoCreado" id="guifoCreado">
+            <div style="display: none;" class="guifoCreado" id="guifoCreado">
                 <label>Guifo Subido con Éxito.</label><br>
                 <div class="flexGuifoCreado">
                     <div class="imgGuifo">
@@ -79,7 +78,7 @@
                         <button id="btnCopiarEnlace">Copiar Enlace Guifo</button>
                         <button id="btnDescargarGuifo">Descargar Guifo</button>
                     </div>
-                  
+
                 </div>
                 <button id="btnCreadoListo">Listo</button>
             </div>
@@ -106,16 +105,11 @@
                 </div>
                 <!-- <input type="text" id="txtTiempo" class="txtTiempo"> -->
             </div>
-
             <div class="misGuifo" id="misGuifos">
                 <input type="text" id="txtGuifos" disabled placeholder="Mis guifos" />
             </div>
-
         </div>
-
-
     </div>
-
 
     <!--#region  IMPORTANDO ARCHIVOS JS-->
     <script type="module" src="/js/upload.js"></script>
