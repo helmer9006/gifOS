@@ -8,6 +8,10 @@ body {
   background-color: #110038 !important;
 }
 
+a {
+  color: #fff;
+}
+
 .navbar {
   padding: 0 !important;
   width: 100%;
@@ -27,16 +31,17 @@ body {
   font-weight: 400;
 }
 
-.container {
-  max-width: 1200px !important;
-  padding-right: 0 !important;
-  padding-left: 0 !important;
+.contenedor {
+  margin: 20px auto 10px auto;
+  padding: 20px 0 20px 0;
+  margin-top: 10px;
+  max-width: 1200px;
 }
-.container h1 {
+.contenedor h1 {
   color: #110038;
   font-family: "Chakra Petch", sans-serif;
 }
-.container li {
+.contenedor li {
   display: inline-block;
 }
 
@@ -46,6 +51,7 @@ body {
   background-size: 92.6px 54px;
   background-repeat: no-repeat;
   background-image: url("/img/gifOF_logo_dark.png");
+  cursor: pointer;
 }
 
 .botones button {
@@ -80,7 +86,7 @@ body {
 .botones select:hover {
   outline: 1px dotted #110038;
 }
-.botones a {
+.botones a:not([href]) {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -90,13 +96,14 @@ body {
   line-height: 18px;
   padding: 5px;
 }
-.botones a:hover {
+.botones a:not([href]):hover {
   padding: 4px;
   color: #ffffff;
   border: 1px dotted #ffffff;
   text-decoration: none;
+  cursor: pointer;
 }
-.botones a:active {
+.botones a:not([href]):active {
   color: #ffffff;
   border: 1px dotted #ffffff;
   text-decoration: none;
@@ -181,6 +188,7 @@ body {
   flex-direction: column;
   position: absolute;
   width: 100%;
+  max-width: 1200px;
 }
 .filtro_buscar button {
   width: 1055px;
@@ -323,23 +331,12 @@ body {
   padding: 10px;
   display: none;
 }
-.res_tendencia .img-tendencia {
-  background: #b4b4b4;
-  box-shadow: inset -2px -2px 0 0 #5c5c5c, inset 2px 2px 0 0 #ffffff;
-  margin-bottom: 20px;
-  width: 288px;
-  height: 298px;
-}
-.res_tendencia .img-tendencia :hover {
-  width: 294px;
-  height: 304px;
-}
-.res_tendencia .img-tendencia label {
+.res_tendencia label {
   visibility: hidden;
   height: 24px;
   width: 288px;
   display: block;
-  margin-top: -24px;
+  margin-top: -34px;
   background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
   position: relative;
   z-index: 1;
@@ -349,16 +346,13 @@ body {
   color: #ffffff;
   letter-spacing: 0;
 }
-.res_tendencia .img-tendencia img {
+.res_tendencia img {
   width: 288px;
   height: 298px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
-.res_tendencia .img-tendencia :hover {
-  border: 1px dotted #110038;
-  width: 286px;
-  height: 296px;
-}
-.res_tendencia .img-tendencia :hover ~ label {
+.res_tendencia :hover ~ label {
   visibility: visible;
 }
 
@@ -614,7 +608,7 @@ body {
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 .guifoCreado .imgGuifo img {
-  opacity: 0.3;
+  opacity: 0.5;
   margin: auto;
 }
 .guifoCreado .imgGuifo:first-child {
@@ -650,6 +644,36 @@ body {
   height: 36px;
   margin: 60px 40px 0 0;
   float: right;
+}
+
+#txtGuifos {
+  background-color: red;
+  margin: 20px auto 0 auto;
+  width: 1200px;
+  height: 32px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  padding-left: 15px;
+}
+
+#txtGuifosIndex {
+  background-color: red;
+  margin: 20px auto 0 auto;
+  width: 1200px;
+  height: 32px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  padding-left: 15px;
 }
 
 #temporizador {

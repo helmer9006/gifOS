@@ -6,7 +6,7 @@ export default class Giphy {
     constructor(search) {
         this.apiKey = 'Ot8LkNZiCNqOlYdTfvzfCHNlwW4fgXxo';
         this.search = search;
-        
+
     }
 
     //*************************************************//
@@ -18,8 +18,8 @@ export default class Giphy {
     async getSearchResults() {
 
         try {
-            
-            let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key='+ this.apiKey+ '&q=' + this.search + '&limit=12&offset=0&rating=G&lang=en');
+
+            let api = await fetch('https://api.giphy.com/v1/gifs/search?api_key=' + this.apiKey + '&q=' + this.search + '&limit=12&offset=0&rating=G&lang=en');
             let found = await api.json();
             return found;
 
@@ -65,21 +65,37 @@ export default class Giphy {
 
             let dato = new FormData();
             dato.append("file", blob, 'example.gif');
-            let api = await fetch('https://upload.giphy.com/v1/gifs?api_key=' + this.apiKey,{
-            method: 'POST',
-            body: dato
+            let api = await fetch('https://upload.giphy.com/v1/gifs?api_key=' + this.apiKey, {
+                method: 'POST',
+                body: dato,
+                header: "access-control-allow-origin: *"
             });
 
             let res = await api.json();
             return res;
 
         } catch (error) {
-        
+
             console.log(error);
             return error;
         }
     }
-    
+
+
+    async getUploadGif(gitId) {
+        try {
+
+            let gifCargado = await fetch('https://api.giphy.com/v1/gifs/' + gitId + '?api_key=' + this.apiKey);
+            let gif = await gifCargado.json();
+            return gif;
+
+        } catch (error) {
+
+            console.log(error);
+        }
+    }
+
+
     //#endregion
 
 }

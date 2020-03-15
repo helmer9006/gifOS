@@ -26,10 +26,10 @@
             </p>
         </nav>
     </div>
-    <div class="container col-10 mt-5">
+    <div class="contenedor">
         <!-- #region SECCION LOGO-->
         <div class="seccion-logo d-flex justify-content-between">
-            <div class="logo" id="logo">
+            <div class="logo" id="logoUpload">
                 <!-- se incluye imagen desde css -->
             </div>
             <div class="botones" id="botones">
@@ -39,7 +39,7 @@
                     <option value="1">Sailor Day</option>
                     <option value="2">Sailor Night</option>
                 </select>
-                <a href="#misGuifos" id="guifos">Mis Guifos</a>
+                <a href="" id="guifos">Mis Guifos</a>
             </div>
         </div>
         <!-- #endregion -->
@@ -97,7 +97,7 @@
                 <label>Guifo Subido con Éxito.</label><br>
                 <div class="flexGuifoCreado">
                     <div class="imgGuifo">
-                        <img src="http://lorempixel.com/365/191/" alt="">
+                        <img id="vistaGuifoCreado" src="http://lorempixel.com/365/191/" alt="">
                     </div>
                     <div class="imgGuifo">
                         <h1>Guifo creado con éxito.</h1>
@@ -113,6 +113,12 @@
             <!-- #region VISTA MOSTRAR MIS GUIFOS CREADOS -->
             <div class="misGuifo" id="misGuifos">
                 <input type="text" id="txtGuifos" disabled placeholder="Mis guifos" />
+
+                <div id="misGuifosStorage" class="res_tendencia  d-flex d-flex justify-content-start align-items-center flex-wrap">
+                    <!-- aquí se cargan img de resultados de la busqueda de mis guifos en localstorage -->
+               
+                </div>
+
             </div>
             <!-- #endregion -->
         </div>

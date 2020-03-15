@@ -35,6 +35,12 @@ const btnComenzar = document.querySelector("#btnComenzar");
 const horas = document.getElementById('hours');
 const minutos = document.getElementById('mins');
 const segundos = document.getElementById('seconds');
+const contentGuifoCreado = document.getElementById('guifoCreado');
+const btnDescargarGuifo = document.getElementById('btnDescargarGuifo');
+const btnCopiarEnlace = document.getElementById('btnCopiarEnlace');
+const vistaGuifoCreado = document.getElementById('vistaGuifoCreado');
+const btnCreadoListo = document.getElementById('btnCreadoListo');
+const misGuifosStorage = document.getElementById('misGuifosStorage');
 let recorder;
 let mediaStreamGlobal;
 let blob;
@@ -43,7 +49,7 @@ let timex;
 var hours = 0;
 var mins = 0;
 var seconds = 0;
-
+var url;
 //#endregion
 
 //ocultar barra de herramientas
@@ -53,9 +59,11 @@ divBotones.style.display = "none";
 
 //MOSTRAR FLECHA DE VOLVER EN LOGO 
 
-document.querySelector("#logo").innerHTML = `
-  <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
-  `;
+
+
+// document.querySelector("#logoUpload").innerHTML = `
+//   <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
+//   `;
 //#endregion
 
 //*************************************************//
@@ -67,6 +75,11 @@ document.querySelector("#logo").innerHTML = `
 //*************************************************//
 (() => {
     cargarTema();
+    mostrarGuifosStorage();
+    
+    document.getElementById('logoUpload').innerHTML = `
+<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
+`;
 })();
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
@@ -199,7 +212,6 @@ btnListo.addEventListener("click", function (e) {
     clearTimeout(timex);//detiene
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
-        console.log(invokeSaveAsDialog(blob));
     });
 
     btnListo.style.display = "none";
@@ -237,19 +249,107 @@ btnUploadGif.addEventListener("click", function () {
     try {
         const resUpload = new Giphy();
         resUpload.postUploadGif(blob).then(result => {
-            console.log(result)
+           
             if (result.meta.status == 200) {
                 gifId = result.data.id;
+                traerGuifoCargado(gifId);
                 console.log("yo soy el id del gif" + gifId);
-                //mostrar div de gif cargado correctamente
+
+
             } else {
                 alert("Hubo un error al cargar el GIF");
-                console.log("error" + result);
+                // console.log("error" + result);
             }
         });
     } catch (error) {
         console.log("error" + error);
     }
+})
+
+//#endregion
+
+//#region MOSTRAR GUIFO CARGADO
+//******************************************
+//*****FUNCION MOSTRAR GUIFO CARGADO********
+//******************************************
+function traerGuifoCargado(gifId) {
+
+    try {
+
+        const resGif = new Giphy();
+        resGif.getUploadGif(gifId).then(result => {
+            console.log(result)
+            if (result.meta.status == 200) {
+                localStorage.setItem('gif' + gifId, JSON.stringify(result));
+                url = result.data.images.fixed_height.url;
+                contentGuifoCreado.style.display = 'block';
+                ContentCapturar.style.display = 'none';
+                vistaGuifoCreado.src = result.data.images.fixed_height.url;
+                mostrarGuifosStorage();
+            } else {
+                alert("Hubo un error al cargar el GIF");
+                console.log("error" + result);
+            }
+        });
+
+
+    } catch (error) {
+
+        console.log("error" + error);
+    }
+
+}
+
+//#endregion
+
+
+//#region MOSTRAR GUIFOS CREADOS Y ALMACENADOS EN LOCALSTORAGE
+
+function mostrarGuifosStorage(){
+
+    misGuifosStorage.innerHTML += ``;
+    for (let i = 0; i <= localStorage.length - 1; i++) {
+        if(localStorage.key(i).indexOf("gif") >= 0){
+           let clave = localStorage.key(i);
+            // console.log("La clave " +  clave+ "contiene el valor " + localStorage.getItem(clave) + "");
+            let objGuifos =  JSON.parse(localStorage.getItem(clave));
+            // console.log(objGuifos);
+            misGuifosStorage.innerHTML += `
+                <div class="img-tendencia">
+                    <img src="${objGuifos.data.images.fixed_height.url}" alt="">
+                    <label id="lblImg">#${objGuifos.data.title}</label>
+                </div>
+                `;
+        }
+    }
+}
+
+
+//#endregion
+
+// function traerGuifosStorage(){
+//   var gifStorage  = JSON.parse(localStorage.getItem('gif'));
+//   console.log(gifStorage);  
+// }
+
+//#region DESCARGAR GUIFO CREADO
+
+btnDescargarGuifo.addEventListener('click', function () {
+    console.log(invokeSaveAsDialog(blob));
+})
+
+//#endregion 
+
+//#region COPIAR ENLACE GUIFO
+
+
+//#endregion
+
+//#region EVENTO BOTON LISTA CARGA DE GIF 
+
+btnCreadoListo.addEventListener('click', function () {
+    contentGuifoCreado.style.display = 'none';
+
 })
 
 //#endregion

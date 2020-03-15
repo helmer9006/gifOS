@@ -9,6 +9,10 @@ body {
   background-color: #110038 !important;
 }
 
+a {
+  color: #fff;
+}
+
 $font-primary: "Chakra Petch", sans-serif;
 $color-primary: #110038;
 
@@ -35,11 +39,12 @@ $color-primary: #110038;
 //#endregion
 
 //#region CONTENEDOR
-.container {
-  max-width: 1200px !important;
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-  //   background-color: magenta;
+.contenedor {
+  margin: 20px auto 10px auto;
+  padding: 20px 0 20px 0;
+  margin-top: 10px;
+  max-width: 1200px;
+
   h1 {
     color: $color-primary;
     font-family: $font-primary;
@@ -58,6 +63,7 @@ $color-primary: #110038;
   background-size: 92.6px 54px;
   background-repeat: no-repeat;
   background-image: url("/img/gifOF_logo_dark.png");
+  cursor: pointer;
 }
 
 .botones {
@@ -97,7 +103,7 @@ $color-primary: #110038;
     }
   }
 
-  a {
+  a:not([href]) {
     font-family: $font-primary;
     font-weight: 400;
     font-size: 16px;
@@ -112,6 +118,7 @@ $color-primary: #110038;
       color: #ffffff;
       border: 1px dotted #ffffff;
       text-decoration: none;
+      cursor: pointer;
     }
 
     &:active {
@@ -210,7 +217,7 @@ $color-primary: #110038;
   flex-direction: column;
   position: absolute;
   width: 100%;
-
+  max-width: 1200px;
   button {
     width: 1055px;
     height: 34px;
@@ -380,48 +387,30 @@ $color-primary: #110038;
     display: none;
   }
 
-  .img-tendencia {
-    background: #b4b4b4;
-    box-shadow: inset -2px -2px 0 0 #5c5c5c, inset 2px 2px 0 0 #ffffff;
-    margin-bottom: 20px;
+  label {
+    visibility: hidden;
+
+    height: 24px;
+    width: 288px;
+    display: block;
+    margin-top: -34px;
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+    position: relative;
+    z-index: 1;
+    font-family: $font-primary;
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+    letter-spacing: 0;
+  }
+  img {
     width: 288px;
     height: 298px;
-
-    & :hover {
-      width: 294px;
-      height: 304px;
-    }
-
-    label {
-      visibility: hidden;
-
-      height: 24px;
-      width: 288px;
-      display: block;
-      margin-top: -24px;
-      background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
-      position: relative;
-      z-index: 1;
-      font-family: $font-primary;
-      font-weight: 700;
-      font-size: 14px;
-      color: #ffffff;
-      letter-spacing: 0;
-    }
-    img {
-      width: 288px;
-      height: 298px;
-    }
-    & :hover {
-      border: 1px dotted #110038;
-      width: 286px;
-      height: 296px;
-      // background: #b4b4b4;
-      //
-    }
-    & :hover ~ label {
-      visibility: visible;
-    }
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  & :hover ~ label {
+    visibility: visible;
   }
 }
 
@@ -703,7 +692,7 @@ $color-primary: #110038;
       box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
     }
     img {
-      opacity: 0.3;
+      opacity: 0.5;
       margin: auto;
     }
   }
@@ -743,6 +732,37 @@ $color-primary: #110038;
     float: right;
   }
 }
+
+#txtGuifos {
+  background-color: red;
+  margin: 20px auto 0 auto;
+  width: 1200px;
+  height: 32px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  font-family: $font-primary;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  padding-left: 15px;
+}
+
+#txtGuifosIndex {
+  background-color: red;
+  margin: 20px auto 0 auto;
+  width: 1200px;
+  height: 32px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  font-family: $font-primary;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  padding-left: 15px;
+}
+
 //#endregion
 
 //#region ESTILOS PARA TEMPORIZADOR

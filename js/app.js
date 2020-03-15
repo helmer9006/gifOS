@@ -18,10 +18,11 @@ const btnFiltro = document.querySelector("#btnFiltro"); //boton con nombre de su
 const botonFiltro = document.getElementsByClassName("filtro_buscar");
 const tema = document.getElementById("tema"); // capturar el elemento selector para elegir tema
 const ContentInicio = document.querySelector("#inicio");
-const ContentMisGuifos = document.querySelector("#misGuifos");
-const ContentCrearGuifos = document.querySelector("#crearGuifos");
+const ContentMisGuifos = document.querySelector("#misGuifo");
+// const ContentCrearGuifos = document.querySelector("#crearGuifos");
 const ContentCapturar = document.querySelector("#capturar");
-
+const guifos = document.getElementById('guifos');
+const guifosStorage = document.getElementById('guifosStorage');
 
 //*************************************************//
 //FUNCIONES
@@ -33,6 +34,19 @@ const ContentCapturar = document.querySelector("#capturar");
   cargarTema();
   txtBuscar.value = "";
 })();
+
+//#region VINCULO DE LOGO A INICIO
+
+document.getElementById('logo').addEventListener('click', function () {
+
+  ContentInicio.style.display = "block";
+  ContentMisGuifos.style.display = "none";
+  document.getElementById('txtGuifosIndex').style.display = "none";
+
+})
+
+//#endregion
+
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
 function cargarTema() {
@@ -190,6 +204,32 @@ sugeridos.addEventListener("click", function (e) {
 
 //#endregion
 
+//#region MOSTRAR MIS GUIFOS OPCION BARRA DE NAVEGACION
+
+
+guifos.addEventListener('click', function () {
+  ContentInicio.style.display = "none";
+  ContentMisGuifos.style.display = "block";
+  // ContentMisGuifos.innerHTML =``; 
+  guifosStorage.innerHTML = ``;
+  for (let i = 0; i <= localStorage.length - 1; i++) {
+    if (localStorage.key(i).indexOf("gif") >= 0) {
+
+      let clave = localStorage.key(i);
+      let objGuifos = JSON.parse(localStorage.getItem(clave));
+      guifosStorage.innerHTML += `
+              <div class="img-tendencia">
+                  <img src="${objGuifos.data.images.fixed_height.url}" alt="">
+                  <label id="lblImg">#${objGuifos.data.title}</label>
+              </div>
+              `;
+    }
+  }
+
+})
+
+
+//#endregion
 
 //*************************************************//
 // INSTANCIANDO CLASES Y METODOS
@@ -235,17 +275,3 @@ tendencia.getTrending().then(result => {
 });
 
 //#endregion
-
-//#region MOSTRAR MIS GUIFOS
-
-document.querySelector("#guifos").addEventListener("click", function () {
-
-  ContentInicio.style.display = "none";
-  ContentMisGuifos.style.display = "block";
-  ContentCrearGuifos.style.display = "none";
-
-
-})
-
-//#endregion 
-
