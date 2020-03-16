@@ -44,6 +44,27 @@ a {
 .contenedor li {
   display: inline-block;
 }
+.contenedor .tarjetasBusqueda {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 1200px;
+  margin-bottom: -30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contenedor .resBusquedaStorage {
+  padding: 10px;
+  background: #2E32FB;
+  border: 1px solid #4c2f99;
+  box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin: 2px 5px 2px 5px;
+  cursor: pointer;
+}
 
 .logo {
   width: 92.6px;
@@ -311,6 +332,10 @@ a {
   letter-spacing: 0;
   margin-top: 52px;
   padding: 10px;
+}
+
+#txtBusqueda {
+  display: none;
 }
 
 .res_tendencia {
@@ -674,6 +699,7 @@ a {
   color: #110038;
   letter-spacing: 0;
   padding-left: 15px;
+  display: none;
 }
 
 #temporizador {

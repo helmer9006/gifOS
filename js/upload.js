@@ -76,6 +76,7 @@ divBotones.style.display = "none";
 (() => {
     cargarTema();
     mostrarGuifosStorage();
+    misGuifosStorage.innerHTML =``;
     
     document.getElementById('logoUpload').innerHTML = `
 <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
@@ -320,6 +321,8 @@ function mostrarGuifosStorage(){
                     <label id="lblImg">#${objGuifos.data.title}</label>
                 </div>
                 `;
+
+               
         }
     }
 }

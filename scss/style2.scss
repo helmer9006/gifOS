@@ -52,7 +52,32 @@ $color-primary: #110038;
   li {
     display: inline-block;
   }
+
+  .tarjetasBusqueda {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 1200px;
+  
+    margin-bottom: -30px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .resBusquedaStorage {
+    padding: 10px;
+    background: #2E32FB;
+    border: 1px solid #4c2f99;
+    box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
+    font-family: $font-primary;
+    font-size: 14px;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: 18px;
+    margin: 2px 5px 2px 5px;
+    cursor: pointer;
+  }
 }
+
 //#endregion
 
 //#region SECCION LOGO
@@ -367,6 +392,10 @@ $color-primary: #110038;
 //#endregion
 
 //#region SECCION RESULTADO TENDENCIA
+
+#txtBusqueda {
+  display: none;
+}
 
 .res_tendencia {
   margin-top: 20px;
@@ -761,6 +790,7 @@ $color-primary: #110038;
   color: #110038;
   letter-spacing: 0;
   padding-left: 15px;
+  display: none;
 }
 
 //#endregion

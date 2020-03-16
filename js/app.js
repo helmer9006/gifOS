@@ -23,6 +23,9 @@ const ContentMisGuifos = document.querySelector("#misGuifo");
 const ContentCapturar = document.querySelector("#capturar");
 const guifos = document.getElementById('guifos');
 const guifosStorage = document.getElementById('guifosStorage');
+const tarjetaBusqueda = document.getElementById('tarjetaBusqueda');
+let arrayBusquedas = []; //array para almacenar las busquedas antes de enviarlas al storage
+
 
 //*************************************************//
 //FUNCIONES
@@ -33,6 +36,7 @@ const guifosStorage = document.getElementById('guifosStorage');
 
   cargarTema();
   txtBuscar.value = "";
+  MostrarDB();
 })();
 
 //#region VINCULO DE LOGO A INICIO
@@ -41,7 +45,6 @@ document.getElementById('logo').addEventListener('click', function () {
 
   ContentInicio.style.display = "block";
   ContentMisGuifos.style.display = "none";
-  document.getElementById('txtGuifosIndex').style.display = "none";
 
 })
 
@@ -84,7 +87,8 @@ tema.addEventListener("change", function () {
 //#region FUNCION DE BUSQUEDA X BOTON BUSCAR
 btnBuscar.addEventListener("click", function () {
   var valorTxt = txtBuscar.value.toString();
-
+  CrearItem(valorTxt);
+  GuardarDB();
   const resBusqueda = new Giphy(valorTxt);
   resBusqueda.getSearchResults().then(result => {
 
@@ -97,7 +101,7 @@ btnBuscar.addEventListener("click", function () {
             </div>
             `;
     }
-    document.getElementById('txtTitulo').style.display = 'block';
+    document.getElementById('txtBusqueda').style.display = 'block';
   });
   ocultarDiv();
 });
@@ -208,6 +212,7 @@ sugeridos.addEventListener("click", function (e) {
 
 
 guifos.addEventListener('click', function () {
+  document.getElementById('txtGuifosIndex').style.display = 'block';
   ContentInicio.style.display = "none";
   ContentMisGuifos.style.display = "block";
   // ContentMisGuifos.innerHTML =``; 
@@ -229,6 +234,76 @@ guifos.addEventListener('click', function () {
 })
 
 
+//#endregion
+
+
+//#region FUNCION ALMACENAR Y MOSTRAR BUSQUEDA EN LOCALSTORAGE
+
+const CrearItem = (argumento) => {
+
+  let item = {
+    valor: argumento
+  }
+
+  arrayBusquedas.push(item);
+  return item;
+
+}
+
+const GuardarDB = () => {
+
+  localStorage.setItem('busqueda', JSON.stringify(arrayBusquedas));
+  MostrarDB();
+}
+
+function MostrarDB() {
+
+  tarjetaBusqueda.innerHTML = ``;
+  arrayBusquedas = JSON.parse(localStorage.getItem('busqueda'));
+
+  if (arrayBusquedas === null) {
+    arrayBusquedas = [];
+  } else {
+
+    arrayBusquedas.forEach(indice => {
+      var nuevoDiv = document.createElement('div');
+      nuevoDiv.className = "resBusquedaStorage";
+      nuevoDiv.innerHTML = `#${indice.valor}`;
+      tarjetaBusqueda.appendChild(nuevoDiv);
+
+    })
+  }
+}
+
+//#endregion
+
+
+//#region FUNCION ACTIVAR BUSQUEDA AL DAR CLIC EN TARJETA DE BUSQUEDAS
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.className == "resBusquedaStorage") {
+      // console.log(event.target.innerHTML);
+      let busqueda = (event.target.innerHTML).substr(1) 
+      // console.log(busqueda)
+     txtBuscar.value = busqueda; 
+      const resBusqueda = new Giphy(busqueda);
+      resBusqueda.getSearchResults().then(result => {
+    
+        result_busqueda.innerHTML = ``;
+        for (let i of result.data) {
+          result_busqueda.innerHTML += `
+                <div class="img-tendencia">
+                    <img src="${i.images.fixed_height.url}" alt="">
+                    <label id="lblImg">#${i.title}</label>
+                </div>
+                `;
+        }
+        document.getElementById('txtBusqueda').style.display = 'block';
+      });
+      ocultarDiv();
+  }
+
+})
 //#endregion
 
 //*************************************************//
