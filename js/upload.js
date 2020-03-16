@@ -61,9 +61,7 @@ divBotones.style.display = "none";
 
 
 
-document.querySelector("#logoUpload").innerHTML = `
-  <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
-  `;
+// document.querySelector("#logoUpload").innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
 //#endregion
 
 //*************************************************//
@@ -78,13 +76,15 @@ document.querySelector("#logoUpload").innerHTML = `
     mostrarGuifosStorage();
     document.getElementById('logoUpload').innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
     cargarTema();
+
 })();
 
-
-// mostrarGuifosStorage();
+// document.querySelector("#span").innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
+// console.log("yo soy el logo"+document.getElementById('logoUpload').innerHTML)
 
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
+
 function cargarTema() {
     let temaLocalStorage = localStorage.getItem("temaActual");
     if (temaLocalStorage == 1 || temaLocalStorage == 0) {
@@ -101,42 +101,10 @@ function cargarTema() {
 }
 //#endregion
 
-//#region MOSTRAR MIS GUIFOS
 
-// document.querySelector("#guifos").addEventListener("click", function () {
-
-//     ContentInicio.style.display = "none";
-//     ContentMisGuifos.style.display = "block";
-//     ContentCrearGuifos.style.display = "none";
-
-
-// })
-
-//#endregion 
-
-//#region CREAR GUIFOS
-
-//EVENTO CREAR GUIFOS
-// btnCrearGuifos.addEventListener('click', function () {
-
-//     ContentInicio.style.display = "none";
-//     ContentCrearGuifos.style.display = "block";
-//     ContentMisGuifos.style.display = "block";
-//     document.querySelector("#btnCrearGuifos").style.display = "none";
-//     document.querySelector("#tema").style.display = "none";
-//     document.querySelector("#guifos").style.display = "none";
-//     document.querySelector("#logo").innerHTML = `
-//     <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
-//     `;
-
-// })
-
-
-//#endregion 
-
-//#region COMENZAR CREACION GUIFO
+//#region MOSTRAR VISTA CAMARA
 //***************************************************
-//*******EVENTO COMENZAR MOSTAR VISTA CAMARA*********
+//*******EVENTO COMENZAR MOSTRAR VISTA CAMARA*********
 //***************************************************
 btnComenzar.addEventListener('click', function () {
 
@@ -181,7 +149,6 @@ function iniciarGrabacion() {
 //#endregion
 
 //#region CAPTURANDO VIDEO
-
 
 //**************************************************
 //*****EVENTO BOTON CAPTURAR VIDEO-INICIAR GRABACION
@@ -270,7 +237,7 @@ btnUploadGif.addEventListener("click", function () {
 
 //#endregion
 
-//#region MOSTRAR GUIFO CARGADO
+//#region TRAER GUIFO CARGADO
 //******************************************
 //*****FUNCION MOSTRAR GUIFO CARGADO********
 //******************************************
@@ -305,7 +272,6 @@ function traerGuifoCargado(gifId) {
 
 //#endregion
 
-
 //#region MOSTRAR GUIFOS CREADOS Y ALMACENADOS EN LOCALSTORAGE
 
 function mostrarGuifosStorage(){
@@ -332,11 +298,6 @@ function mostrarGuifosStorage(){
 
 //#endregion
 
-// function traerGuifosStorage(){
-//   var gifStorage  = JSON.parse(localStorage.getItem('gif'));
-//   console.log(gifStorage);  
-// }
-
 //#region DESCARGAR GUIFO CREADO
 
 btnDescargarGuifo.addEventListener('click', function () {
@@ -350,7 +311,7 @@ btnDescargarGuifo.addEventListener('click', function () {
 
 //#endregion
 
-//#region EVENTO BOTON LISTA CARGA DE GIF 
+//#region EVENTO BOTON VISTA CARGA DE GIF 
 
 btnCreadoListo.addEventListener('click', function () {
     contentGuifoCreado.style.display = 'none';
@@ -359,7 +320,7 @@ btnCreadoListo.addEventListener('click', function () {
 
 //#endregion
 
-//#region CREACIÓN DE CRONOMETRO
+//#region CREACIÓN DE TEMPORIZADOR
 
 function iniciarTemporizador() {
 

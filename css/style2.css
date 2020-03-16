@@ -8,10 +8,6 @@ body {
   background-color: #110038 !important;
 }
 
-a {
-  color: #fff;
-}
-
 .navbar {
   padding: 0 !important;
   width: 100%;
@@ -54,7 +50,7 @@ a {
 }
 .contenedor .resBusquedaStorage {
   padding: 10px;
-  background: #2E32FB;
+  background: #2e32fb;
   border: 1px solid #4c2f99;
   box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
   font-family: "Chakra Petch", sans-serif;
@@ -595,8 +591,8 @@ a {
 
 #imgVolver {
   position: absolute;
-  left: -40px;
-  top: 10px;
+  left: 320px;
+  top: 65px;
 }
 
 .guifoCreado {

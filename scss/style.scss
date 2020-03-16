@@ -51,7 +51,7 @@ $color-primary: #110038;
     margin-top: 5px;
     margin-bottom: 5px;
     width: 1200px;
-   
+
     margin-bottom: -30px;
     display: flex;
     flex-wrap: wrap;
@@ -70,6 +70,17 @@ $color-primary: #110038;
     margin: 2px 5px 2px 5px;
     cursor: pointer;
   }
+
+    // d-flex d-flex justify-content-between align-items-center flex-wrap
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+
+
 }
 //#endregion
 
@@ -615,8 +626,8 @@ $color-primary: #110038;
 
 #imgVolver {
   position: absolute;
-  left: -40px;
-  top: 10px;
+  left: 320px;
+  top: 65px;
 }
 
 .guifoCreado {

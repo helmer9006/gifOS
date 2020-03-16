@@ -8,6 +8,9 @@ import Giphy from "/js/giphy.js";
 //DECLARANDO VARIABLES
 //*************************************************//
 
+//#region DECLARANDO VARIABLES
+
+
 const imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
 const sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
 const result_busqueda = document.querySelector("#result_busqueda"); //div para cargar imagenes de la busqueda
@@ -25,6 +28,8 @@ const guifos = document.getElementById('guifos');
 const guifosStorage = document.getElementById('guifosStorage');
 const tarjetaBusqueda = document.getElementById('tarjetaBusqueda');
 let arrayBusquedas = []; //array para almacenar las busquedas antes de enviarlas al storage
+
+//#endregion
 
 
 //*************************************************//
@@ -49,7 +54,6 @@ document.getElementById('logo').addEventListener('click', function () {
 })
 
 //#endregion
-
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
 function cargarTema() {
@@ -154,15 +158,12 @@ document.onkeypress = function (e) {
 
 //#region ESCONDER DIV DE FILTRO BUSQUEDA AL DAR CLIC FUERA DEL DIV
 document.onclick = function (e) {
-  // e = e || event
   var target = e.target || e.srcElement;
   var estado = FiltroSugerencias.style.visibility;
 
   if (estado == "visible") {
     do {
       if (FiltroSugerencias == target) {
-        // El click se ha producido dentro del elemento, no se hace nada.
-        // FiltroSugerencias.style.visibility = "hidden";
         return;
       }
       target = target.parentNode;
@@ -236,7 +237,6 @@ guifos.addEventListener('click', function () {
 
 //#endregion
 
-
 //#region FUNCION ALMACENAR Y MOSTRAR BUSQUEDA EN LOCALSTORAGE
 
 const CrearItem = (argumento) => {
@@ -276,7 +276,6 @@ function MostrarDB() {
 }
 
 //#endregion
-
 
 //#region FUNCION ACTIVAR BUSQUEDA AL DAR CLIC EN TARJETA DE BUSQUEDAS
 

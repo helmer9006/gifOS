@@ -58,6 +58,12 @@
   margin: 2px 5px 2px 5px;
   cursor: pointer;
 }
+.contenedor .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 .logo {
   width: 92.6px;
@@ -533,8 +539,8 @@
 
 #imgVolver {
   position: absolute;
-  left: -40px;
-  top: 10px;
+  left: 320px;
+  top: 65px;
 }
 
 .guifoCreado {

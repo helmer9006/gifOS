@@ -9,10 +9,6 @@ body {
   background-color: #110038 !important;
 }
 
-a {
-  color: #fff;
-}
-
 $font-primary: "Chakra Petch", sans-serif;
 $color-primary: #110038;
 
@@ -57,7 +53,7 @@ $color-primary: #110038;
     margin-top: 5px;
     margin-bottom: 5px;
     width: 1200px;
-  
+
     margin-bottom: -30px;
     display: flex;
     flex-wrap: wrap;
@@ -65,7 +61,7 @@ $color-primary: #110038;
 
   .resBusquedaStorage {
     padding: 10px;
-    background: #2E32FB;
+    background: #2e32fb;
     border: 1px solid #4c2f99;
     box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
     font-family: $font-primary;
@@ -682,9 +678,10 @@ $color-primary: #110038;
 
 #imgVolver {
   position: absolute;
-  left: -40px;
-  top: 10px;
+  left: 320px;
+  top: 65px;
 }
+
 .guifoCreado {
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
