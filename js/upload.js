@@ -61,9 +61,9 @@ divBotones.style.display = "none";
 
 
 
-// document.querySelector("#logoUpload").innerHTML = `
-//   <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
-//   `;
+document.querySelector("#logoUpload").innerHTML = `
+  <a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
+  `;
 //#endregion
 
 //*************************************************//
@@ -74,14 +74,15 @@ divBotones.style.display = "none";
 //ESTRUCTURA PARA INVOCAR FUNCIONES
 //*************************************************//
 (() => {
-    cargarTema();
-    mostrarGuifosStorage();
-    misGuifosStorage.innerHTML =``;
     
-    document.getElementById('logoUpload').innerHTML = `
-<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>
-`;
+    mostrarGuifosStorage();
+    document.getElementById('logoUpload').innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
+    cargarTema();
 })();
+
+
+// mostrarGuifosStorage();
+
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
 function cargarTema() {
@@ -286,6 +287,7 @@ function traerGuifoCargado(gifId) {
                 contentGuifoCreado.style.display = 'block';
                 ContentCapturar.style.display = 'none';
                 vistaGuifoCreado.src = result.data.images.fixed_height.url;
+                misGuifosStorage.innerHTML =``; 
                 mostrarGuifosStorage();
             } else {
                 alert("Hubo un error al cargar el GIF");
