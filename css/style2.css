@@ -62,6 +62,13 @@ body {
   cursor: pointer;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .logo {
   width: 92.6px;
   height: 54px;

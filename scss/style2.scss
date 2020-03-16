@@ -72,8 +72,14 @@ $color-primary: #110038;
     margin: 2px 5px 2px 5px;
     cursor: pointer;
   }
+  
 }
-
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 //#endregion
 
 //#region SECCION LOGO
