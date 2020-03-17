@@ -81,7 +81,6 @@ export default class Giphy {
         }
     }
 
-
     async getUploadGif(gitId) {
         try {
 
@@ -94,7 +93,6 @@ export default class Giphy {
             console.log(error);
         }
     }
-
 
     //#endregion
 

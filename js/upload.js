@@ -72,7 +72,7 @@ divBotones.style.display = "none";
 //ESTRUCTURA PARA INVOCAR FUNCIONES
 //*************************************************//
 (() => {
-    
+
     mostrarGuifosStorage();
     document.getElementById('logoUpload').innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
     cargarTema();
@@ -218,7 +218,7 @@ btnUploadGif.addEventListener("click", function () {
     try {
         const resUpload = new Giphy();
         resUpload.postUploadGif(blob).then(result => {
-           
+
             if (result.meta.status == 200) {
                 gifId = result.data.id;
                 traerGuifoCargado(gifId);
@@ -254,7 +254,7 @@ function traerGuifoCargado(gifId) {
                 contentGuifoCreado.style.display = 'block';
                 ContentCapturar.style.display = 'none';
                 vistaGuifoCreado.src = result.data.images.fixed_height.url;
-                misGuifosStorage.innerHTML =``; 
+                misGuifosStorage.innerHTML = ``;
                 mostrarGuifosStorage();
             } else {
                 alert("Hubo un error al cargar el GIF");
@@ -274,14 +274,14 @@ function traerGuifoCargado(gifId) {
 
 //#region MOSTRAR GUIFOS CREADOS Y ALMACENADOS EN LOCALSTORAGE
 
-function mostrarGuifosStorage(){
+function mostrarGuifosStorage() {
 
     misGuifosStorage.innerHTML += ``;
     for (let i = 0; i <= localStorage.length - 1; i++) {
-        if(localStorage.key(i).indexOf("gif") >= 0){
-           let clave = localStorage.key(i);
+        if (localStorage.key(i).indexOf("gif") >= 0) {
+            let clave = localStorage.key(i);
             // console.log("La clave " +  clave+ "contiene el valor " + localStorage.getItem(clave) + "");
-            let objGuifos =  JSON.parse(localStorage.getItem(clave));
+            let objGuifos = JSON.parse(localStorage.getItem(clave));
             // console.log(objGuifos);
             misGuifosStorage.innerHTML += `
                 <div class="img-tendencia">
@@ -290,7 +290,7 @@ function mostrarGuifosStorage(){
                 </div>
                 `;
 
-               
+
         }
     }
 }
@@ -308,6 +308,24 @@ btnDescargarGuifo.addEventListener('click', function () {
 
 //#region COPIAR ENLACE GUIFO
 
+btnCopiarEnlace.addEventListener('click', function () {
+
+    copiarTextoPortapapeles(url);
+
+})
+
+//funcion para copiar texto en portapapeles
+function copiarTextoPortapapeles(text) {
+    if (!navigator.clipboard) {
+        fallbackCopyTextToClipboard(text);
+        return;
+    }
+    navigator.clipboard.writeText(text).then(function () {
+        console.log('Async: Copying to clipboard was successful!');
+    }, function (err) {
+        console.error('Async: Could not copy text: ', err);
+    });
+}
 
 //#endregion
 
