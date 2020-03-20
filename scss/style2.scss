@@ -72,14 +72,19 @@ $color-primary: #110038;
     margin: 2px 5px 2px 5px;
     cursor: pointer;
   }
+
+  .seccion-logo{
+    display: flex;
+    justify-content: space-between;
+  }  
   
 }
-.flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
+// .flex {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   flex-wrap: wrap;
+// }
 //#endregion
 
 //#region SECCION LOGO
@@ -163,7 +168,7 @@ $color-primary: #110038;
   height: 99px;
   background: #b4b4b4;
   box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
-
+  margin-top: 3px;
   .lbl {
     font-family: $font-primary;
     font-weight: 700;
@@ -174,11 +179,14 @@ $color-primary: #110038;
     display: block;
     margin-left: 0px !important;
     padding-left: 5px;
+    margin-bottom: .5rem;
   }
   .formBuscar {
     margin: auto;
     height: 99px;
     align-items: center;
+    display: flex;
+    justify-content: space-between;
 
     input {
       margin: -40px auto 0 auto;
@@ -276,6 +284,8 @@ $color-primary: #110038;
 //#region SECION SUGERIDOS
 
 .sugeridos {
+  display: flex;
+  justify-content: space-between;
   input {
     width: 1200px;
     height: 32px;
@@ -298,6 +308,10 @@ $color-primary: #110038;
 
 .resultados {
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   .content_resultados {
     padding-top: 3px;
     width: 288px;
@@ -306,6 +320,8 @@ $color-primary: #110038;
     box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 
     .titulo {
+      display: flex;
+      justify-content: space-between;
       padding-right: 4px;
       background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
       width: 280px;
@@ -329,6 +345,9 @@ $color-primary: #110038;
     }
 
     .img-result {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
       width: 280px;
       height: 280px;
       margin: 3px auto 2px auto;
@@ -391,6 +410,9 @@ $color-primary: #110038;
   }
 }
 
+.img-tendencia{
+  margin-top: 5px;
+}
 //#endregion
 
 //#region SECCION RESULTADO TENDENCIA
@@ -399,8 +421,12 @@ $color-primary: #110038;
   display: none;
 }
 
-.res_tendencia {
+.contentResul {
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 
   input {
     width: 1200px;
@@ -448,6 +474,12 @@ $color-primary: #110038;
 //#endregion
 
 //#region CONTENIDO MIS GUIFOS
+
+.contentSubirGuifo{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
 .crearGuifos {
   .guifos {
@@ -500,6 +532,9 @@ $color-primary: #110038;
 
     .botonesCaptura {
       padding-right: 35px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
       button {
         width: 144px;
         height: 36px;

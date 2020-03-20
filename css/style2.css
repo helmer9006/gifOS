@@ -61,12 +61,9 @@ body {
   margin: 2px 5px 2px 5px;
   cursor: pointer;
 }
-
-.flex {
+.contenedor .seccion-logo {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .logo {
@@ -137,6 +134,7 @@ body {
   height: 99px;
   background: #b4b4b4;
   box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+  margin-top: 3px;
 }
 .buscar .lbl {
   font-family: "Chakra Petch", sans-serif;
@@ -148,11 +146,14 @@ body {
   display: block;
   margin-left: 0px !important;
   padding-left: 5px;
+  margin-bottom: 0.5rem;
 }
 .buscar .formBuscar {
   margin: auto;
   height: 99px;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 .buscar .formBuscar input {
   margin: -40px auto 0 auto;
@@ -240,6 +241,10 @@ body {
   margin-bottom: 10px;
 }
 
+.sugeridos {
+  display: flex;
+  justify-content: space-between;
+}
 .sugeridos input {
   width: 1200px;
   height: 32px;
@@ -257,6 +262,10 @@ body {
 
 .resultados {
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .resultados .content_resultados {
   padding-top: 3px;
@@ -266,6 +275,8 @@ body {
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 }
 .resultados .content_resultados .titulo {
+  display: flex;
+  justify-content: space-between;
   padding-right: 4px;
   background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
   width: 280px;
@@ -287,6 +298,9 @@ body {
   border: 0;
 }
 .resultados .content_resultados .img-result {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
   width: 280px;
   height: 280px;
   margin: 3px auto 2px auto;
@@ -337,14 +351,22 @@ body {
   padding: 10px;
 }
 
+.img-tendencia {
+  margin-top: 5px;
+}
+
 #txtBusqueda {
   display: none;
 }
 
-.res_tendencia {
+.contentResul {
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.res_tendencia input {
+.contentResul input {
   width: 1200px;
   height: 32px;
   background: #fffafe;
@@ -359,7 +381,7 @@ body {
   padding: 10px;
   display: none;
 }
-.res_tendencia label {
+.contentResul label {
   visibility: hidden;
   height: 24px;
   width: 288px;
@@ -374,14 +396,20 @@ body {
   color: #ffffff;
   letter-spacing: 0;
 }
-.res_tendencia img {
+.contentResul img {
   width: 288px;
   height: 298px;
   margin-right: 10px;
   margin-bottom: 10px;
 }
-.res_tendencia :hover ~ label {
+.contentResul :hover ~ label {
   visibility: visible;
+}
+
+.contentSubirGuifo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .crearGuifos .guifos {
@@ -431,6 +459,9 @@ body {
 }
 .crearGuifos .guifos .botonesCaptura {
   padding-right: 35px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .crearGuifos .guifos .botonesCaptura button {
   width: 144px;

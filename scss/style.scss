@@ -74,7 +74,10 @@ $color-primary: #110038;
     cursor: pointer;
   }
 
-    
+  .seccion-logo{
+    display: flex;
+    justify-content: space-between;
+  }  
  
 }
 
@@ -165,6 +168,7 @@ $color-primary: #110038;
   height: 99px;
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  margin-top: 3px;
 
   .lbl {
     font-family: $font-primary;
@@ -181,6 +185,8 @@ $color-primary: #110038;
     margin: auto;
     height: 99px;
     align-items: center;
+    display: flex;
+    justify-content: space-between;
 
     input {
       margin: -40px auto 0 auto;
@@ -270,6 +276,8 @@ $color-primary: #110038;
 //#region SECION SUGERIDOS
 
 .sugeridos {
+  display: flex;
+  justify-content: space-between;
   input {
     width: 1200px;
     height: 32px;
@@ -283,6 +291,7 @@ $color-primary: #110038;
     letter-spacing: 0;
     margin-top: 52px;
     padding: 10px;
+
   }
 }
 
@@ -292,6 +301,10 @@ $color-primary: #110038;
 
 .resultados {
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   .content_resultados {
     padding-top: 3px;
     width: 288px;
@@ -300,6 +313,8 @@ $color-primary: #110038;
     box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 
     .titulo {
+      display: flex;
+      justify-content: space-between;
       padding-right: 4px;
       background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
       width: 280px;
@@ -383,6 +398,10 @@ $color-primary: #110038;
   }
 }
 
+.img-tendencia{
+  margin-top: 5px;
+}
+
 //#endregion
 
 //#region SECCION RESULTADO TENDENCIA
@@ -390,9 +409,12 @@ $color-primary: #110038;
 #txtBusqueda {
   display: none;
 }
-
-.res_tendencia {
+.contentResul{
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 
   input {
     width: 1200px;
@@ -442,7 +464,15 @@ $color-primary: #110038;
 
 //#region CONTENIDO MIS GUIFOS
 
+.contentSubirGuifo{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .crearGuifos {
+
+
   .guifos {
     display: block;
     margin: 100px auto 100px auto;
@@ -494,6 +524,10 @@ $color-primary: #110038;
 
   .botonesCaptura {
     padding-right: 35px;
+    padding-right: 35px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     button {
       width: 144px;
       height: 36px;

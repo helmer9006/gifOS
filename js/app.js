@@ -318,11 +318,11 @@ sugerencias.getSuggestions().then(result => {
   for (let i of result.data) {
     sugeridos.innerHTML += `
     <div class="content_resultados">
-        <div class="titulo d-flex justify-content-between">
+        <div class="titulo">
             <label>#${i.title}</label>
             <button><img src="./img/button3.svg" alt=""></button>
         </div>
-        <div class="img-result d-flex justify-content-start align-items-end">
+        <div class="img-result ">
             <img src="${i.images.fixed_height.url}" alt="">
             <button name="${i.title}" id="verMas">Ver Más...</button>
         </div>
