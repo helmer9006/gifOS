@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-  
+
 <!-- #region HEAD -->
 
 <head>
@@ -10,10 +10,9 @@
   <title>gifOS</title>
   <!-- importando estilos personalizados -->
   <link id="estilos" rel="stylesheet" href="/css/style.css" />
-  <!-- Importando bootstrap 4 -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
   <!-- font awesome -->
-  <script src="https://kit.fontawesome.com/49830ff3b4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <script src="https://kit.fontawesome.com/49830ff3b4.js" crossorigin="anonymous"></script> -->
 </head>
 <!-- #endregion -->
 
@@ -35,13 +34,13 @@
       </div>
       <div class="botones">
         <a href="./upload.html"><button id="btnCrearGuifos">Crear Guifos</button></a>
+
         <select name="tema" id="tema">
           <option value="0" disabled selected>Elegir Tema</option>
           <option value="1">Sailor Day</option>
           <option value="2">Sailor Night</option>
         </select>
         <a id="guifos">Mis Guifos</a>
-
         <!-- <a onclick="mostrarGuifosStorage();" id="guifos">Mis Guifos</a> -->
       </div>
     </div>
@@ -87,7 +86,7 @@
 
       <!-- #endregion -->
       <!-- #region SECCION RESULTADOS SUGERIDOS-->
-      <div class="resultados">
+      <div class="resultados" id="resultados">
 
       </div>
 
@@ -103,7 +102,7 @@
       </div>
       <!-- #endregion -->
     </div>
-    
+
     <!-- #region VISTA MOSTRAR MIS GUIFOS CREADOS -->
     <div class="misGuifo" id="misGuifo">
       <input type="text" id="txtGuifosIndex" disabled placeholder="Mis guifos" />

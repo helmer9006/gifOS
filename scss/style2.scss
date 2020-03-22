@@ -12,6 +12,12 @@ body {
 $font-primary: "Chakra Petch", sans-serif;
 $color-primary: #110038;
 
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 //#region NAVBAR
 .navbar {
   padding: 0 !important;
@@ -73,11 +79,10 @@ $color-primary: #110038;
     cursor: pointer;
   }
 
-  .seccion-logo{
+  .seccion-logo {
     display: flex;
     justify-content: space-between;
-  }  
-  
+  }
 }
 // .flex {
 //   display: flex;
@@ -130,10 +135,30 @@ $color-primary: #110038;
     text-align: center;
     line-height: 18px;
     margin-right: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
     &:hover {
       outline: 1px dotted #110038;
     }
   }
+
+  i {
+    top: 0;
+    height: 36px;
+    background: #ee3efe;
+    color: white;
+  }
+  .fa-caret-down::before {
+    content: "\f0d7";
+  }
+
+  // span{
+
+  // }
 
   a:not([href]) {
     font-family: $font-primary;
@@ -161,6 +186,18 @@ $color-primary: #110038;
   }
 }
 
+.arrow {
+  background: red;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='Component_25_1' width='12.937' height='8.433' data-name='Component 25 – 1' viewBox='0 0 12.937 8.433'%3E%3Cdefs%3E%3Cstyle%3E .cls-1%7Bfill:%23172c49%7D %3C/style%3E%3C/defs%3E%3Cg id='Group_29' data-name='Group 29'%3E%3Cpath id='Path_47' d='M85.607 29.576l5.725-6.945a.409.409 0 0 1 .631 0l5.725 6.945a.409.409 0 0 1-.314.669H85.921a.408.408 0 0 1-.314-.669z' class='cls-1' data-name='Path 47' transform='translate(-85.176 -22.158)'/%3E%3Cg id='Group_28' data-name='Group 28'%3E%3Cpath id='Path_48' d='M82.651 26.721c.141-.169.281-.339.419-.511.35-.426.7-.849 1.052-1.275l1.362-1.652q.689-.833 1.376-1.668l1.068-1.3c.149-.181.294-.366.448-.542.007-.009.058-.056.031-.036s.069-.029.025-.013c-.029.011.087 0 .009 0h.022s.051.016.013 0 .013.007.011.007.045.031.013.007.009.009.011.013l.02.022.033.04c.076.091.152.183.225.274l.936 1.137 1.318 1.6 1.4 1.7 1.164 1.411c.205.248.408.5.613.745.009.011.02.027.031.038s-.056-.074-.027-.033a.3.3 0 0 0 .022.036.114.114 0 1 0-.007-.02.325.325 0 0 0 .011.038c.016.051.009-.042 0 .011 0 .009-.009.049 0 0s0 .011-.007.016c-.02.029.009-.018.011-.022l-.018.033-.02.031c.007-.011.018-.045.013-.02 0 .007-.022.02-.027.027.009-.009.029-.038.018-.016 0 .007-.027.013-.033.018.02-.013.045-.018.007-.007-.056.018.042 0-.02 0H82.727h.004c-.007 0-.036 0-.038-.009s0 0 .02.011c-.007 0-.029-.011-.033-.018-.011-.022.009.007.018.016 0-.007-.024-.018-.027-.027 0-.024.007.009.013.02l-.02-.031-.018-.033s.031.051.011.022c-.007-.009 0-.025-.009-.036s.007.067 0 .027a.219.219 0 0 0 0-.038c0 .007-.018.06 0 .027 0-.013.029-.08.011-.047s.033-.045.04-.054a.334.334 0 0 0-.12-.457.342.342 0 0 0-.457.12.734.734 0 0 0-.009.845.763.763 0 0 0 .618.326H93.684a2.352 2.352 0 0 0 .729-.038.754.754 0 0 0 .508-.722.8.8 0 0 0-.2-.486 15.696 15.696 0 0 0-.172-.207c-.294-.357-.586-.713-.881-1.068l-1.328-1.598-1.434-1.739-1.206-1.467q-.328-.4-.655-.794a.752.752 0 0 0-.867-.234.9.9 0 0 0-.355.29l-.749.91-1.26 1.527-1.448 1.752-1.282 1.556q-.4.482-.794.963l-.111.134a.345.345 0 0 0 0 .473.341.341 0 0 0 .472-.005z' class='cls-1' data-name='Path 48' transform='translate(-81.985 -19.067)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  background-position: 0 100%;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  transition: all 0.3s;
+}
+
 //#endregion
 
 //#region SECCION BUSCAR
@@ -179,7 +216,7 @@ $color-primary: #110038;
     display: block;
     margin-left: 0px !important;
     padding-left: 5px;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
   .formBuscar {
     margin: auto;
@@ -410,7 +447,7 @@ $color-primary: #110038;
   }
 }
 
-.img-tendencia{
+.img-tendencia {
   margin-top: 5px;
 }
 //#endregion
@@ -424,7 +461,7 @@ $color-primary: #110038;
 .contentResul {
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 
@@ -475,7 +512,7 @@ $color-primary: #110038;
 
 //#region CONTENIDO MIS GUIFOS
 
-.contentSubirGuifo{
+.contentSubirGuifo {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -816,7 +853,6 @@ $color-primary: #110038;
 }
 
 #txtGuifosIndex {
-  background-color: red;
   margin: 20px auto 0 auto;
   width: 1200px;
   height: 32px;

@@ -41,6 +41,7 @@ const btnCopiarEnlace = document.getElementById('btnCopiarEnlace');
 const vistaGuifoCreado = document.getElementById('vistaGuifoCreado');
 const btnCreadoListo = document.getElementById('btnCreadoListo');
 const misGuifosStorage = document.getElementById('misGuifosStorage');
+var video = document.querySelector('video');
 let recorder;
 let mediaStreamGlobal;
 let blob;
@@ -58,8 +59,6 @@ divBotones.style.display = "none";
 //#region CARGAR IMAGEN VOLVER
 
 //MOSTRAR FLECHA DE VOLVER EN LOGO 
-
-
 
 // document.querySelector("#logoUpload").innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
 //#endregion
@@ -123,7 +122,7 @@ function iniciarGrabacion() {
     var p = navigator.mediaDevices.getUserMedia(constraints);
 
     p.then(function (mediaStream) {
-        var video = document.querySelector('video');
+
         // video.src = window.URL.createObjectURL(mediaStream);
         video.srcObject = mediaStream;
         mediaStreamGlobal = mediaStream;
@@ -181,12 +180,17 @@ btnListo.addEventListener("click", function (e) {
     clearTimeout(timex);//detiene
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
+        // console.log(invokeSaveAsDialog(blob));//de esta manera me deja descargar el gif pero no puedo capturar el url para mostrarlo en el html
+        // console.log(invokeSaveAsDialog(blob));
+        // video.src = recorder.toURL().substr(5);
+        // document.getElementById('imagenGit').src = recorder.toURL().substr(5);
     });
 
     btnListo.style.display = "none";
     btnImgListo.style.display = "none";
     btnUploadGif.style.display = "block"
     btnRepetir.style.display = "block"
+
 })
 
 //#endregion

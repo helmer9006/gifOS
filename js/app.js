@@ -204,6 +204,7 @@ sugeridos.addEventListener("click", function (e) {
     txtBuscar.value = e.target.name;
     btnBuscar.click();
     ocultarDiv();
+    window.location.href = '#txtBusqueda';
   }
 });
 
