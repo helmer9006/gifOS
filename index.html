@@ -33,13 +33,12 @@
         <!-- se incluye imagen desde css -->
       </div>
       <div class="botones">
-        <a href="./upload.html"><button id="btnCrearGuifos">Crear Guifos</button></a>
-
-        <select name="tema" id="tema">
-          <option value="0" disabled selected>Elegir Tema</option>
-          <option value="1">Sailor Day</option>
-          <option value="2">Sailor Night</option>
-        </select>
+        <!-- <a href="./upload.html"><button id="btnCrearGuifos">Crear Guifos</button></a> -->
+        
+        <button id="btnCrearGuifos">Crear Guifos</button>
+        <button id="btnCambiarTema">Elegir Tema<i class="fa fa-caret-down"></i></button>
+        <div class="contentTema" id="contentTema" style="visibility: hidden;">
+        </div>
         <a id="guifos">Mis Guifos</a>
         <!-- <a onclick="mostrarGuifosStorage();" id="guifos">Mis Guifos</a> -->
       </div>

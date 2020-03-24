@@ -74,7 +74,6 @@ divBotones.style.display = "none";
 
     mostrarGuifosStorage();
     document.getElementById('logoUpload').innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
-    cargarTema();
 
 })();
 
@@ -84,20 +83,23 @@ divBotones.style.display = "none";
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
 
-function cargarTema() {
+document.addEventListener('DOMContentLoaded', function (e) {
+
+
+
     let temaLocalStorage = localStorage.getItem("temaActual");
-    if (temaLocalStorage == 1 || temaLocalStorage == 0) {
-        document.getElementById("estilos").href = "/css/style.css";
-        if (temaLocalStorage == 1) {
-            tema.value = "1";
-        } else {
-            tema.value = "0";
-        }
+    if (temaLocalStorage == 'dia') {
+      document.getElementById("estilos").href = "/css/style.css";
+  
+      if (e.target.id == "btnTema1") {
+        e.target.style.background = 'red';
+      }
+  
     } else {
-        tema.value = "2";
-        document.getElementById("estilos").href = "/css/style2.css";
+      document.getElementById("estilos").href = "/css/style2.css";
+  
     }
-}
+  });
 //#endregion
 
 

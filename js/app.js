@@ -19,7 +19,6 @@ const btnBuscar = document.querySelector("#btnBuscar"); //boton para acticonst  
 const FiltroSugerencias = document.querySelector("#filtro"); //div para mostrar botones de sugerencias de busqueda
 const btnFiltro = document.querySelector("#btnFiltro"); //boton con nombre de sugerencia de busqueda
 const botonFiltro = document.getElementsByClassName("filtro_buscar");
-const tema = document.getElementById("tema"); // capturar el elemento selector para elegir tema
 const ContentInicio = document.querySelector("#inicio");
 const ContentMisGuifos = document.querySelector("#misGuifo");
 // const ContentCrearGuifos = document.querySelector("#crearGuifos");
@@ -27,8 +26,14 @@ const ContentCapturar = document.querySelector("#capturar");
 const guifos = document.getElementById('guifos');
 const guifosStorage = document.getElementById('guifosStorage');
 const tarjetaBusqueda = document.getElementById('tarjetaBusqueda');
-let arrayBusquedas = []; //array para almacenar las busquedas antes de enviarlas al storage
+const contentTema = document.getElementById('contentTema');
+const btnCambiarTema = document.getElementById('btnCambiarTema');
+const btnCrearGuifos = document.getElementById('btnCrearGuifos');
+const anchorGuifos = document.getElementById('guifos');
+let temaLocalStorage = localStorage.getItem("temaActual");
 
+let arrayBusquedas = []; //array para almacenar las busquedas antes de enviarlas al storage
+var bandera = false;
 //#endregion
 
 
@@ -39,10 +44,42 @@ let arrayBusquedas = []; //array para almacenar las busquedas antes de enviarlas
 
 (() => {
 
-  cargarTema();
   txtBuscar.value = "";
   MostrarDB();
 })();
+
+
+
+
+// document.body.onclick = function (e) {
+//   alert()
+//   var target = e.target || e.srcElement;
+//   var estado = anchorGuifos.style.color;
+
+//   if (estado == "110038") {
+//     do {
+//       if (anchorGuifos == target) {
+//         return;
+//       }
+//       target = target.parentNode;
+//     } while (target);
+//     Se ha clicado fuera del elemento, se realiza una acción.
+//     anchorGuifos.style.color = '#8A829D';
+//   }
+// };
+
+
+
+
+
+//#region VINCULO CREAR GUIFOS, ARCHIVO UPLOAD.HTML 
+btnCrearGuifos.addEventListener('click', function () {
+
+  window.location.href = './upload.html';
+
+})
+
+//#endregion
 
 //#region VINCULO DE LOGO A INICIO
 
@@ -53,40 +90,144 @@ document.getElementById('logo').addEventListener('click', function () {
 
 })
 
+
+
 //#endregion
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
-function cargarTema() {
+document.addEventListener('DOMContentLoaded', function (e) {
+
+
+
   let temaLocalStorage = localStorage.getItem("temaActual");
-  if (temaLocalStorage == 1 || temaLocalStorage == 0) {
+  if (temaLocalStorage == 'dia') {
     document.getElementById("estilos").href = "/css/style.css";
-    if (temaLocalStorage == 1) {
-      tema.value = "1";
-    } else {
-      tema.value = "0";
+
+    if (e.target.id == "btnTema1") {
+      e.target.style.background = 'red';
     }
-  } else {
-    tema.value = "2";
-    document.getElementById("estilos").href = "/css/style2.css";
-  }
-}
-//#endregion
 
-// #region FUNCION PARA CAMBIAR TEMA
-
-tema.addEventListener("change", function () {
-  let opcionSeleccionada = tema.value;
-
-  if (opcionSeleccionada == 1) {
-    document.getElementById("estilos").href = "/css/style.css";
-    localStorage.setItem("temaActual", opcionSeleccionada);
   } else {
     document.getElementById("estilos").href = "/css/style2.css";
-    localStorage.setItem("temaActual", opcionSeleccionada);
+
   }
 });
 
 //#endregion
+
+// #region FUNCION PARA CAMBIAR TEMA
+
+contentTema.addEventListener('click', function (e) {
+  e.preventDefault();
+
+
+  const temaElegido = e.target.id;
+  switch (temaElegido) {
+    case ('btnTema1'):
+      document.getElementById("estilos").href = "/css/style.css";
+      localStorage.setItem("temaActual", 'dia');
+      contentTema.style.visibility = "hidden";
+      estiloTemaActual();
+      break;
+    case ('btnTema2'):
+      document.getElementById("estilos").href = "/css/style2.css";
+      localStorage.setItem("temaActual", 'noche');
+      contentTema.style.visibility = "hidden";
+      estiloTemaActual();
+      break;
+  }
+})
+
+//#endregion
+
+//#region MOSTRAR BOTONES PARA CAMBIAR TEMA
+
+btnCambiarTema.addEventListener('click', function () {
+
+  contentTema.innerHTML = ``;
+  //botton 1
+  var nuevoBtn = document.createElement('button');
+  nuevoBtn.className = "btnTema1";
+  nuevoBtn.id = "btnTema1";
+  nuevoBtn.innerHTML = `Sailor Day`;
+  contentTema.appendChild(nuevoBtn);
+
+  //botton 2
+  var nuevoBtn2 = document.createElement('button');
+  nuevoBtn2.className = "btnTema2";
+  nuevoBtn2.id = "btnTema2";
+  nuevoBtn2.innerHTML = `Sailor Night`;
+  contentTema.appendChild(nuevoBtn2);
+  contentTema.style.visibility = 'visible';
+
+  estiloTemaActual();
+});
+
+function estiloTemaActual() {
+  temaLocalStorage = localStorage.getItem("temaActual");
+  let tema1 = document.getElementById('btnTema1');
+  let tema2 = document.getElementById('btnTema2');
+  if (temaLocalStorage == 'dia') {
+    tema1.style.background = '#FFF4FD';
+    tema1.style.color = '#110038';
+    tema1.style.border = '1px solid #CCA6C9';
+    tema1.style.boxShadow = 'inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF';
+  } else {
+    tema2.style.background = '#2E32FB';
+    tema2.style.color = '#FFFFFF';
+    tema1.style.border = '1px solid rgba(51,53,143,0.20)';
+    tema1.style.boxShadow = 'inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF';
+  }
+
+}
+//OCULTAR DIV CONTENIDO TEMAS - BOTONES TEMAS
+document.body.onclick = function (e) {
+  var target = e.target || e.srcElement;
+  var estado = contentTema.style.visibility;
+  if (e.target.id == 'btnCambiarTema' || e.target.classList[1] == 'fa-caret-down') {
+    if (bandera == true) {
+      contentTema.style.visibility = "hidden";
+      bandera = false;
+    } else {
+      bandera = true;
+    }
+
+  } else {
+    if (estado == "visible") {
+      do {
+        if (contentTema == target) {
+          return;
+        }
+        target = target.parentNode;
+      } while (target);
+      // Se ha clicado fuera del elemento, se realiza una acción.
+      contentTema.style.visibility = "hidden";
+    }
+  }
+
+ //COLOR TEXTO MIS GUIFOS
+  if (e.target.id == 'guifos') {
+    anchorGuifos.style.color = '#8A829D';
+  } else {
+    if (temaLocalStorage == 'dia') {
+      
+      anchorGuifos.style.color = '#110038';
+      console.log(temaLocalStorage)
+    } else {
+      anchorGuifos.style.color = '#fff';
+      console.log(temaLocalStorage)
+    }
+
+  }
+
+};
+
+//#endregion
+
+
+
+
+
 
 //#region FUNCION DE BUSQUEDA X BOTON BUSCAR
 btnBuscar.addEventListener("click", function () {
@@ -282,25 +423,25 @@ function MostrarDB() {
 
 document.body.addEventListener("click", function (event) {
   if (event.target.className == "resBusquedaStorage") {
-      // console.log(event.target.innerHTML);
-      let busqueda = (event.target.innerHTML).substr(1) 
-      // console.log(busqueda)
-     txtBuscar.value = busqueda; 
-      const resBusqueda = new Giphy(busqueda);
-      resBusqueda.getSearchResults().then(result => {
-    
-        result_busqueda.innerHTML = ``;
-        for (let i of result.data) {
-          result_busqueda.innerHTML += `
+    // console.log(event.target.innerHTML);
+    let busqueda = (event.target.innerHTML).substr(1)
+    // console.log(busqueda)
+    txtBuscar.value = busqueda;
+    const resBusqueda = new Giphy(busqueda);
+    resBusqueda.getSearchResults().then(result => {
+
+      result_busqueda.innerHTML = ``;
+      for (let i of result.data) {
+        result_busqueda.innerHTML += `
                 <div class="img-tendencia">
                     <img src="${i.images.fixed_height.url}" alt="">
                     <label id="lblImg">#${i.title}</label>
                 </div>
                 `;
-        }
-        document.getElementById('txtBusqueda').style.display = 'block';
-      });
-      ocultarDiv();
+      }
+      document.getElementById('txtBusqueda').style.display = 'block';
+    });
+    ocultarDiv();
   }
 
 })

@@ -4,8 +4,8 @@
   margin: 0;
   padding: 0;
 }
-body{
-  background: #FFF4FD;
+body {
+  background: #fff4fd;
 }
 
 $font-primary: "Chakra Petch", sans-serif;
@@ -16,7 +16,6 @@ $color-primary: #110038;
 ::before {
   box-sizing: border-box;
 }
-
 
 //#region NAVBAR
 .navbar {
@@ -81,20 +80,12 @@ $color-primary: #110038;
     cursor: pointer;
   }
 
-  .seccion-logo{
+  .seccion-logo {
     display: flex;
     justify-content: space-between;
-  }  
- 
+  }
 }
 
-// d-flex d-flex justify-content-between align-items-center flex-wrap
-// .flex {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   flex-wrap: wrap;
-// }
 //#endregion
 
 //#region SECCION LOGO
@@ -109,6 +100,18 @@ $color-primary: #110038;
   // background-position: center;
 }
 .botones {
+  i {
+    margin-right: -40px;
+    padding-left: 15px;
+  }
+
+  .fa-caret-down::before {
+    content: "\f0d7";
+    background: #f7c9f3;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    padding: 9px 12px 9px;
+  }
   button {
     width: 144px;
     height: 36px;
@@ -123,6 +126,14 @@ $color-primary: #110038;
     text-align: center;
     line-height: 18px;
     margin-right: 15px;
+    &:hover {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background: #e6bbe2;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+    }
   }
   select {
     width: 144px;
@@ -171,6 +182,33 @@ $color-primary: #110038;
       letter-spacing: 0;
       line-height: 18px;
     }
+  }
+}
+
+//#endregion
+
+//#region CONTENIDO TEMA
+#btnCambiarTema {
+  width: 160px;
+}
+
+.contentTema {
+  // display: inline-block;
+  padding: 6px;
+  position: absolute;
+  width: 170px;
+  height: 102px;
+  left: 67.6%;
+  background: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  button {
+    margin: 3px;
+    width: 150px;
+    height: 36px;
+    display: inline-block;
+    background: #f0f0f0;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
   }
 }
 
@@ -304,7 +342,6 @@ $color-primary: #110038;
     letter-spacing: 0;
     margin-top: 52px;
     padding: 10px;
-
   }
 }
 
@@ -414,7 +451,7 @@ $color-primary: #110038;
   }
 }
 
-.img-tendencia{
+.img-tendencia {
   margin-top: 5px;
 }
 
@@ -425,7 +462,7 @@ $color-primary: #110038;
 #txtBusqueda {
   display: none;
 }
-.contentResul{
+.contentResul {
   margin-top: 20px;
   display: flex;
   justify-content: flex-start;
@@ -480,15 +517,13 @@ $color-primary: #110038;
 
 //#region CONTENIDO MIS GUIFOS
 
-.contentSubirGuifo{
+.contentSubirGuifo {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
 .crearGuifos {
-
-
   .guifos {
     display: block;
     margin: 100px auto 100px auto;
@@ -789,6 +824,22 @@ $color-primary: #110038;
   letter-spacing: 0;
   padding-left: 15px;
   display: none;
+}
+
+.barraProgreso {
+  margin: 20px 15px auto 0;
+  display: flex;
+  justify-content: space-evenly;
+  width: 240px;
+  height: 24px;
+  border: 1px solid #979797;
+  box-shadow: inset 2px 2px 0 0 #e6e6e6, inset -2px -2px 0 0 #000000;
+
+  .flex {
+    background: #999999;
+    // border: 1px solid #b4b4b4;
+    border: 1px solid #979797;
+  }
 }
 
 //#endregion
