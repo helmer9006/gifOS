@@ -740,15 +740,17 @@ body {
 .barraProgreso {
   margin: 20px 15px auto 0;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   width: 240px;
   height: 24px;
-  border: 1px solid #979797;
+  border: 1px solid #999999;
   box-shadow: inset 2px 2px 0 0 #e6e6e6, inset -2px -2px 0 0 #000000;
 }
-.barraProgreso .flex {
-  background: #999999;
-  border: 1px solid #979797;
+.barraProgreso .caja {
+  width: 20px;
+  height: 24px;
+  border: 1px solid #B4B4B4;
 }
 
 #temporizador {

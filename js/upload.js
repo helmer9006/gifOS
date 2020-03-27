@@ -41,6 +41,8 @@ const btnCopiarEnlace = document.getElementById('btnCopiarEnlace');
 const vistaGuifoCreado = document.getElementById('vistaGuifoCreado');
 const btnCreadoListo = document.getElementById('btnCreadoListo');
 const misGuifosStorage = document.getElementById('misGuifosStorage');
+const playGif = document.getElementById('play');
+const barraProgreso = document.getElementById('barraProgreso');
 var video = document.querySelector('video');
 let recorder;
 let mediaStreamGlobal;
@@ -89,17 +91,17 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     let temaLocalStorage = localStorage.getItem("temaActual");
     if (temaLocalStorage == 'dia') {
-      document.getElementById("estilos").href = "/css/style.css";
-  
-      if (e.target.id == "btnTema1") {
-        e.target.style.background = 'red';
-      }
-  
+        document.getElementById("estilos").href = "/css/style.css";
+
+        if (e.target.id == "btnTema1") {
+            e.target.style.background = 'red';
+        }
+
     } else {
-      document.getElementById("estilos").href = "/css/style2.css";
-  
+        document.getElementById("estilos").href = "/css/style2.css";
+
     }
-  });
+});
 //#endregion
 
 
@@ -162,7 +164,7 @@ btnCapturar.addEventListener("click", function () {
     btnImgListo.style.display = "block";
     iniciarTemporizador();
     recorder = RecordRTC(mediaStreamGlobal, {
-        type: 'gif',
+        type: 'git',
         frameRate: 1,
         quality: 10,
         width: 360,
@@ -182,20 +184,34 @@ btnListo.addEventListener("click", function (e) {
     clearTimeout(timex);//detiene
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
-        // console.log(invokeSaveAsDialog(blob));//de esta manera me deja descargar el gif pero no puedo capturar el url para mostrarlo en el html
-        // console.log(invokeSaveAsDialog(blob));
-        // video.src = recorder.toURL().substr(5);
-        // document.getElementById('imagenGit').src = recorder.toURL().substr(5);
+        video.src = video.srcObject = null;
+        video.muted = false;
+        video.volume = 1;
+        video.src = URL.createObjectURL(recorder.getBlob());
     });
 
     btnListo.style.display = "none";
     btnImgListo.style.display = "none";
     btnUploadGif.style.display = "block"
     btnRepetir.style.display = "block"
+    playGif.style.display = "block";
+    barraProgreso.style.display = "block";
 
 })
 
 //#endregion
+
+//#region  REPRODUCIR GIT ANTES DE SUBIR
+
+playGif.addEventListener('click', function(){
+    video.src = video.srcObject = null;
+    video.muted = false;
+    video.volume = 1;
+    video.src = URL.createObjectURL(recorder.getBlob());
+})
+
+
+
 
 //#region REPETIR CAPTURA
 
