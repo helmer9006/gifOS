@@ -67,8 +67,7 @@ export default class Giphy {
             dato.append("file", blob, 'example.gif');
             let api = await fetch('https://upload.giphy.com/v1/gifs?api_key=' + this.apiKey, {
                 method: 'POST',
-                body: dato,
-                header: "access-control-allow-origin: *"
+                body: dato
             });
 
             let res = await api.json();

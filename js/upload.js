@@ -43,7 +43,11 @@ const btnCreadoListo = document.getElementById('btnCreadoListo');
 const misGuifosStorage = document.getElementById('misGuifosStorage');
 const playGif = document.getElementById('play');
 const barraProgreso = document.getElementById('barraProgreso');
+const progreso = document.getElementById('progreso');
 var video = document.querySelector('video');
+const time = document.getElementById("time");
+var inicioTiempo;
+var finTiempo;
 let recorder;
 let mediaStreamGlobal;
 let blob;
@@ -53,6 +57,7 @@ var hours = 0;
 var mins = 0;
 var seconds = 0;
 var url;
+let tiempoVideo;
 //#endregion
 
 //ocultar barra de herramientas
@@ -144,6 +149,7 @@ function iniciarGrabacion() {
             quality: 10,
             hidden: 240,
         });
+
     });
 
     p.catch(function (err) { console.log(err.name); }); // always check for errors at the end.
@@ -157,12 +163,14 @@ function iniciarGrabacion() {
 //*****EVENTO BOTON CAPTURAR VIDEO-INICIAR GRABACION
 //**************************************************
 btnCapturar.addEventListener("click", function () {
-
+    inicioTiempo = new Date();
+    calcularSegundos();
     btnImgCaptura.style.display = "none";
     btnCapturar.style.display = "none";
     btnListo.style.display = "block";
     btnImgListo.style.display = "block";
-    iniciarTemporizador();
+
+    // iniciarTemporizador();
     recorder = RecordRTC(mediaStreamGlobal, {
         type: 'git',
         frameRate: 1,
@@ -179,15 +187,15 @@ btnCapturar.addEventListener("click", function () {
 //EVENTO CLICK EN BOTON LISTO PARA TERMINAR GRABACION
 //***************************************************
 btnListo.addEventListener("click", function (e) {
+    finTiempo = new Date();
     e.preventDefault();
-    resetTemporizador();//reinicia en 00
-    clearTimeout(timex);//detiene
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
         video.src = video.srcObject = null;
         video.muted = false;
         video.volume = 1;
         video.src = URL.createObjectURL(recorder.getBlob());
+
     });
 
     btnListo.style.display = "none";
@@ -195,7 +203,33 @@ btnListo.addEventListener("click", function (e) {
     btnUploadGif.style.display = "block"
     btnRepetir.style.display = "block"
     playGif.style.display = "block";
-    barraProgreso.style.display = "block";
+    progreso.style.display = 'block';
+
+
+    progreso.innerHTML = `
+    <div id="barraProgreso"  class="barraProgreso"">
+    <div class="caja uno"></div>
+    <div class="caja uno"></div>
+    <div class="caja uno"></div>
+    <div class="caja uno"></div>
+    <div class="caja uno"></div>
+    <div class="caja dos"></div>
+    <div class="caja dos"></div>
+    <div class="caja dos"></div>
+    <div class="caja dos"></div>
+    <div class="caja dos"></div>
+    <div class="caja tres"></div>
+    <div class="caja tres"></div>
+    <div class="caja tres"></div>
+    <div class="caja tres"></div>
+    <div class="caja tres"></div>
+    <div class="caja cuatro"></div>
+    <div class="caja cuatro"></div>
+    <div class="caja cuatro"></div>
+    <div class="caja cuatro"></div>
+    <div class="caja cuatro"></div>
+</div> 
+    `;
 
 })
 
@@ -203,22 +237,98 @@ btnListo.addEventListener("click", function (e) {
 
 //#region  REPRODUCIR GIT ANTES DE SUBIR
 
-playGif.addEventListener('click', function(){
+
+
+playGif.addEventListener('click', function () {
+
+    const uno = document.querySelectorAll('.uno');
+    const dos = document.querySelectorAll('.dos');
+    const tres = document.querySelectorAll('.tres');
+    const cuatro = document.querySelectorAll('.cuatro');
+    const caja = document.querySelectorAll('.caja');
+    let temaLocalStorage = localStorage.getItem("temaActual");
+
+
+    tiempoVideo = (finTiempo.getTime() - inicioTiempo.getTime()) / (1000) // 1000 milisegundos un segundo
+    console.log('el tiempo del video es ', tiempoVideo)
     video.src = video.srcObject = null;
     video.muted = false;
     video.volume = 1;
     video.src = URL.createObjectURL(recorder.getBlob());
+
+    for (let i of caja) {
+        i.style.background = '';
+    }
+
+    for (let i of uno) {
+        setTimeout(() => {
+            if (temaLocalStorage == 'dia') {
+                i.style.background = '#F7C9F3';
+            } else {
+                i.style.background = '#ee3efe';
+            }
+
+        }, 1000);
+    }
+    for (let i of dos) {
+        setTimeout(() => {
+            if (temaLocalStorage == 'dia') {
+                i.style.background = '#F7C9F3';
+            } else {
+                i.style.background = '#ee3efe';
+            }
+        }, 2000);
+    }
+    for (let i of tres) {
+        setTimeout(() => {
+            if (temaLocalStorage == 'dia') {
+                i.style.background = '#F7C9F3';
+            } else {
+                i.style.background = '#ee3efe';
+            }
+        }, 3000);
+    }
+
+    for (let i of cuatro) {
+        setTimeout(() => {
+            if (temaLocalStorage == 'dia') {
+                i.style.background = '#F7C9F3';
+            } else {
+                i.style.background = '#ee3efe';
+            }
+        }, tiempoVideo * 1000);
+    }
+
+
+
 })
 
 
+function calcularSegundos() {
+    video.addEventListener("timeupdate", function (ev) {
+        time.innerHTML = hora(video.currentTime);
 
+    }, true);
+
+}
+
+
+function hora(segundos) {
+    var d = new Date(segundos * 1000);
+    // Ajuste de las 23 horas
+    var hora = (d.getHours() == 0) ? 23 : d.getHours() - 1;
+    var hora = (hora < 9) ? "0" + hora : hora;
+    var minuto = (d.getMinutes() < 9) ? "0" + d.getMinutes() : d.getMinutes();
+    var segundo = (d.getSeconds() < 9) ? "0" + d.getSeconds() : d.getSeconds();
+    return "00" + ":" + minuto + ":" + segundo;
+}
 
 //#region REPETIR CAPTURA
 
 //******************************************
 //*****EVENTO REPETIR CAPTURA GUIFO*********
 //******************************************
-btnRepetir.addEventListener("click", function () {
+btnRepetir.addEventListener("click", function (e) {
 
     recorder.destroy();
     // btnCapturar.click();
@@ -228,6 +338,12 @@ btnRepetir.addEventListener("click", function () {
     btnRepetir.style.display = "none";
     btnImgCaptura.style.display = "block";
     btnCapturar.style.display = "block";
+    play.style.display = 'none';
+    progreso.style.display = 'none';
+    tiempoVideo = '';
+    time.innerHTML = '00:00:00';
+
+    iniciarGrabacion();
 })
 //#endregion
 
@@ -360,49 +476,49 @@ btnCreadoListo.addEventListener('click', function () {
 
 //#endregion
 
-//#region CREACIÓN DE TEMPORIZADOR
+// //#region CREACIÓN DE TEMPORIZADOR
 
-function iniciarTemporizador() {
+// function iniciarTemporizador() {
 
-    let horas = document.getElementById('hours');
-    const minutos = document.getElementById('mins');
-    const segundos = document.getElementById('seconds');
+//     let horas = document.getElementById('hours');
+//     const minutos = document.getElementById('mins');
+//     const segundos = document.getElementById('seconds');
 
-    timex = setTimeout(function () {
+//     timex = setTimeout(function () {
 
-        seconds++;
-        if (seconds > 59) {
-            seconds = 0; mins++;
-            if (mins > 59) {
-                mins = 0; hours++;
-                if (hours < 10) {
-                    horas.innerHTML = '0:' + hours + ':';
-                } else
-                    horas.innerHTML = hours + ':';
-            }
+//         seconds++;
+//         if (seconds > 59) {
+//             seconds = 0; mins++;
+//             if (mins > 59) {
+//                 mins = 0; hours++;
+//                 if (hours < 10) {
+//                     horas.innerHTML = '0:' + hours + ':';
+//                 } else
+//                     horas.innerHTML = hours + ':';
+//             }
 
-            if (mins < 10) {
-                minutos.innerHTML = '0' + mins + ':';
-            }
-            else mins.innerHTML = mins + ':';
-        }
-        if (seconds < 10) {
+//             if (mins < 10) {
+//                 minutos.innerHTML = '0' + mins + ':';
+//             }
+//             else mins.innerHTML = mins + ':';
+//         }
+//         if (seconds < 10) {
 
-            segundos.innerHTML = '0' + seconds;
-        } else {
-            segundos.innerHTML = seconds;
-        }
-        iniciarTemporizador();
-    }, 1000);
+//             segundos.innerHTML = '0' + seconds;
+//         } else {
+//             segundos.innerHTML = seconds;
+//         }
+//         iniciarTemporizador();
+//     }, 1000);
 
-}
+// }
 
-function resetTemporizador() {
+// function resetTemporizador() {
 
-    hours = 0; mins = 0; seconds = 0;
-    horas.innerHTML = '00:';
-    minutos.innerHTML = '00:';
-    segundos.innerHTML = '00:';
-}
+//     hours = 0; mins = 0; seconds = 0;
+//     horas.innerHTML = '00:';
+//     minutos.innerHTML = '00:';
+//     segundos.innerHTML = '00:';
+// }
 
-//#endregion 
+// //#endregion 

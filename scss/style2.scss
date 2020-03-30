@@ -862,7 +862,7 @@ $color-primary: #110038;
 }
 
 #txtGuifos {
-  background-color: red;
+  // background-color: red;
   margin: 20px auto 0 auto;
   width: 1200px;
   height: 32px;
@@ -889,6 +889,34 @@ $color-primary: #110038;
   letter-spacing: 0;
   padding-left: 15px;
   display: none;
+}
+
+#play {
+  width: 20px;
+  height: 20px;
+  margin: 25px 5px auto 0;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  text-align: center;
+  font-size: 10px;
+}
+
+.barraProgreso {
+  margin: 14px 180px auto 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  width: 240px;
+  height: 20px;
+  border: 1px solid #999999;
+  box-shadow: initial 2px 2px 0 0 #e6e6e6, inset -2px -2px 0 0 #000000;
+  .caja {
+    width: 20px;
+    height: 20px;
+    // background: #F7C9F3;
+    border: 1px solid #b4b4b4;
+  }
 }
 
 //#endregion

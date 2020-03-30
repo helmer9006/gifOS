@@ -212,10 +212,9 @@ document.body.onclick = function (e) {
     if (temaLocalStorage == 'dia') {
       
       anchorGuifos.style.color = '#110038';
-      console.log(temaLocalStorage)
+     
     } else {
       anchorGuifos.style.color = '#fff';
-      console.log(temaLocalStorage)
     }
 
   }
