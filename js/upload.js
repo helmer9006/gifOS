@@ -10,6 +10,8 @@ import Giphy from "/js/giphy.js";
 //DECLARANDO VARIABLES
 //*************************************************//
 
+
+let temaLocalStorage = localStorage.getItem("temaActual");
 const imagen = document.querySelector("#resultTend"); //div para cargar imagenes en tendencia
 const sugeridos = document.querySelector(".resultados"); //div para cargar imagenes en sugerencias
 const result_busqueda = document.querySelector("#result_busqueda"); //div para cargar imagenes de la busqueda
@@ -26,8 +28,6 @@ const ContentCapturar = document.querySelector("#capturar");
 const divBotones = document.getElementById("botones");
 const btnCapturar = document.getElementById('btnCapturar');
 const btnListo = document.getElementById('btnListo');
-const btnImgCaptura = document.getElementById("btnImgCaptura");
-const btnImgListo = document.getElementById("btnImgListo");
 const btnRepetir = document.getElementById('btnRepetir');
 const btnUploadGif = document.getElementById('btnUploadGif');
 const btnCrearGuifos = document.querySelector("#btnCrearGuifos");
@@ -40,6 +40,8 @@ const btnDescargarGuifo = document.getElementById('btnDescargarGuifo');
 const btnCopiarEnlace = document.getElementById('btnCopiarEnlace');
 const vistaGuifoCreado = document.getElementById('vistaGuifoCreado');
 const btnCreadoListo = document.getElementById('btnCreadoListo');
+const btnImgCaptura = document.getElementById('btnImgCaptura');
+const btnImgListo = document.getElementById('btnImgListo');
 const misGuifosStorage = document.getElementById('misGuifosStorage');
 const playGif = document.getElementById('play');
 const barraProgreso = document.getElementById('barraProgreso');
@@ -49,8 +51,10 @@ const time = document.getElementById("time");
 var inicioTiempo;
 var finTiempo;
 let recorder;
+let recorder2;
 let mediaStreamGlobal;
 let blob;
+let blob2;
 let gifId;
 let timex;
 var hours = 0;
@@ -64,11 +68,6 @@ let tiempoVideo;
 divBotones.style.display = "none";
 
 //#region CARGAR IMAGEN VOLVER
-
-//MOSTRAR FLECHA DE VOLVER EN LOGO 
-
-// document.querySelector("#logoUpload").innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
-//#endregion
 
 //*************************************************//
 //FUNCIONES
@@ -84,28 +83,31 @@ divBotones.style.display = "none";
 
 })();
 
-// document.querySelector("#span").innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
-// console.log("yo soy el logo"+document.getElementById('logoUpload').innerHTML)
-
-
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
 
 document.addEventListener('DOMContentLoaded', function (e) {
 
-
-
     let temaLocalStorage = localStorage.getItem("temaActual");
+
     if (temaLocalStorage == 'dia') {
         document.getElementById("estilos").href = "/css/style.css";
 
         if (e.target.id == "btnTema1") {
             e.target.style.background = 'red';
         }
+        //cambio imagen boton captura y listo - desde css en chrome no aparece
+        btnImgCaptura.style.backgroundImage = "url('./img/camera.svg')";
+        btnImgListo.style.backgroundImage = "url('./img/recording.svg')";
+
 
     } else {
         document.getElementById("estilos").href = "/css/style2.css";
+        //cambio imagen boton captura y listo - desde css en chrome no aparece
+        btnImgCaptura.style.backgroundImage = "url('./img/camera_light.svg')";
+        btnImgListo.style.backgroundImage = "url('./img/recording_dark.svg')";
 
     }
+
 });
 //#endregion
 
@@ -129,27 +131,13 @@ btnComenzar.addEventListener('click', function () {
 function iniciarGrabacion() {
     var constraints = { video: { width: 830, height: 434 } };
     var p = navigator.mediaDevices.getUserMedia(constraints);
-
     p.then(function (mediaStream) {
-
-        // video.src = window.URL.createObjectURL(mediaStream);
         video.srcObject = mediaStream;
         mediaStreamGlobal = mediaStream;
         video.onloadedmetadata = function (e) {
             video.play();
 
         };
-
-        // //
-        recorder = RecordRTC(mediaStream, {
-            type: 'gif',
-            frameRate: 1,
-            quality: 10,
-            width: 360,
-            quality: 10,
-            hidden: 240,
-        });
-
     });
 
     p.catch(function (err) { console.log(err.name); }); // always check for errors at the end.
@@ -172,6 +160,14 @@ btnCapturar.addEventListener("click", function () {
 
     // iniciarTemporizador();
     recorder = RecordRTC(mediaStreamGlobal, {
+        type: 'gif',
+        frameRate: 1,
+        quality: 10,
+        width: 360,
+        hidden: 240,
+    });
+
+    recorder2 = RecordRTC(mediaStreamGlobal, {
         type: 'git',
         frameRate: 1,
         quality: 10,
@@ -179,22 +175,37 @@ btnCapturar.addEventListener("click", function () {
         hidden: 240,
     });
     recorder.startRecording();
+    recorder2.startRecording();
     // console.log("soy recorder", recorder)
 
 });
 
+
+//#endregion
+
+//#region TERMINAR GRABACION
 //***************************************************
 //EVENTO CLICK EN BOTON LISTO PARA TERMINAR GRABACION
 //***************************************************
+
 btnListo.addEventListener("click", function (e) {
     finTiempo = new Date();
     e.preventDefault();
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
+        // video.src = video.srcObject = null;
+        // video.muted = false;
+        // video.volume = 1;
+        // video.src = URL.createObjectURL(recorder.getBlob());
+
+    });
+
+    recorder2.stopRecording(function () {
+        blob2 = recorder2.getBlob();
         video.src = video.srcObject = null;
         video.muted = false;
         video.volume = 1;
-        video.src = URL.createObjectURL(recorder.getBlob());
+        video.src = URL.createObjectURL(recorder2.getBlob());
 
     });
 
@@ -237,8 +248,6 @@ btnListo.addEventListener("click", function (e) {
 
 //#region  REPRODUCIR GIT ANTES DE SUBIR
 
-
-
 playGif.addEventListener('click', function () {
 
     const uno = document.querySelectorAll('.uno');
@@ -246,15 +255,13 @@ playGif.addEventListener('click', function () {
     const tres = document.querySelectorAll('.tres');
     const cuatro = document.querySelectorAll('.cuatro');
     const caja = document.querySelectorAll('.caja');
-    let temaLocalStorage = localStorage.getItem("temaActual");
-
 
     tiempoVideo = (finTiempo.getTime() - inicioTiempo.getTime()) / (1000) // 1000 milisegundos un segundo
     console.log('el tiempo del video es ', tiempoVideo)
     video.src = video.srcObject = null;
     video.muted = false;
     video.volume = 1;
-    video.src = URL.createObjectURL(recorder.getBlob());
+    video.src = URL.createObjectURL(recorder2.getBlob());
 
     for (let i of caja) {
         i.style.background = '';
@@ -298,20 +305,13 @@ playGif.addEventListener('click', function () {
             }
         }, tiempoVideo * 1000);
     }
-
-
-
 })
-
 
 function calcularSegundos() {
     video.addEventListener("timeupdate", function (ev) {
         time.innerHTML = hora(video.currentTime);
-
     }, true);
-
 }
-
 
 function hora(segundos) {
     var d = new Date(segundos * 1000);
@@ -322,6 +322,8 @@ function hora(segundos) {
     var segundo = (d.getSeconds() < 9) ? "0" + d.getSeconds() : d.getSeconds();
     return "00" + ":" + minuto + ":" + segundo;
 }
+
+//#endregion
 
 //#region REPETIR CAPTURA
 
@@ -355,6 +357,7 @@ btnUploadGif.addEventListener("click", function () {
 
     try {
         const resUpload = new Giphy();
+        console.log("este es el blob hoy", blob)
         resUpload.postUploadGif(blob).then(result => {
 
             if (result.meta.status == 200) {

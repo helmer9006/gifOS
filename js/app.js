@@ -48,30 +48,6 @@ var bandera = false;
   MostrarDB();
 })();
 
-
-
-
-// document.body.onclick = function (e) {
-//   alert()
-//   var target = e.target || e.srcElement;
-//   var estado = anchorGuifos.style.color;
-
-//   if (estado == "110038") {
-//     do {
-//       if (anchorGuifos == target) {
-//         return;
-//       }
-//       target = target.parentNode;
-//     } while (target);
-//     Se ha clicado fuera del elemento, se realiza una acción.
-//     anchorGuifos.style.color = '#8A829D';
-//   }
-// };
-
-
-
-
-
 //#region VINCULO CREAR GUIFOS, ARCHIVO UPLOAD.HTML 
 btnCrearGuifos.addEventListener('click', function () {
 
@@ -96,8 +72,6 @@ document.getElementById('logo').addEventListener('click', function () {
 
 //#region FUNCION PARA CARGAR TEMA DESDE LOCALSTORAGE
 document.addEventListener('DOMContentLoaded', function (e) {
-
-
 
   let temaLocalStorage = localStorage.getItem("temaActual");
   if (temaLocalStorage == 'dia') {
@@ -222,11 +196,6 @@ document.body.onclick = function (e) {
 };
 
 //#endregion
-
-
-
-
-
 
 //#region FUNCION DE BUSQUEDA X BOTON BUSCAR
 btnBuscar.addEventListener("click", function () {
@@ -357,7 +326,6 @@ guifos.addEventListener('click', function () {
   document.getElementById('txtGuifosIndex').style.display = 'block';
   ContentInicio.style.display = "none";
   ContentMisGuifos.style.display = "block";
-  // ContentMisGuifos.innerHTML =``; 
   guifosStorage.innerHTML = ``;
   for (let i = 0; i <= localStorage.length - 1; i++) {
     if (localStorage.key(i).indexOf("gif") >= 0) {

@@ -9,8 +9,6 @@
     <title>gifOS</title>
     <!-- importando estilos personalizados -->
     <link id="estilos" rel="stylesheet" href="/css/style.css" />
-    <!-- Importando bootstrap 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/49830ff3b4.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
@@ -28,18 +26,13 @@
     </div>
     <div class="contenedor">
         <!-- #region SECCION LOGO-->
-        <div class="seccion-logo d-flex justify-content-between">
+        <div class="seccion-logo">
             <div class="logo" id="logoUpload">
                 <!-- se incluye imagen desde css -->
             </div>
             <div class="botones" id="botones">
                 <button id="btnCrearGuifos">Crear Guifos</button>
-               
-                <!-- <select name="tema" id="tema">
-                    <option value="0" disabled selected>Elegir Tema</option>
-                    <option value="1">Sailor Day</option>
-                    <option value="2">Sailor Night</option>
-                </select> -->
+
                 <a href="" id="guifos">Mis Guifos</a>
             </div>
         </div>
@@ -48,7 +41,7 @@
         <!-- #region VISTA INICIAL CREAR GUIFO -->
         <div class="crearGuifos">
             <div class="guifos" id="crearGuifos">
-                <label for="">Crear Guifos</label><br>
+                <label>Crear Guifos</label><br>
                 <img src="/img/window img.png" alt="">
                 <h1>Aquí podrás crear tus propios guifos</h1>
                 <p>
@@ -77,11 +70,12 @@
                 </div>
                 <div class="contentSubirGuifo" id="contentSubirGuifo">
 
-                    <button id="btnImgCaptura"><img class="imgBotonCaptura" src="" alt=""></button>
+                    <button id="btnImgCaptura"><img class="imgBotonCaptura" height="20px" width="20px" src=""
+                            alt=""></button>
                     <button id="btnCapturar" class="btnCapturar">Capturar</button>
                     <button id="btnImgListo"><img class="imgBotonListo" src="" alt=""></button>
                     <button id="btnListo" class="btnListo">Listo</button>
-                    <button style="display: none;" id="play" ><i class="fa fa-caret-right"></i></button>
+                    <button style="display: none;" id="play"><i class="fa fa-caret-right"></i></button>
                     <div id="progreso"></div>
                     <!-- <div id="barraProgreso"  class="barraProgreso" style="display: none;">
                         <div class="caja"></div>
@@ -105,7 +99,7 @@
                         <div class="caja"></div>
                         <div class="caja"></div>
                     </div>  -->
-                    
+
                     <button id="btnRepetir" class="btnRepetir">Repetir Captura</button>
                     <button id="btnUploadGif" class="btnUploadGif">Subir Guifo</button>
                 </div>
@@ -140,7 +134,7 @@
 
                 <div id="misGuifosStorage" class="contentResul">
                     <!-- aquí se cargan img de resultados de la busqueda de mis guifos en localstorage -->
-               
+
                 </div>
 
             </div>

@@ -11,7 +11,6 @@ body {
 
 $font-primary: "Chakra Petch", sans-serif;
 $color-primary: #110038;
-
 *,
 ::after,
 ::before {
@@ -84,17 +83,13 @@ $color-primary: #110038;
     justify-content: space-between;
   }
 }
-// .flex {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   flex-wrap: wrap;
-// }
-//#endregion
+
+//#endregion 
 
 //#region SECCION LOGO
 
 .logo {
+  margin-bottom: 30px;
   width: 92.6px;
   height: 54px;
   background-size: 92.6px 54px;
@@ -550,7 +545,7 @@ $color-primary: #110038;
     height: 386px;
     background: #b4b4b4;
     box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
-    // padding: 40px;
+
 
     img {
       display: inline;
@@ -578,10 +573,10 @@ $color-primary: #110038;
       line-height: 25px;
     }
     label {
-      padding-left: 10px;
-      margin-left: 4px;
-      margin-bottom: 40px;
-      width: 678px;
+      padding: 2px 0 0 10px;
+      margin: 0 0 40px 1px;
+      display: block;
+      width: 680px;
       height: 24px;
       background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
       font-size: 14px;
@@ -641,9 +636,9 @@ $color-primary: #110038;
     margin: 100px auto 0 auto;
 
     label {
-      padding-left: 10px;
-      margin-left: 4px;
-
+      padding: 2px 0 0 10px;
+      margin-left: 3px;
+      display: block;
       width: 854px;
       height: 24px;
       background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
@@ -707,6 +702,9 @@ $color-primary: #110038;
       background: #ee3efe;
       border: 1px solid #110038;
       box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
     }
     #btnImgListo {
       display: none;
@@ -718,21 +716,9 @@ $color-primary: #110038;
       background: #ff6161;
       border: 1px solid #110038;
       box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
-    }
-    .imgBotonCaptura {
-      width: 20px;
-      height: 20px;
       background-size: 20px 20px;
       background-repeat: no-repeat;
-      background-image: url("/img/camera.svg");
-    }
-
-    .imgBotonListo {
-      width: 20px;
-      height: 20px;
-      background-size: 20px 20px;
-      background-repeat: no-repeat;
-      background-image: url("/img/recording.svg");
+      background-position: 50% 50%;
     }
 
     .btnUploadGif {
@@ -790,7 +776,7 @@ $color-primary: #110038;
   width: 721px;
   height: 391px;
   margin: 0 auto 0 auto;
-  // align-items: center;
+
 
   .flexGuifoCreado {
     margin-top: 28px;
@@ -798,7 +784,6 @@ $color-primary: #110038;
   }
   .imgGuifo {
     margin-left: 30px;
-    // width: calc((100% / 2));
     justify-content: left;
     align-items: center;
 
@@ -833,8 +818,10 @@ $color-primary: #110038;
   }
 
   label {
+    display: block;
     padding-left: 10px;
-    margin-left: 4px;
+    margin-left: 2px;
+    padding-top: 2px;
     width: 715px;
     height: 24px;
     background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
@@ -909,13 +896,13 @@ $color-primary: #110038;
   justify-content: space-evenly;
   width: 240px;
   height: 20px;
-  border: 1px solid #999999;
-  box-shadow: initial 2px 2px 0 0 #e6e6e6, inset -2px -2px 0 0 #000000;
+  border: 1px solid #b4b4b4;
+  box-shadow: inset 2px 2px 0 0 #e6e6e6, inset -2px -2px 0 0 #000000;
   .caja {
     width: 20px;
     height: 20px;
-    // background: #F7C9F3;
-    border: 1px solid #b4b4b4;
+    background: #999999;
+    border: 1px solid #cccccc;
   }
 }
 

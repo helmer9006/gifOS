@@ -64,7 +64,7 @@ export default class Giphy {
         try {
 
             let dato = new FormData();
-            dato.append("file", blob, 'example.gif');
+            dato.append("file", blob, 'migif.gif');
             let api = await fetch('https://upload.giphy.com/v1/gifs?api_key=' + this.apiKey, {
                 method: 'POST',
                 body: dato
