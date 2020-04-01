@@ -42,10 +42,17 @@ const vistaGuifoCreado = document.getElementById('vistaGuifoCreado');
 const btnCreadoListo = document.getElementById('btnCreadoListo');
 const btnImgCaptura = document.getElementById('btnImgCaptura');
 const btnImgListo = document.getElementById('btnImgListo');
+const btnCancelarCarga = document.getElementById('btnCancelarCarga');
 const misGuifosStorage = document.getElementById('misGuifosStorage');
+const temporizador = document.getElementById('temporizador');
 const playGif = document.getElementById('play');
 const barraProgreso = document.getElementById('barraProgreso');
+const barraUpload = document.getElementById('barraUpload');
 const progreso = document.getElementById('progreso');
+const imgUpload = document.getElementById('imgUpload');
+const barraProgresoUpload = document.getElementById('barraProgresoUpload');
+const h2Upload = document.getElementById('h2Upload');
+const parrafoUpload = document.getElementById('parrafoUpload');
 var video = document.querySelector('video');
 const time = document.getElementById("time");
 var inicioTiempo;
@@ -62,6 +69,10 @@ var mins = 0;
 var seconds = 0;
 var url;
 let tiempoVideo;
+
+
+
+
 //#endregion
 
 //ocultar barra de herramientas
@@ -193,10 +204,6 @@ btnListo.addEventListener("click", function (e) {
     e.preventDefault();
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
-        // video.src = video.srcObject = null;
-        // video.muted = false;
-        // video.volume = 1;
-        // video.src = URL.createObjectURL(recorder.getBlob());
 
     });
 
@@ -218,7 +225,7 @@ btnListo.addEventListener("click", function (e) {
 
 
     progreso.innerHTML = `
-    <div id="barraProgreso"  class="barraProgreso"">
+    <div id="barraProgreso"  class="barraProgreso">
     <div class="caja uno"></div>
     <div class="caja uno"></div>
     <div class="caja uno"></div>
@@ -247,6 +254,7 @@ btnListo.addEventListener("click", function (e) {
 //#endregion
 
 //#region  REPRODUCIR GIT ANTES DE SUBIR
+
 
 playGif.addEventListener('click', function () {
 
@@ -354,26 +362,149 @@ btnRepetir.addEventListener("click", function (e) {
 //************EVENTO CARGAR GUIFO***********
 //******************************************
 btnUploadGif.addEventListener("click", function () {
-
+    let indicador = false;
     try {
         const resUpload = new Giphy();
         console.log("este es el blob hoy", blob)
         resUpload.postUploadGif(blob).then(result => {
 
             if (result.meta.status == 200) {
+                indicador = true;
+                finCarga();
+
                 gifId = result.data.id;
-                traerGuifoCargado(gifId);
-                console.log("yo soy el id del gif" + gifId);
-
-
+                setTimeout(() => {
+                    traerGuifoCargado(gifId);
+                }, 2000);
             } else {
                 alert("Hubo un error al cargar el GIF");
-                // console.log("error" + result);
+
             }
         });
     } catch (error) {
         console.log("error" + error);
     }
+
+    video.src = video.srcObject = null;
+    video.muted = false;
+    video.volume = 1;
+    video.src = URL.createObjectURL(recorder.getBlob());
+
+
+    btnRepetir.style.display = 'none';
+    btnUploadGif.style.display = 'none';
+    play.style.display = 'none';
+    progreso.style.display = 'none';
+    temporizador.style.display = 'none';
+
+    imgUpload.style.display = 'block';
+    h2Upload.style.display = 'block';
+    parrafoUpload.style.display = 'block';
+    btnCancelarCarga.style.display = 'block';
+
+    //creacion de estructura de la barra
+    barraUpload.innerHTML = ` 
+    <div id="barraProgresoUpload"  class="barraProgresoUpload">
+                                <div class="box one"></div>
+                                <div class="box one"></div>
+                                <div class="box one"></div>
+                                <div class="box one"></div>
+                                <div class="box one"></div>
+                                <div class="box one"></div>
+                                <div class="box two"></div>
+                                <div class="box two"></div>
+                                <div class="box two"></div>
+                                <div class="box two"></div>
+                                <div class="box two"></div>
+                                <div class="box two"></div>
+                                <div class="box three"></div>
+                                <div class="box three"></div>
+                                <div class="box three"></div>
+                                <div class="box three"></div>
+                                <div class="box three"></div>
+                                <div class="box three"></div>
+                                <div class="box four"></div>
+                                <div class="box four"></div>
+                                <div class="box four"></div>
+                                <div class="box four"></div>
+                                <div class="box four"></div>
+                            </div>
+    `;
+
+
+
+    //declaro variables para los estados de la barra
+
+    const uno = document.querySelectorAll('.one');
+    const dos = document.querySelectorAll('.two');
+    const tres = document.querySelectorAll('.three');
+    const cuatro = document.querySelectorAll('.four');
+    const box = document.querySelectorAll('.box');
+
+
+    //barra de progreso
+
+    for (let i of box) {
+        i.style.background = '';
+    }
+
+    for (let i of uno) {
+        setTimeout(() => {
+            if (temaLocalStorage == 'dia') {
+                i.style.background = '#F7C9F3';
+            } else {
+                i.style.background = '#ee3efe';
+            }
+
+        }, 1000);
+    }
+    for (let i of dos) {
+        setTimeout(() => {
+            if (temaLocalStorage == 'dia') {
+                i.style.background = '#F7C9F3';
+            } else {
+                i.style.background = '#ee3efe';
+            }
+        }, 1500);
+    }
+    for (let i of tres) {
+        setTimeout(() => {
+            if (temaLocalStorage == 'dia') {
+                i.style.background = '#F7C9F3';
+            } else {
+                i.style.background = '#ee3efe';
+            }
+        }, 2500);
+    }
+
+
+
+    //funcion para terminar de llenar barra al finalizar carga
+
+    function finCarga() {
+        for (let i of cuatro) {
+            if (indicador == true) {
+                if (temaLocalStorage == 'dia') {
+                    i.style.background = '#F7C9F3';
+                } else {
+                    i.style.background = '#ee3efe';
+                }
+            }
+        }
+
+    }
+
+
+})
+
+//#endregion
+
+//#region CANCELAR CARGA GUIFO - VINCULO A INICIO
+
+btnCancelarCarga.addEventListener('click', function () {
+
+    window.location.href = './upload.html';
+    
 })
 
 //#endregion
@@ -478,50 +609,3 @@ btnCreadoListo.addEventListener('click', function () {
 })
 
 //#endregion
-
-// //#region CREACIÓN DE TEMPORIZADOR
-
-// function iniciarTemporizador() {
-
-//     let horas = document.getElementById('hours');
-//     const minutos = document.getElementById('mins');
-//     const segundos = document.getElementById('seconds');
-
-//     timex = setTimeout(function () {
-
-//         seconds++;
-//         if (seconds > 59) {
-//             seconds = 0; mins++;
-//             if (mins > 59) {
-//                 mins = 0; hours++;
-//                 if (hours < 10) {
-//                     horas.innerHTML = '0:' + hours + ':';
-//                 } else
-//                     horas.innerHTML = hours + ':';
-//             }
-
-//             if (mins < 10) {
-//                 minutos.innerHTML = '0' + mins + ':';
-//             }
-//             else mins.innerHTML = mins + ':';
-//         }
-//         if (seconds < 10) {
-
-//             segundos.innerHTML = '0' + seconds;
-//         } else {
-//             segundos.innerHTML = seconds;
-//         }
-//         iniciarTemporizador();
-//     }, 1000);
-
-// }
-
-// function resetTemporizador() {
-
-//     hours = 0; mins = 0; seconds = 0;
-//     horas.innerHTML = '00:';
-//     minutos.innerHTML = '00:';
-//     segundos.innerHTML = '00:';
-// }
-
-// //#endregion 
