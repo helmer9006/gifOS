@@ -78,8 +78,6 @@ let tiempoVideo;
 //ocultar barra de herramientas
 divBotones.style.display = "none";
 
-//#region CARGAR IMAGEN VOLVER
-
 //*************************************************//
 //FUNCIONES
 //*************************************************//
@@ -121,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 });
 //#endregion
-
 
 //#region MOSTRAR VISTA CAMARA
 //***************************************************
@@ -504,7 +501,7 @@ btnUploadGif.addEventListener("click", function () {
 btnCancelarCarga.addEventListener('click', function () {
 
     window.location.href = './upload.html';
-    
+
 })
 
 //#endregion

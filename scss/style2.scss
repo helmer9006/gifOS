@@ -84,7 +84,7 @@ $color-primary: #110038;
   }
 }
 
-//#endregion 
+//#endregion
 
 //#region SECCION LOGO
 
@@ -546,7 +546,6 @@ $color-primary: #110038;
     background: #b4b4b4;
     box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
 
-
     img {
       display: inline;
       padding: 0 5px 0 20px;
@@ -649,6 +648,7 @@ $color-primary: #110038;
       font-family: $font-primary;
     }
     .div-capturar {
+      position: relative;
       video {
         width: 830px;
         height: 434px;
@@ -754,12 +754,14 @@ $color-primary: #110038;
       text-align: center;
       line-height: 18px;
     }
-
-    .txtTiempo {
-      width: 114px;
+    #btnCancelarCarga {
+      display: none;
+      margin: 20px 15px auto 0;
+      width: 120px;
       height: 36px;
-      float: left;
-      margin: -40px 0 auto 15px;
+      background: #ee3efe;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
     }
   }
 }
@@ -771,12 +773,11 @@ $color-primary: #110038;
 }
 
 .guifoCreado {
-  background: #e6e6e6;
-  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  background: #B4B4B4;
+box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
   width: 721px;
   height: 391px;
   margin: 0 auto 0 auto;
-
 
   .flexGuifoCreado {
     margin-top: 28px;
@@ -800,9 +801,9 @@ $color-primary: #110038;
       margin-top: 10px;
       width: 256px;
       height: 36px;
-      background: #fff4fd;
-      border: 1px solid #110038;
-      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+      background: #ee3efe;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 
     }
     img {
       opacity: 0.7;
@@ -824,7 +825,7 @@ $color-primary: #110038;
     padding-top: 2px;
     width: 715px;
     height: 24px;
-    background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+    background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
     font-size: 14px;
     color: #ffffff;
     letter-spacing: 0;
@@ -832,12 +833,12 @@ $color-primary: #110038;
     font-family: $font-primary;
   }
   button {
-    background: #f7c9f3;
+    background: #ee3efe;
     border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
     font-family: $font-primary;
     font-size: 16px;
-    color: #110038;
+    color: #ffffff;
     letter-spacing: 0;
     text-align: center;
     line-height: 18px;
@@ -878,6 +879,7 @@ $color-primary: #110038;
   display: none;
 }
 
+//ESTILOS BARRA DE REPRODUCCION GIF - ANTES DE CARGAR
 #play {
   width: 20px;
   height: 20px;
@@ -904,6 +906,53 @@ $color-primary: #110038;
     background: #999999;
     border: 1px solid #cccccc;
   }
+}
+
+.imgUpload {
+  position: absolute;
+  top: 138px;
+  left: 400px;
+}
+
+.h2Upload {
+  position: absolute;
+  top: 195px;
+  left: 320px;
+  font-family: $font-primary;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 22px;
+}
+
+.barraProgresoUpload {
+  position: absolute;
+  top: 254px;
+  left: 250px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  width: 320px;
+  height: 24px;
+  .box {
+    width: 12px;
+    height: 20px;
+    background: #999999;
+    border: 1px solid #b4b4b4;
+  }
+}
+.parrafoUpload {
+  position: absolute;
+  top: 290px;
+  left: 180px;
+  width: 500px;
+  font-family: $font-primary;
+  font-size: 12px;
+  color: rgba(17, 0, 56, 0.64);
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 14px;
 }
 
 //#endregion

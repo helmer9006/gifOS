@@ -119,7 +119,6 @@ contentTema.addEventListener('click', function (e) {
 btnCambiarTema.addEventListener('click', function () {
 
   contentTema.innerHTML = ``;
-  //botton 1
   var nuevoBtn = document.createElement('button');
   nuevoBtn.className = "btnTema1";
   nuevoBtn.id = "btnTema1";
