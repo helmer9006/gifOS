@@ -79,7 +79,7 @@ body {
   height: 54px;
   background-size: 92.6px 54px;
   background-repeat: no-repeat;
-  background-image: url("/img/gifOF_logo_dark.png");
+  background-image: url("../img/gifOF_logo_dark.png");
   cursor: pointer;
 }
 
@@ -245,7 +245,7 @@ body {
   font-weight: 500;
 }
 .buscar .formBuscar .lupa {
-  background-image: url("/img/Combined Shape.svg");
+  background-image: url("../img/CombinedShape.svg");
   width: 16px;
   height: 16px;
   background-size: 16px 16px;

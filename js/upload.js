@@ -2,7 +2,7 @@
 //IMPORTANDO CLASES
 //*************************************************//
 
-import Giphy from "/js/giphy.js";
+import Giphy from "./giphy.js";
 
 //#region variables
 
@@ -88,7 +88,7 @@ divBotones.style.display = "none";
 (() => {
 
     mostrarGuifosStorage();
-    document.getElementById('logoUpload').innerHTML = `<a href="/index.html"><img id="imgVolver" src="/img/arrow.svg" alt=""></a>`;
+    document.getElementById('logoUpload').innerHTML = `<a href="/index.html"><img id="imgVolver" src="./img/arrow.svg" alt=""></a>`;
 
 })();
 
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     let temaLocalStorage = localStorage.getItem("temaActual");
 
     if (temaLocalStorage == 'dia') {
-        document.getElementById("estilos").href = "/css/style.css";
+        document.getElementById("estilos").href = "./css/style.css";
 
         if (e.target.id == "btnTema1") {
             e.target.style.background = 'red';
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 
     } else {
-        document.getElementById("estilos").href = "/css/style2.css";
+        document.getElementById("estilos").href = "./css/style2.css";
         //cambio imagen boton captura y listo - desde css en chrome no aparece
         btnImgCaptura.style.backgroundImage = "url('./img/camera_light.svg')";
         btnImgListo.style.backgroundImage = "url('./img/recording_dark.svg')";

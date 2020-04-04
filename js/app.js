@@ -2,7 +2,7 @@
 //IMPORTANDO CLASES
 //*************************************************//
 
-import Giphy from "/js/giphy.js";
+import Giphy from "./giphy.js";
 
 //*************************************************//
 //DECLARANDO VARIABLES

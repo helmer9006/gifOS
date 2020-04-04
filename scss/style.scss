@@ -96,7 +96,7 @@ $color-primary: #110038;
   height: 54px;
   background-size: 92.6px 54px;
   background-repeat: no-repeat;
-  background-image: url("/img/gifOF_logo.png");
+  background-image: url("../img/gifOF_logo.png");
   cursor: pointer;
   // background-position: center;
 }
@@ -266,7 +266,7 @@ $color-primary: #110038;
       box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
     }
     .lupa {
-      background-image: url("/img/lupa_inactive.svg");
+      background-image: url("../img/lupa_inactive.svg");
       width: 16px;
       height: 16px;
       background-size: 16px 16px;
