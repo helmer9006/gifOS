@@ -48,6 +48,8 @@ var bandera = false;
   MostrarDB();
 })();
 
+
+
 //#region VINCULO CREAR GUIFOS, ARCHIVO UPLOAD.HTML 
 btnCrearGuifos.addEventListener('click', function () {
 
@@ -75,14 +77,14 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
   let temaLocalStorage = localStorage.getItem("temaActual");
   if (temaLocalStorage == 'dia') {
-    document.getElementById("estilos").href = "/css/style.css";
+    document.getElementById("estilos").href = "./css/style.css";
 
     if (e.target.id == "btnTema1") {
       e.target.style.background = 'red';
     }
 
   } else {
-    document.getElementById("estilos").href = "/css/style2.css";
+    document.getElementById("estilos").href = "./css/style2.css";
 
   }
 });
@@ -98,13 +100,13 @@ contentTema.addEventListener('click', function (e) {
   const temaElegido = e.target.id;
   switch (temaElegido) {
     case ('btnTema1'):
-      document.getElementById("estilos").href = "/css/style.css";
+      document.getElementById("estilos").href = "./css/style.css";
       localStorage.setItem("temaActual", 'dia');
       contentTema.style.visibility = "hidden";
       estiloTemaActual();
       break;
     case ('btnTema2'):
-      document.getElementById("estilos").href = "/css/style2.css";
+      document.getElementById("estilos").href = "./css/style2.css";
       localStorage.setItem("temaActual", 'noche');
       contentTema.style.visibility = "hidden";
       estiloTemaActual();
@@ -457,3 +459,10 @@ tendencia.getTrending().then(result => {
 });
 
 //#endregion
+
+
+
+
+
+
+

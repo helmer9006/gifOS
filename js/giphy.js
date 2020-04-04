@@ -15,6 +15,9 @@ export default class Giphy {
 
     //#region METODOS
 
+
+    
+
     async getSearchResults() {
 
         try {
@@ -68,6 +71,7 @@ export default class Giphy {
             let api = await fetch('https://upload.giphy.com/v1/gifs?api_key=' + this.apiKey, {
                 method: 'POST',
                 body: dato
+                
             });
 
             let res = await api.json();

@@ -137,7 +137,9 @@ btnComenzar.addEventListener('click', function () {
 //#region ACTIVANDO LA CAMARA EN EL NAVEGADOR Y OBTENIENDO VIDEO 
 
 function iniciarGrabacion() {
+    
     var constraints = { video: { width: 830, height: 434 } };
+    // var p = navigator.webkitGetUserMedia.getUserMedia(constraints);
     var p = navigator.mediaDevices.getUserMedia(constraints);
     p.then(function (mediaStream) {
         video.srcObject = mediaStream;
